@@ -1,0 +1,57 @@
+<nav id="sidenav">
+    <div class="logo-container">
+        <img class="logo" src="../images/logo.png" alt="logo">
+        <h1 class="logo-name">ClubExpress</h1>
+    </div>
+    <ul class="nav-content">
+        <li>
+            <a href="admin.php">
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="admin_patients.php">
+                <i class="fas fa-futbol"></i>
+                Clubs
+            </a>
+        </li>
+        <li>
+            <a href="admin_doctors.php">
+                <i class="fas fa-calendar-alt"></i>
+                Events
+            </a>
+        </li>
+        </li>
+        <li>
+            <a href="admin_appointments.php">
+                <i class="fas fa-user"></i>
+                Students
+            </a>
+        </li>
+        <li>
+            <a href="admin_profile.php">
+                <i class="fas fa-question-circle"></i>
+                Club Creation Requests
+            </a>
+        </li>
+        <li>
+            <a href="admin_profile.php">
+                <i class="fas fa-comment-dots"></i>
+                Feedbacks
+            </a>
+        </li>
+        <li>
+            <a href="admin_profile.php">
+                <i class="fas fa-cog"></i>
+                Profile
+            </a>
+        </li>
+    </ul>
+    <div id="log-out">
+        <h1>Admin</h1>
+        <a href="../logout.php">
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+</nav>
