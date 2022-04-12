@@ -74,7 +74,7 @@ include_once "includes/header.php";
     <!-- Edit Club -->
     <div class="modal" id="edit">
         <!-- Modal content -->
-        <div class="modal-content" id="edit-appointment">
+        <div class="modal-content" id="edit-club">
             <button close-button class="close">&times;</button>
             <h1>Edit Club Details</h1>
             <form action="manage_appointment.php" id="edit-form" method="post"
@@ -86,7 +86,7 @@ include_once "includes/header.php";
     <!-- Add Club -->
     <div class="modal" id="add">
         <!-- Modal content -->
-        <div class="modal-content" id="add-appointment">
+        <div class="modal-content" id="add-club">
             <button close-button class="close">&times;</button>
             <h1>Add New Club</h1>
             <form action="manage_appointment.php" id="add-form" method="post"
@@ -115,7 +115,7 @@ $(document).ready(function() {
     $("#edit-button-<?php echo $club_id; ?>").click(function() {
         var id = "<?php echo str_replace("C", "", $club_id) ?>";
         var action = "edit";
-        $("#edit-form").load("manage_appointment_data.php", {
+        $("#edit-form").load("manage_club_data.php", {
             id: id,
             action: action
         });
@@ -126,7 +126,7 @@ $(document).ready(function() {
         if (confirm("Are you sure you want to delete this record?")) {
             var id = "<?php echo str_replace("C", "", $club_id) ?>";
             var action = "delete";
-            $(window).load("manage_appointment_data.php", {
+            $(window).load("manage_club_data.php", {
                 id: id,
                 action: action
             });
@@ -138,7 +138,7 @@ $(document).ready(function() {
     // Load Add Appointment Data When Clicked
     $("#add-button").click(function() {
         var action = "add";
-        $("#add-form").load("manage_appointment_data.php", {
+        $("#add-form").load("manage_club_data.php", {
             action: action
         });
     });

@@ -5,6 +5,7 @@
 <?php
 if ($action == "view" || $action == "edit" || $action == "delete") {
     include_once "../includes/dbh.php";
+    include_once "../change_time_format.php";
     session_start();
 
     $id = $_POST['id'];
@@ -22,17 +23,17 @@ if ($action == "view" || $action == "edit") {
 
 <!-- SQL Query for Delete Record -->
 <?php
-// if ($action == "delete") {
-//     $delete_sql_query = "DELETE FROM doctor WHERE Doctor_ID = $id;";
-//     $delete_result = mysqli_query($conn, $delete_sql_query);
-//     if (mysqli_affected_rows($conn) >= 1) {
-//         $_SESSION['message'] = "Record Deleted Successfully";
-//         $_SESSION['delete'] = true;
-//     } else {
-//         $_SESSION['message'] = "Failed to Delete Record";
-//         $_SESSION['delete'] = false;
-//     }
-// }
+if ($action == "delete") {
+    $delete_sql_query = "DELETE FROM clubs WHERE Club_ID = $id;";
+    $delete_result = mysqli_query($conn, $delete_sql_query);
+    if (mysqli_affected_rows($conn) >= 1) {
+        $_SESSION['message'] = "Record Deleted Successfully";
+        $_SESSION['delete'] = true;
+    } else {
+        $_SESSION['message'] = "Failed to Delete Record";
+        $_SESSION['delete'] = false;
+    }
+}
 ?>
 
 <!-- HTML Content for View, Add, Edit Record -->
@@ -52,6 +53,7 @@ if ($action == "view" || $action == "edit") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Email Address<br>
         <input type="text" name="email-address" id="email-address" class="input-disabled"
@@ -68,8 +70,11 @@ if ($action == "view" || $action == "edit") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
-
-
+    <li class="flex-item">
+        Club Description<br>
+        <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
+            disabled><?php echo $row['Description']; ?></textarea>
+    </li>
     <!-- Profile Picture for Edit and Add Doctor -->
     <?php if ($action == "edit" || $action == "add") : ?>
     <li class="flex-item">
@@ -80,15 +85,51 @@ if ($action == "view" || $action == "edit") {
         <small>Error message</small>
     </li>
     <?php endif; ?>
+
+    <li class="flex-item subtitle">
+        <h3>Activity Details</h3>
+    </li>
+
+    <li class="flex-item">
+        Day <br>
+        <input type="text" name="day" id="day" class="input-disabled" value="<?php echo $row['Day'] ?>" disabled>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+    <li class="flex-item">
+        Start Time <br>
+        <input type="text" name="start-time" id="start-time" class="input-disabled"
+            value="<?php echo change_time_format($row['Start_time']) ?>" disabled>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+    <li class="flex-item">
+        End Time <br>
+        <input type="text" name="end-time" id="end-time" class="input-disabled"
+            value="<?php echo change_time_format($row['End_time']) ?>" disabled>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+    <li class="flex-item">
+        Venue <br>
+        <input type="text" name="venue" id="venue" class="input-disabled" value="<?php echo $row['Venue'] ?>" disabled>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+
 </ul>
 <?php endif; ?>
 
 <!-- HTML Content for View Record -->
 <?php if ($action == "view") : ?>
 <script>
-// $("#view-form .input-disabled").removeAttr('id');
-// $("#edit-form .input-disabled").removeAttr('id');
-// $("#add-form .input-disabled").removeAttr('id');
+$("#view-form .input-disabled").removeAttr('id');
+$("#edit-form .input-disabled").removeAttr('id');
+$("#add-form .input-disabled").removeAttr('id');
 </script>
 <?php endif; ?>
 
