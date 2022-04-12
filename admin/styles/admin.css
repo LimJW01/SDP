@@ -311,7 +311,7 @@ table img {
   background-color: #fefefe;
   border: 1px solid #888;
   border-radius: 10px;
-  margin: 5.5% 20% 1.5% 21%;
+  margin: 5.5% 7% 1.5% 21%;
   padding: 10px;
   width: 70%;
   min-width: 640px;
@@ -544,8 +544,4 @@ table img {
 #add-appointment,
 #edit-appointment {
   padding-bottom: 40px;
-}
-
-#view-appointment {
-  margin: 8% 20% 0 20%;
 }

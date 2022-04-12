@@ -4,29 +4,23 @@ $action = $_POST['action'];
 
 // Database Connnection for View, Edit, Delete, Add Record
 include_once "../includes/dbh.php";
-include_once "../doctor_schedule.php";
+include_once "../change_time_format.php";
 session_start();
 
 ?>
 <?php
 if ($action == "view" || $action == "edit" || $action == "delete") {
     $id = $_POST['id'];
-    $_SESSION['appointment_id'] = $id;
+    $_SESSION['club_id'] = $id;
 }
 ?>
 
 <?php
 // SQL Query for View, Edit Record
 if ($action == "view" || $action == "edit") {
-    $appointment_sql_query = "SELECT * FROM appointment WHERE Appointment_ID = $id;";
-    $appointment_result = mysqli_query($conn, $appointment_sql_query);
-    $appointment_row = mysqli_fetch_assoc($appointment_result);
-
-    $doctor_id = $appointment_row['Doctor_ID'];
-
-    $doctor_sql_query = "SELECT * FROM doctor WHERE Doctor_ID = $doctor_id;";
-    $doctor_result = mysqli_query($conn, $doctor_sql_query);
-    $doctor_row = mysqli_fetch_assoc($doctor_result);
+    $club_sql_query = "SELECT * FROM clubs WHERE Appointment_ID = $id;";
+    $club_result = mysqli_query($conn, $club_sql_query);
+    $row = mysqli_fetch_assoc($club_result);
 }
 
 // SQL Query for Add Record
@@ -57,7 +51,7 @@ if ($action == "delete") {
 <ul class="flex-container">
     <?php if ($action == "view" || $action == "edit") : ?>
     <li class="flex-item">
-        Doctor Name <br>
+        Name <br>
         <input type="text" name="doctor-name" class="input-disabled" value="<?php echo $doctor_row['Full_name']; ?>"
             disabled>
         <i class="fas fa-check-circle"></i>
@@ -92,7 +86,7 @@ if ($action == "delete") {
         Select Time <br>
         <select name="appointment-time" id="appointment-time" class="input-disabled" disabled>
             <option>
-                <?php echo change_db_time($appointment_row['Start_time']) . " - " . change_db_time($appointment_row['End_time']); ?>
+
             </option>
         </select>
         <i class="fas fa-check-circle"></i>
