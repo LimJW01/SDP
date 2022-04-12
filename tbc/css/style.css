@@ -1,0 +1,38 @@
+body {
+    margin-bottom: 100px;
+}
+
+
+.leftside, .rightside {
+
+    height:50vh;
+    width: 100%;
+}
+
+img {
+    margin: auto;
+    display: block;
+}
+
+.elright {
+    margin-top: 50px;
+}
+
+.elright2 {
+    margin-top: 80px;
+}
+
+.elright3 {
+    margin-left: 150px;
+    margin-top: 120px;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.section1 {
+    margin-left: 150px;
+}
+
