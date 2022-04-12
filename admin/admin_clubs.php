@@ -77,8 +77,7 @@ include_once "includes/header.php";
         <div class="modal-content" id="edit-club">
             <button close-button class="close">&times;</button>
             <h1>Edit Club Details</h1>
-            <form action="manage_appointment.php" id="edit-form" method="post"
-                onsubmit="return validate_edit_appointment();">
+            <form action="manage_club.php" id="edit-form" method="post">
             </form>
         </div>
     </div>
@@ -89,8 +88,7 @@ include_once "includes/header.php";
         <div class="modal-content" id="add-club">
             <button close-button class="close">&times;</button>
             <h1>Add New Club</h1>
-            <form action="manage_appointment.php" id="add-form" method="post"
-                onsubmit="return validate_add_appointment();">
+            <form action="manage_club.php" id="add-form" method="post">
             </form>
         </div>
     </div>
@@ -101,7 +99,7 @@ include_once "includes/header.php";
 $(document).ready(function() {
     <?php foreach ($club_array as $club_id) : ?>
 
-    // Load View Appointment Data When Clicked
+    // Load View Club Data When Clicked
     $("#view-button-<?php echo $club_id; ?>").click(function() {
         var id = "<?php echo str_replace("C", "", $club_id) ?>";
         var action = "view";
@@ -111,7 +109,7 @@ $(document).ready(function() {
         });
     });
 
-    // Load Edit Appointment Data When Clicked
+    // Load Edit Club Data When Clicked
     $("#edit-button-<?php echo $club_id; ?>").click(function() {
         var id = "<?php echo str_replace("C", "", $club_id) ?>";
         var action = "edit";
@@ -121,7 +119,7 @@ $(document).ready(function() {
         });
     });
 
-    // Load Delete Appointment Data When Clicked
+    // Load Delete Club Data When Clicked
     $("#delete-button-<?php echo $club_id; ?>").click(function() {
         if (confirm("Are you sure you want to delete this record?")) {
             var id = "<?php echo str_replace("C", "", $club_id) ?>";
@@ -135,7 +133,7 @@ $(document).ready(function() {
 
     <?php endforeach; ?>
 
-    // Load Add Appointment Data When Clicked
+    // Load Add Club Data When Clicked
     $("#add-button").click(function() {
         var action = "add";
         $("#add-form").load("manage_club_data.php", {

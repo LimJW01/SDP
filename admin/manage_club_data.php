@@ -3,12 +3,13 @@
 
 <!-- Database Connnection for View, Edit, Delete Record -->
 <?php
-if ($action == "view" || $action == "edit" || $action == "delete") {
+if ($action == "view" || $action == "edit" || $action == "delete" || $action == "add") {
     include_once "../includes/dbh.php";
     include_once "../change_time_format.php";
     session_start();
-
-    $id = $_POST['id'];
+    if ($action == "view" || $action == "edit" || $action == "delete") {
+        $id = $_POST['id'];
+    }
 }
 ?>
 
@@ -39,7 +40,7 @@ if ($action == "delete") {
 <!-- HTML Content for View, Add, Edit Record -->
 <?php if ($action == "view" || $action == "edit" || $action == "add") : ?>
 
-<!-- Profile Picture for View Doctor -->
+<!-- Club Image for View Club -->
 <?php if ($action == "view") : ?>
 <img src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt='club_image'>
 <?php endif; ?>
@@ -53,7 +54,6 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
-
     <li class="flex-item">
         Email Address<br>
         <input type="text" name="email-address" id="email-address" class="input-disabled"
@@ -75,6 +75,7 @@ if ($action == "delete") {
         <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
             disabled><?php echo $row['Description']; ?></textarea>
     </li>
+
     <!-- Profile Picture for Edit and Add Doctor -->
     <?php if ($action == "edit" || $action == "add") : ?>
     <li class="flex-item">
@@ -153,6 +154,7 @@ $("#view-form .input-disabled").removeAttr('id');
 $("#edit-form .input-disabled").removeAttr('id');
 $("#add-form .input-disabled").prop('disabled', false);
 $("#add-form .input-disabled").removeAttr("value");
+document.getElementById("description").value = "";
 </script>
 <div class="submit-container">
     <input class="submit-btn bg-color-eastern-blue" type="submit" name="add" value="Submit">
