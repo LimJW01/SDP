@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include_once "../includes/dbh.php";
+include_once "../includes/dbh.php";
 
 // Admin Account Authentication
 // if (!isset($_SESSION['admin_id']) && !isset($_SESSION['admin_email'])) {

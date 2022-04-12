@@ -11,32 +11,32 @@
             </a>
         </li>
         <li>
-            <a href="admin_patients.php">
+            <a href="admin_clubs.php">
                 <i class="fas fa-futbol"></i>
                 Clubs
             </a>
         </li>
         <li>
-            <a href="admin_doctors.php">
+            <a href="admin_events.php">
                 <i class="fas fa-calendar-alt"></i>
                 Events
             </a>
         </li>
         </li>
         <li>
-            <a href="admin_appointments.php">
+            <a href="admin_students.php">
                 <i class="fas fa-user"></i>
                 Students
             </a>
         </li>
         <li>
-            <a href="admin_profile.php">
+            <a href="admin_club_creation_requests.php">
                 <i class="fas fa-question-circle"></i>
                 Club Creation Requests
             </a>
         </li>
         <li>
-            <a href="admin_profile.php">
+            <a href="admin_feedbacks.php">
                 <i class="fas fa-comment-dots"></i>
                 Feedbacks
             </a>

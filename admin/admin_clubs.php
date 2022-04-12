@@ -1,23 +1,21 @@
 <?php
 include_once "includes/header.php";
-include_once "../doctor_schedule.php";
 ?>
 <main id="main">
-    <h1 class="title">Appointments</h1>
+    <h1 class="title">Clubs</h1>
     <br>
     <hr>
-    <article id="appointments">
+    <article id="clubs">
         <div class="content-container">
-            <button data-modal-target="#add" title="Add Appointment" id="add-button">Add Appointment</button>
+            <button data-modal-target="#add" title="Add Appointment" id="add-button">Add Club</button>
             <div class="table-container">
                 <table>
                     <tr>
-                        <th class="padding-left">Appointment_ID</th>
-                        <th class="padding-left">Patient Name</th>
-                        <th class="padding-left">Doctor Name</th>
-                        <th class="padding-left">Date</th>
-                        <th class="padding-left">Start Time</th>
-                        <th class="padding-left">End Time</th>
+                        <th class="padding-left">Club ID</th>
+                        <th class="padding-left">Image</th>
+                        <th class="padding-left">Name</th>
+                        <th class="padding-left">Email</th>
+                        <th class="padding-left">Contact Number</th>
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php
