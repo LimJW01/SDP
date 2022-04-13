@@ -185,7 +185,7 @@ document.getElementById("description").value = "";
 <?php if ($action == "edit" || $action == "add") : ?>
 
 <!-- Date limit script -->
-<script defer src="scripts/add_date_limit.js"></script>
+<script defer src="scripts/date_limit.js"></script>
 <?php endif; ?>
 
 <!-- Validate Email Exist Error Script -->
