@@ -545,3 +545,10 @@ table img {
 #add-event, #edit-event {
   padding-bottom: 40px;
 }
+
+/* Student Form */
+#add-student, #view-student, #edit-student {
+  padding-bottom: 40px;
+  margin-top: 10%;
+  margin-right: 0;
+} 
