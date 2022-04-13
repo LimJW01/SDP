@@ -21,7 +21,7 @@ $appointment_details_check = mysqli_num_rows($appointment_details);
 if ($appointment_details_check > 0) {
     $booked_slots_start_time = array();
     while ($row = mysqli_fetch_assoc($appointment_details)) {
-        array_push($booked_slots_start_time, change_db_time($row['Start_time']));
+        array_push($booked_slots_start_time, change_time_format($row['Start_time']));
     }
 
     $available_slots = array_diff($schedule_start_time, $booked_slots_start_time);
