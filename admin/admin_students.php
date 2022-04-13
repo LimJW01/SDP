@@ -43,7 +43,7 @@ include_once "includes/header.php";
                                 id="view-button-<?php echo $student_ID; ?>"></i>
                             <i data-modal-target="#edit" title="Edit" class="fas fa-edit"
                                 id="edit-button-<?php echo $student_ID; ?>"></i>
-                            <a href="admin_patients.php"><i title="Delete" class="fas fa-trash-alt"
+                            <a href="admin_students.php"><i title="Delete" class="fas fa-trash-alt"
                                     id="delete-button-<?php echo $student_ID; ?>"></i>
                             </a>
                         </td>

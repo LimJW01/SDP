@@ -539,9 +539,9 @@ table img {
   border: 1px solid black;
 }
 
-/* Add and Edit Appointment */
+/* Add and Edit Club/Event */
 
-#add-club,
-#edit-club, #add-event, #edit-event {
+#add-club, #edit-club, 
+#add-event, #edit-event {
   padding-bottom: 40px;
 }
