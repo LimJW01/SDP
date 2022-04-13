@@ -1,56 +1,61 @@
 <?php
 include_once "includes/header.php";
+include_once "../change_time_format.php";
 ?>
 <main id="main">
-    <h1 class="title">Clubs</h1>
+    <h1 class="title">Events</h1>
     <br>
     <hr>
-    <article id="clubs">
+    <article id="events">
         <div class="content-container">
-            <button data-modal-target="#add" title="Add Club" id="add-button">Add Club</button>
+            <button data-modal-target="#add" title="Add Event" id="add-button">Add Event</button>
             <div class="table-container">
                 <table>
                     <tr>
                         <th class="padding-left">Image</th>
-                        <th class="padding-left">Club Name</th>
-                        <th class="padding-left">Email</th>
-                        <th class="padding-left">Contact Number</th>
+                        <th class="padding-left">Event Name</th>
+                        <th class="padding-left">Date</th>
+                        <th class="padding-left">Start Time</th>
+                        <th class="padding-left">End Time</th>
+                        <th class="padding-left">Approval Status</th>
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php
-                    $club_sql = "SELECT * FROM clubs ORDER BY Club_ID ASC";
-                    $club_result = $conn->query($club_sql);
-                    $club_result_check = mysqli_num_rows($club_result);
-                    $club_array = array();
+                    $event_sql = "SELECT * FROM events ORDER BY Event_ID ASC";
+                    $event_result = $conn->query($event_sql);
+                    $event_result_check = mysqli_num_rows($event_result);
+                    $event_array = array();
                     ?>
-                    <?php if ($club_result_check > 0) : ?>
-                    <?php while ($row = mysqli_fetch_assoc($club_result)) : ?>
+                    <?php if ($event_result_check > 0) : ?>
+                    <?php while ($row = mysqli_fetch_assoc($event_result)) : ?>
                     <?php
-                            $club_id = "C" . $row['Club_ID'];
-                            array_push($club_array, $club_id);
+                            $event_id = "E" . $row['Event_ID'];
+                            array_push($event_array, $event_id);
                             ?>
                     <tr>
                         <td style="text-align: center;"><img
                                 src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>"
-                                alt="club_image">
+                                alt="event_image">
                         </td>
                         <td class="padding-left"><?php echo $row['Name']; ?></td>
-                        <td class="padding-left"><?php echo $row['Email']; ?></td>
-                        <td class="padding-left"><?php echo $row['Contact_number']; ?></td>
+                        <td class="padding-left"><?php echo $row['Date']; ?></td>
+                        <td class="padding-left"><?php echo change_time_format($row['Start_time']); ?></td>
+                        <td class="padding-left"><?php echo change_time_format($row['End_time']); ?></td>
+                        <td class="padding-left"><?php echo $row['Approval_status']; ?></td>
                         <td style="text-align: center;">
                             <i data-modal-target="#view" title="View" class="fas fa-eye"
-                                id="view-button-<?php echo $club_id; ?>"></i>
+                                id="view-button-<?php echo $event_id; ?>"></i>
                             <i data-modal-target="#edit" title="Edit" class="fas fa-edit"
-                                id="edit-button-<?php echo $club_id; ?>"></i>
+                                id="edit-button-<?php echo $event_id; ?>"></i>
                             <a href="admin_clubs.php"><i title="Delete" class="fas fa-trash-alt"
-                                    id="delete-button-<?php echo $club_id; ?>"></i>
+                                    id="delete-button-<?php echo $event_id; ?>"></i>
                             </a>
                         </td>
                     </tr>
                     <?php endwhile; ?>
                     <?php else : ?>
                     <tr>
-                        <td colspan="5">
+                        <td colspan="7">
                             <h2 class="no-record">No Records Found</h2>
                         </td>
                     </tr>
@@ -63,9 +68,9 @@ include_once "includes/header.php";
     <!-- View Club -->
     <div class="modal" id="view">
         <!-- Modal content -->
-        <div class="modal-content" id="view-club">
+        <div class="modal-content" id="view-event">
             <button close-button class="close">&times;</button>
-            <h1>View Club Details</h1>
+            <h1>View Event Details</h1>
             <form id="view-form">
             </form>
         </div>
@@ -74,9 +79,9 @@ include_once "includes/header.php";
     <!-- Edit Club -->
     <div class="modal" id="edit">
         <!-- Modal content -->
-        <div class="modal-content" id="edit-club">
+        <div class="modal-content" id="edit-event">
             <button close-button class="close">&times;</button>
-            <h1>Edit Club Details</h1>
+            <h1>Edit Event Details</h1>
             <form action="manage_club.php" id="edit-form" method="post">
             </form>
         </div>
@@ -85,9 +90,9 @@ include_once "includes/header.php";
     <!-- Add Club -->
     <div class="modal" id="add">
         <!-- Modal content -->
-        <div class="modal-content" id="add-club">
+        <div class="modal-content" id="add-event">
             <button close-button class="close">&times;</button>
-            <h1>Add New Club</h1>
+            <h1>Add New Event</h1>
             <form action="manage_club.php" id="add-form" method="post">
             </form>
         </div>
