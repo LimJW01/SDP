@@ -1,8 +1,9 @@
 <?php
 include_once "includes/header.php";
 
-$email = $_SESSION['admin_email'];
-$sql_query = "SELECT * FROM admin WHERE Email_address = '$email';";
+$email = "admin@mail.apu.edu.my";
+// $email = $_SESSION['admin_email'];
+$sql_query = "SELECT * FROM admin WHERE Email = '$email';";
 $result = mysqli_query($conn, $sql_query);
 $row = mysqli_fetch_assoc($result);
 
@@ -19,20 +20,20 @@ $row = mysqli_fetch_assoc($result);
                     <i class="fas fa-user-edit"></i>Edit
                 </button>
             </div>
-            <form action="admin_update_profile.php" method="post" onsubmit="return validate_profile();">
+            <form action="admin_update_profile.php" method="post">
                 <ul class="flex-container">
                     <li class="flex-item">
-                        Full Name <br>
-                        <input type="text" name="full-name" id="full-name" class="input-disabled"
-                            value="<?php echo $row['Full_name'] ?>" disabled>
+                        Admin Name <br>
+                        <input type="text" name="admin-name" id="admin-name" class="input-disabled"
+                            value="<?php echo $row['Admin_name'] ?>" disabled>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </li>
                     <li class="flex-item">
-                        Contact Number <br>
-                        <input type="tel" name="contact-number" id="contact-number" class="input-disabled"
-                            value="<?php echo $row['Contact_number'] ?>" disabled>
+                        TP Number <br>
+                        <input type="text" name="tp-number" id="tp-number" class="input-disabled"
+                            value="<?php echo $row['TP_number'] ?>" disabled>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
@@ -40,7 +41,7 @@ $row = mysqli_fetch_assoc($result);
                     <li class="flex-item">
                         Email Address <br>
                         <input type="text" name="email-address" id="email-address" class="input-disabled"
-                            value="<?php echo $row['Email_address'] ?>" disabled>
+                            value="<?php echo $row['Email'] ?>" disabled>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
@@ -53,53 +54,10 @@ $row = mysqli_fetch_assoc($result);
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
                     </li>
-                    <li class="flex-item address">
-                        <h3>Address</h3>
-                    </li>
                     <li class="flex-item">
-                        Address Line 1 <br>
-                        <input type="text" name="address-line-1" id="address-line-1" class="input-disabled"
-                            value="<?php echo $row['Address_line_1'] ?>" disabled>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </li>
-                    <li class="flex-item">
-                        Address Line 2 (optional) <br>
-                        <input type="text" name="address-line-2" id="address-line-2" class="input-disabled"
-                            value="<?php echo $row['Address_line_2'] ?>" disabled>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </li>
-                    <li class="flex-item">
-                        Zip/Postal Code <br>
-                        <input type="text" name="zip-code" id="zip-code" class="input-disabled"
-                            value="<?php echo $row['Zip_code'] ?>" disabled>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </li>
-                    <li class="flex-item">
-                        City <br>
-                        <input type="text" name="city" id="city" class="input-disabled"
-                            value="<?php echo $row['City'] ?>" disabled>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </li>
-                    <li class="flex-item">
-                        State/Province <br>
-                        <input type="text" name="state" id="state" class="input-disabled"
-                            value="<?php echo $row['State'] ?>" disabled>
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </li>
-                    <li class="flex-item">
-                        Country <br>
-                        <input type="text" name="country" id="country" class="input-disabled"
-                            value="<?php echo $row['Country'] ?>" disabled>
+                        Contact Number <br>
+                        <input type="tel" name="contact-number" id="contact-number" class="input-disabled"
+                            value="<?php echo $row['Contact_number'] ?>" disabled>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
