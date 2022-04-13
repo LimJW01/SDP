@@ -17,16 +17,16 @@ if ($action == "view" || $action == "edit" || $action == "delete" || $action == 
 <!-- SQL Query for View, Edit Record -->
 <?php
 if ($action == "view" || $action == "edit") {
-    $club_sql_query = "SELECT * FROM clubs WHERE Club_ID = $id;";
-    $club_result = mysqli_query($conn, $club_sql_query);
-    $row = mysqli_fetch_assoc($club_result);
+    $event_sql_query = "SELECT * FROM events WHERE Event_ID = $id;";
+    $event_result = mysqli_query($conn, $event_sql_query);
+    $row = mysqli_fetch_assoc($event_result);
 }
 ?>
 
 <!-- SQL Query for Delete Record -->
 <?php
 if ($action == "delete") {
-    $delete_sql_query = "DELETE FROM clubs WHERE Club_ID = $id;";
+    $delete_sql_query = "DELETE FROM events WHERE Event_ID = $id;";
     $delete_result = mysqli_query($conn, $delete_sql_query);
     if (mysqli_affected_rows($conn) >= 1) {
         $_SESSION['message'] = "Record Deleted Successfully";
@@ -41,64 +41,35 @@ if ($action == "delete") {
 <!-- HTML Content for View, Add, Edit Record -->
 <?php if ($action == "view" || $action == "edit" || $action == "add") : ?>
 
-<!-- Club Image for View Club -->
+<!-- Event Image for View Event -->
 <?php if ($action == "view") : ?>
-<img src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt='club_image'>
+<img src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt='event_image'>
 <?php endif; ?>
 
 <ul class="flex-container">
     <li class="flex-item">
-        Club Name <br>
-        <input type="text" name="club-name" id="club-name" class="input-disabled" value="<?php echo $row['Name'] ?>"
+        Event Name <br>
+        <input type="text" name="event-name" id="event-name" class="input-disabled" value="<?php echo $row['Name'] ?>"
             disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
-        Email Address<br>
-        <input type="text" name="email-address" id="email-address" class="input-disabled"
-            value="<?php echo $row['Email'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
-    </li>
-    <li class="flex-item">
-        Contact Number <br>
-        <input type="tel" placeholder="e.g. 999-9999999" name="contact-number" id="contact-number"
-            class="input-disabled" value="<?php echo $row['Contact_number'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
-    </li>
-    <li class="flex-item">
-        Club Description<br>
+        Event Description<br>
         <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
             disabled><?php echo $row['Description']; ?></textarea>
     </li>
 
-    <!-- Profile Picture for Edit and Add Club -->
-    <?php if ($action == "edit" || $action == "add") : ?>
     <li class="flex-item">
-        Club Image <br>
-        <input type="file" name="image" class="input-disabled" id="image" style="border: none; padding-left: 0;">
+        Date <br>
+        <input type="text" name="date" id="date" class="input-disabled" value="<?php echo $row['Date'] ?>" disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
-    <?php endif; ?>
 
-    <li class="flex-item subtitle">
-        <h3>Activity Details</h3>
-    </li>
-
-    <li class="flex-item">
-        Day <br>
-        <input type="text" name="day" id="day" class="input-disabled" value="<?php echo $row['Day'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
-    </li>
     <li class="flex-item">
         Start Time <br>
         <input type="text" name="start-time" id="start-time" class="input-disabled"
@@ -107,6 +78,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         End Time <br>
         <input type="text" name="end-time" id="end-time" class="input-disabled"
@@ -115,13 +87,26 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
-        Venue <br>
-        <input type="text" name="venue" id="venue" class="input-disabled" value="<?php echo $row['Venue'] ?>" disabled>
+        Approval Status <br>
+        <input type="text" name="approval-status" id="approval-status" class="input-disabled"
+            value="<?php echo $row['Approval_status'] ?>" disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
+    <!-- Profile Picture for Edit and Add Event -->
+    <?php if ($action == "edit" || $action == "add") : ?>
+    <li class="flex-item">
+        Event Image <br>
+        <input type="file" name="image" class="input-disabled" id="image" style="border: none; padding-left: 0;">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+    <?php endif; ?>
 
 </ul>
 <?php endif; ?>

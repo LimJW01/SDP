@@ -65,7 +65,7 @@ include_once "../change_time_format.php";
         </div>
     </article>
 
-    <!-- View Club -->
+    <!-- View Event -->
     <div class="modal" id="view">
         <!-- Modal content -->
         <div class="modal-content" id="view-event">
@@ -76,24 +76,24 @@ include_once "../change_time_format.php";
         </div>
     </div>
 
-    <!-- Edit Club -->
+    <!-- Edit Event -->
     <div class="modal" id="edit">
         <!-- Modal content -->
         <div class="modal-content" id="edit-event">
             <button close-button class="close">&times;</button>
             <h1>Edit Event Details</h1>
-            <form action="manage_club.php" id="edit-form" method="post">
+            <form action="manage_club.php" id="edit-form" method="post" enctype="multipart/form-data">
             </form>
         </div>
     </div>
 
-    <!-- Add Club -->
+    <!-- Add Event -->
     <div class="modal" id="add">
         <!-- Modal content -->
         <div class="modal-content" id="add-event">
             <button close-button class="close">&times;</button>
             <h1>Add New Event</h1>
-            <form action="manage_club.php" id="add-form" method="post">
+            <form action="manage_club.php" id="add-form" method="post" enctype="multipart/form-data">
             </form>
         </div>
     </div>
@@ -102,34 +102,34 @@ include_once "../change_time_format.php";
 
 <script>
 $(document).ready(function() {
-    <?php foreach ($club_array as $club_id) : ?>
+    <?php foreach ($event_array as $event_id) : ?>
 
-    // Load View Club Data When Clicked
-    $("#view-button-<?php echo $club_id; ?>").click(function() {
-        var id = "<?php echo str_replace("C", "", $club_id) ?>";
+    // Load View Event Data When Clicked
+    $("#view-button-<?php echo $event_id; ?>").click(function() {
+        var id = "<?php echo str_replace("E", "", $event_id) ?>";
         var action = "view";
-        $("#view-form").load("manage_club_data.php", {
+        $("#view-form").load("manage_event_data.php", {
             id: id,
             action: action
         });
     });
 
-    // Load Edit Club Data When Clicked
-    $("#edit-button-<?php echo $club_id; ?>").click(function() {
-        var id = "<?php echo str_replace("C", "", $club_id) ?>";
+    // Load Edit Event Data When Clicked
+    $("#edit-button-<?php echo $event_id; ?>").click(function() {
+        var id = "<?php echo str_replace("E", "", $event_id) ?>";
         var action = "edit";
-        $("#edit-form").load("manage_club_data.php", {
+        $("#edit-form").load("manage_event_data.php", {
             id: id,
             action: action
         });
     });
 
-    // Load Delete Club Data When Clicked
-    $("#delete-button-<?php echo $club_id; ?>").click(function() {
+    // Load Delete Event Data When Clicked
+    $("#delete-button-<?php echo $event_id; ?>").click(function() {
         if (confirm("Are you sure you want to delete this record?")) {
-            var id = "<?php echo str_replace("C", "", $club_id) ?>";
+            var id = "<?php echo str_replace("E", "", $event_id) ?>";
             var action = "delete";
-            $(window).load("manage_club_data.php", {
+            $(window).load("manage_event_data.php", {
                 id: id,
                 action: action
             });
@@ -138,10 +138,10 @@ $(document).ready(function() {
 
     <?php endforeach; ?>
 
-    // Load Add Club Data When Clicked
+    // Load Add Event Data When Clicked
     $("#add-button").click(function() {
         var action = "add";
-        $("#add-form").load("manage_club_data.php", {
+        $("#add-form").load("manage_event_data.php", {
             action: action
         });
     });
