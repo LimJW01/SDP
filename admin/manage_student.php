@@ -32,7 +32,7 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
             $_SESSION['update'] = false;
             header("Location: admin_students.php");
         } else {
-            $sql_query = "UPDATE students SET Student_name = '$student_name', TP_number = '$tp_number', Gender = '$gender', Email = '$email_address', Password = '$password',  Contact_number = '$contact_number',  WHERE Student_ID = '$id'";
+            $sql_query = "UPDATE students SET Student_name = '$student_name', TP_number = '$tp_number', Gender = '$gender', Email = '$email_address', Password = '$password',  Contact_number = '$contact_number' WHERE Student_ID = $id";
             $result = mysqli_query($conn, $sql_query);
 
             // If database is updated
