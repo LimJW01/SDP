@@ -14,30 +14,47 @@ include_once "includes/header.php";
                         <th class="padding-left">Student Name</th>
                         <th class="padding-left">TP Number</th>
                         <th class="padding-left">Gender</th>
-                        <th class="padding-left">Email Address</th>
-                        <th class="padding-left">Password</th>
                         <th class="padding-left">Contact Number</th>
+                        <th class="padding-left">Clubs Joined</th>
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php
-                    $sql = "SELECT * FROM students ORDER BY Student_name ASC";
-                    $result = $conn->query($sql);
-                    $result_check = mysqli_num_rows($result);
+                    $student_sql = "SELECT * FROM students ORDER BY Student_name ASC";
+                    $student_result = $conn->query($student_sql);
+                    $student_result_check = mysqli_num_rows($student_result);
                     $student_array = array();
                     ?>
-                    <?php if ($result_check > 0) : ?>
-                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                    <?php if ($student_result_check > 0) : ?>
+                    <?php while ($student_row = mysqli_fetch_assoc($student_result)) : ?>
                     <?php
-                            $student_ID = "S" . $row['Student_ID'];
-                            array_push($student_array, $student_ID);
-                            ?>
+                        $student_ID = "S" . $student_row['Student_ID'];
+                        array_push($student_array, $student_ID);
+
+                        $joined_club_sql = "SELECT * FROM joined_clubs WHERE Student_ID = " . $student_row['Student_ID'] .  ";";
+                        $joined_club_result = $conn->query($joined_club_sql);
+                        $joined_club_result_check = mysqli_num_rows($joined_club_result);
+                        ?>
+
+                    <?php $joined_clubs = "No Clubs Joined" ?>
+                    <?php if ($joined_club_result_check > 0) : ?>
+                    <?php $joined_clubs_array = array() ?>
+                    <?php while ($joined_club_row = mysqli_fetch_assoc($joined_club_result)) : ?>
+                    <?php 
+                        $joined_club_id =  $joined_club_row['Club_ID'];
+                        $club_sql = "SELECT * FROM Clubs WHERE Club_ID = $joined_club_id;";
+                        $club_result = $conn->query($club_sql);
+                        $club_row = mysqli_fetch_assoc($club_result);
+                        array_push($joined_clubs_array, $club_row['Name']);
+                        ?>
+                    <?php endwhile; ?>
+                    <?php $joined_clubs = join(", ", $joined_clubs_array) ?>
+                    <?php endif; ?>
                     <tr>
-                        <td class="padding-left"><?php echo $row['Student_name']; ?></td>
-                        <td class="padding-left"><?php echo $row['TP_number']; ?></td>
-                        <td class="padding-left"><?php echo $row['Gender']; ?></td>
-                        <td class="padding-left"><?php echo $row['Email']; ?></td>
-                        <td class="padding-left"><?php echo $row['Password']; ?></td>
-                        <td class="padding-left"><?php echo $row['Contact_number']; ?></td>
+                        <td class="padding-left"><?php echo $student_row['Student_name']; ?></td>
+                        <td class="padding-left"><?php echo $student_row['TP_number']; ?></td>
+                        <td class="padding-left"><?php echo $student_row['Gender']; ?></td>
+                        <td class="padding-left"><?php echo $joined_clubs ?></td>
+                        <td class="padding-left"><?php echo $student_row['Contact_number']; ?></td>
                         <td style="text-align: center;">
                             <i data-modal-target="#view" title="View" class="fas fa-eye"
                                 id="view-button-<?php echo $student_ID; ?>"></i>
