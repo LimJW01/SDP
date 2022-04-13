@@ -532,7 +532,7 @@ table img {
   margin: 8% 20% 5% 21%;
 }
 
-#view-club img {
+#view-club img, #view-event img {
   width: 150px;
   margin: auto;
   display: block;
@@ -542,6 +542,6 @@ table img {
 /* Add and Edit Appointment */
 
 #add-club,
-#edit-club {
+#edit-club, #add-event, #edit-event {
   padding-bottom: 40px;
 }
