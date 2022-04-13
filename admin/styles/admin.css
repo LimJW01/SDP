@@ -483,10 +483,10 @@ table img {
   pointer-events: all;
 }
 
-/* Add and Edit Patient */
+/* Add and Edit Student */
 
-#edit-patient,
-#add-patient {
+#edit-student,
+#add-student {
   margin: 2.5% 20% 1.5% 20%; /* 5% from the top and centered */
 }
 
