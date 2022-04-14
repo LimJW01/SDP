@@ -55,6 +55,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Email Address<br>
         <input type="text" name="email-address" id="email-address" class="input-disabled"
@@ -63,6 +64,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Contact Number <br>
         <input type="tel" placeholder="e.g. 999-9999999" name="contact-number" id="contact-number"
@@ -71,6 +73,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Club Description<br>
         <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
@@ -99,6 +102,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Start Time <br>
         <input type="text" name="start-time" id="start-time" class="input-disabled"
@@ -107,6 +111,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         End Time <br>
         <input type="text" name="end-time" id="end-time" class="input-disabled"
@@ -115,6 +120,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Venue <br>
         <input type="text" name="venue" id="venue" class="input-disabled" value="<?php echo $row['Venue'] ?>" disabled>
