@@ -239,7 +239,7 @@ table img {
 /* PROFILE PAGE */
 
 #profile .content-container {
-  height: 650px;
+  height: 550px;
   margin: 40px auto;
 }
 
@@ -272,7 +272,7 @@ table img {
 
 #profile .flex-item {
   flex-basis: 45%;
-  padding-bottom: 30px;
+  padding-bottom: 45px;
   position: relative;
 }
 
@@ -483,10 +483,10 @@ table img {
   pointer-events: all;
 }
 
-/* Add and Edit Patient */
+/* Add and Edit Student */
 
-#edit-patient,
-#add-patient {
+#edit-student,
+#add-student {
   margin: 2.5% 20% 1.5% 20%; /* 5% from the top and centered */
 }
 
@@ -532,16 +532,23 @@ table img {
   margin: 8% 20% 5% 21%;
 }
 
-#view-club img {
+#view-club img, #view-event img {
   width: 150px;
   margin: auto;
   display: block;
   border: 1px solid black;
 }
 
-/* Add and Edit Appointment */
+/* Add and Edit Club/Event */
 
-#add-club,
-#edit-club {
+#add-club, #edit-club, 
+#add-event, #edit-event {
   padding-bottom: 40px;
 }
+
+/* Student Form */
+#add-student, #view-student, #edit-student {
+  padding-bottom: 40px;
+  margin-top: 10%;
+  margin-right: 0;
+} 
