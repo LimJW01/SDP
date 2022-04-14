@@ -117,7 +117,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 footer-col">
-                    <div class="col-md-4 footer-col">
                         <div class="footer_detail">
                             <a class="footer-logo">
                                 ClubExpress
@@ -126,7 +125,6 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis non corporis cupiditate ad totam pariatur accusamus vel, dolores maxime? Optio recusa
                             </p>
                         </div>
-                    </div>
                     </div>
                     <div class="col-md-4 footer-col">
                     <h4>
