@@ -14,8 +14,8 @@ include_once "includes/header.php";
                         <th class="padding-left">Student Name</th>
                         <th class="padding-left">TP Number</th>
                         <th class="padding-left">Gender</th>
-                        <th class="padding-left">Contact Number</th>
                         <th class="padding-left">Clubs Joined</th>
+                        <th class="padding-left">Contact Number</th>
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php

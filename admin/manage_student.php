@@ -69,7 +69,7 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
             $_SESSION['add'] = false;
             header("Location: admin_students.php");
         } else {
-            $sql_query = "INSERT INTO students (Student_name, TP_number, Gender, Email_address, Password, Contact_number, Admin_ID) VALUES ('$student_name, $tp_number, $gender, $email_address', '$password', '$contact_number', 1)";
+            $sql_query = "INSERT INTO students (Student_name, TP_number, Gender, Email, Password, Contact_number, Admin_ID) VALUES ('$student_name', '$tp_number', '$gender', '$email_address', '$password', '$contact_number', 1);";
             $result = mysqli_query($conn, $sql_query);
 
             // If database is updated

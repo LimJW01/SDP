@@ -239,7 +239,7 @@ table img {
 /* PROFILE PAGE */
 
 #profile .content-container {
-  height: 650px;
+  height: 550px;
   margin: 40px auto;
 }
 
@@ -272,7 +272,7 @@ table img {
 
 #profile .flex-item {
   flex-basis: 45%;
-  padding-bottom: 30px;
+  padding-bottom: 45px;
   position: relative;
 }
 
