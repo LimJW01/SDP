@@ -36,9 +36,9 @@
             </a>
         </li>
         <li>
-            <a href="admin_feedbacks.php">
-                <i class="fas fa-comment-dots"></i>
-                Feedbacks
+            <a href="admin_reports.php">
+                <i class="fas fa-chart-bar"></i>
+                Reports
             </a>
         </li>
         <li>
