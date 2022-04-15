@@ -532,7 +532,7 @@ table img {
   margin: 8% 20% 5% 21%;
 }
 
-#view-club img, #view-event img {
+#view-club img, #view-event img, #view-club-creation-request img {
   width: 150px;
   margin: auto;
   display: block;
@@ -552,3 +552,12 @@ table img {
   margin-top: 10%;
   margin-right: 0;
 } 
+
+/* Club Creation Request */
+#club-creation-requests .table-container {
+  border: none;
+}
+
+#club-creation-requests table {
+  margin-top: 60px;
+}
