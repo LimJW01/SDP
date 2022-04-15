@@ -3,12 +3,14 @@
 include_once "../includes/dbh.php";
 include_once "../change_time_format.php";
 session_start();
-$id = $_POST['id'];
+$club_creation_id = $_POST['id'];
 
 // SQL Query for View Club Creation Request 
-$club_creation_sql = "SELECT * FROM club_creation WHERE Club_creation_ID = $id;";
+$club_creation_sql = "SELECT * FROM club_creation WHERE Club_creation_ID = $club_creation_id;";
 $club_creaton_result = mysqli_query($conn, $club_creation_sql);
 $club_creation_row = mysqli_fetch_assoc($club_creaton_result);
+
+$_SESSION['club_creation_id'] = $club_creation_id;
 
 $student_id = $club_creation_row['Student_ID'];
 $student_sql = "SELECT * FROM students WHERE Student_ID = '$student_id'";
@@ -77,7 +79,7 @@ $student_row = mysqli_fetch_assoc($student_result);
 
     <li class="flex-item">
         Student Contact Number <br>
-        <input type="tel" name="contact-number" id="contact-number" class="input-disabled"
+        <input type="tel" name="student-contact-number" id="student-contact-number" class="input-disabled"
             value="<?php echo $student_row['Contact_number'] ?>" disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>

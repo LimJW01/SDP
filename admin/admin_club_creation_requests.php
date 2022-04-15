@@ -68,7 +68,7 @@ include_once "../change_time_format.php";
         <div class="modal-content" id="view-club-creation-request">
             <button close-button class="close">&times;</button>
             <h1>View Club Creation Request</h1>
-            <form id="view-form">
+            <form action="manage_club_creation_request.php" id="view-form" method="post">
             </form>
         </div>
     </div>
