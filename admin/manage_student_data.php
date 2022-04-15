@@ -38,6 +38,7 @@ if ($action == "delete") {
 <!-- HTML Content for View, Add, Edit Record -->
 <?php if ($action == "view" || $action == "edit" || $action == "add") : ?>
 <ul class="flex-container">
+
     <li class="flex-item">
         Student Name <br>
         <input type="text" name="student-name" id="student-name" class="input-disabled"
@@ -46,6 +47,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         TP Number <br>
         <input type="text" name="tp-number" id="tp-number" class="input-disabled"
@@ -54,6 +56,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Gender <br>
         <select name="gender" id="gender" class="input-disabled" disabled>
@@ -73,6 +76,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Email Address <br>
         <input type="text" name="email-address" id="email-address" class="input-disabled"
@@ -81,6 +85,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Password <br>
         <input type="text" name="password" id="password" class="input-disabled" value="<?php echo $row['Password'] ?>"
@@ -89,6 +94,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
     <li class="flex-item">
         Contact Number <br>
         <input type="tel" name="contact-number" id="contact-number" class="input-disabled"
@@ -97,6 +103,7 @@ if ($action == "delete") {
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
     </li>
+
 </ul>
 <?php endif; ?>
 

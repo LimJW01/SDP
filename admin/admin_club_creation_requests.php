@@ -25,20 +25,25 @@ include_once "../change_time_format.php";
                     $club_creation_array = array();
                     ?>
                     <?php if ($club_creation_result_check > 0) : ?>
-                    <?php while ($row = mysqli_fetch_assoc($club_creation_result)) : ?>
+                    <?php while ($club_row = mysqli_fetch_assoc($club_creation_result)) : ?>
                     <?php
-                            $club_creation_id = "C" . $row['Club_creation_ID'];
+                            $club_creation_id = "C" . $club_row['Club_creation_ID'];
                             array_push($club_creation_array, $club_creation_id);
+
+                            $student_id = $club_row['Student_ID'];
+                            $student_sql = "SELECT * FROM students WHERE Student_ID = '$student_id'";
+                            $student_result = $conn->query($student_sql);
+                            $student_row = mysqli_fetch_assoc($student_result);
                             ?>
                     <tr>
                         <td style="text-align: center;"><img
-                                src="data:image/jpeg;base64,<?php echo base64_encode($row['Club_image']); ?>"
+                                src="data:image/jpeg;base64,<?php echo base64_encode($club_row['Club_image']); ?>"
                                 alt="club_image">
                         </td>
-                        <td class="padding-left"><?php echo $row['Club_name']; ?></td>
-                        <td class="padding-left"><?php echo $row['Club_description']; ?></td>
-                        <td class="padding-left"><?php echo $row['Student_name']; ?></td>
-                        <td class="padding-left"><?php echo $row['Student_contact_number']; ?></td>
+                        <td class="padding-left"><?php echo $club_row['Club_name']; ?></td>
+                        <td class="padding-left"><?php echo $club_row['Club_description']; ?></td>
+                        <td class="padding-left"><?php echo $student_row['Student_name']; ?></td>
+                        <td class="padding-left"><?php echo $student_row['Contact_number']; ?></td>
                         <td style="text-align: center;">
                             <i data-modal-target="#view" title="View" class="fas fa-eye"
                                 id="view-button-<?php echo $club_creation_id; ?>"></i>
@@ -72,50 +77,16 @@ include_once "../change_time_format.php";
 
 <script>
 $(document).ready(function() {
-    <?php foreach ($event_array as $event_id) : ?>
+            <?php foreach ($club_creation_array as $club_creation_id) : ?>
 
-    // Load View Event Data When Clicked
-    $("#view-button-<?php echo $event_id; ?>").click(function() {
-        var id = "<?php echo str_replace("E", "", $event_id) ?>";
-        var action = "view";
-        $("#view-form").load("manage_event_data.php", {
-            id: id,
-            action: action
-        });
-    });
-
-    // Load Edit Event Data When Clicked
-    $("#edit-button-<?php echo $event_id; ?>").click(function() {
-        var id = "<?php echo str_replace("E", "", $event_id) ?>";
-        var action = "edit";
-        $("#edit-form").load("manage_event_data.php", {
-            id: id,
-            action: action
-        });
-    });
-
-    // Load Delete Event Data When Clicked
-    $("#delete-button-<?php echo $event_id; ?>").click(function() {
-        if (confirm("Are you sure you want to delete this record?")) {
-            var id = "<?php echo str_replace("E", "", $event_id) ?>";
-            var action = "delete";
-            $(window).load("manage_event_data.php", {
-                id: id,
-                action: action
+            // Load View Club Creation Request Data When Clicked
+            $("#view-button-<?php echo $club_creation_id; ?>").click(function() {
+                var id = "<?php echo str_replace("C", "", $club_creation_id) ?>";
+                $("#view-form").load("manage_club_creation_request_data.php", {
+                    id: id,
+                });
             });
-        }
-    });
-
-    <?php endforeach; ?>
-
-    // Load Add Event Data When Clicked
-    $("#add-button").click(function() {
-        var action = "add";
-        $("#add-form").load("manage_event_data.php", {
-            action: action
-        });
-    });
-});
+            <?php endforeach; ?>
 </script>
 
 <?php
