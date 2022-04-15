@@ -31,20 +31,6 @@ $student_row = mysqli_fetch_assoc($student_result);
         <small>Error message</small>
     </li>
 
-
-    <li class="flex-item">
-        Club Description<br>
-        <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
-            disabled><?php echo $club_creation_row['Description']; ?></textarea>
-    </li>
-
-
-    <li class="flex-item">
-        Purpose<br>
-        <textarea name="purpose" id="purpose" cols="30" rows="5" class="input-disabled"
-            disabled><?php echo $club_creation_row['Purpose']; ?></textarea>
-    </li>
-
     <li class="flex-item">
         Club Email <br>
         <input type="text" name="email-address" id="email-address" class="input-disabled"
@@ -52,6 +38,19 @@ $student_row = mysqli_fetch_assoc($student_result);
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
+    </li>
+
+    <li class="flex-item">
+        Club Description<br>
+        <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
+            disabled><?php echo $club_creation_row['Club_description']; ?></textarea>
+    </li>
+
+
+    <li class="flex-item">
+        Purpose<br>
+        <textarea name="purpose" id="purpose" cols="30" rows="5" class="input-disabled"
+            disabled><?php echo $club_creation_row['Purpose']; ?></textarea>
     </li>
 
     <li class="flex-item">
@@ -137,10 +136,11 @@ $student_row = mysqli_fetch_assoc($student_result);
 </ul>
 
 <div class="submit-container">
-    <input class="submit-btn bg-color-eastern-blue" type="submit" name="add" value="Submit">
+    <input id="approve-btn" class="submit-btn" type="submit" name="approve" value="Approve">
+    <input id="reject-btn" class="submit-btn" type="submit" name="reject" value="Reject">
 </div>
 
 <!-- Close Database Connection -->
 <?php
-    mysqli_close($conn);
+mysqli_close($conn);
 ?>

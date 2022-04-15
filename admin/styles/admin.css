@@ -493,10 +493,12 @@ table img {
 .submit-container {
   text-align: center;
 }
+
 .submit-container #update-button {
   margin: auto;
   display: none;
 }
+
 .submit-btn {
   color: white;
   width: 20%;
@@ -504,6 +506,19 @@ table img {
   height: 40px;
   border-radius: 30px;
   font-weight: bold;
+}
+
+#approve-btn, #reject-btn {
+  margin: 0 30px;
+}
+
+#approve-btn {
+  background-color: #20ff00;
+  color:black;
+}
+
+#reject-btn {
+  background-color: red;
 }
 
 .submit-btn:hover {
@@ -542,7 +557,8 @@ table img {
 /* Add and Edit Club/Event */
 
 #add-club, #edit-club, 
-#add-event, #edit-event {
+#add-event, #edit-event, 
+#view-club-creation-request {
   padding-bottom: 40px;
 }
 

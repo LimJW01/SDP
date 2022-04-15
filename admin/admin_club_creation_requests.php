@@ -27,7 +27,7 @@ include_once "../change_time_format.php";
                     <?php if ($club_creation_result_check > 0) : ?>
                     <?php while ($club_row = mysqli_fetch_assoc($club_creation_result)) : ?>
                     <?php
-                            $club_creation_id = "C" . $club_row['Club_creation_ID'];
+                            $club_creation_id = "CC" . $club_row['Club_creation_ID'];
                             array_push($club_creation_array, $club_creation_id);
 
                             $student_id = $club_row['Student_ID'];
@@ -77,16 +77,17 @@ include_once "../change_time_format.php";
 
 <script>
 $(document).ready(function() {
-            <?php foreach ($club_creation_array as $club_creation_id) : ?>
+    <?php foreach ($club_creation_array as $club_creation_id) : ?>
 
-            // Load View Club Creation Request Data When Clicked
-            $("#view-button-<?php echo $club_creation_id; ?>").click(function() {
-                var id = "<?php echo str_replace("C", "", $club_creation_id) ?>";
-                $("#view-form").load("manage_club_creation_request_data.php", {
-                    id: id,
-                });
-            });
-            <?php endforeach; ?>
+    // Load View Club Creation Request Data When Clicked
+    $("#view-button-<?php echo $club_creation_id; ?>").click(function() {
+        var id = "<?php echo str_replace("CC", "", $club_creation_id) ?>";
+        $("#view-form").load("manage_club_creation_request_data.php", {
+            id: id,
+        });
+    });
+    <?php endforeach; ?>
+});
 </script>
 
 <?php
