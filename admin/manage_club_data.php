@@ -49,7 +49,7 @@ if ($action == "delete") {
 <ul class="flex-container">
     <li class="flex-item">
         Club Name <br>
-        <input type="text" name="club-name" id="club-name" class="input-disabled" value="<?php echo $row['Name'] ?>"
+        <input type="text" name="club-name" id="name" class="input-disabled" value="<?php echo $row['Name'] ?>"
             disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>

@@ -57,8 +57,8 @@ if ($action == "delete") {
 <ul class="flex-container">
     <li class="flex-item">
         Event Name <br>
-        <input type="text" name="event-name" id="event-name" class="input-disabled"
-            value="<?php echo $event_row['Name'] ?>" disabled>
+        <input type="text" name="event-name" id="name" class="input-disabled" value="<?php echo $event_row['Name'] ?>"
+            disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
