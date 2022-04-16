@@ -95,7 +95,7 @@ include_once "includes/header.php";
         <div class="modal-content" id="edit-student">
             <button close-button class="close">&times;</button>
             <h1>Edit Student Details</h1>
-            <form action="manage_student.php" id="edit-form" method="post">
+            <form action="manage_student.php" id="edit-form" method="post" onsubmit="return validate_student();">
             </form>
         </div>
     </div>
@@ -106,7 +106,7 @@ include_once "includes/header.php";
         <div class="modal-content" id="add-student">
             <button close-button class="close">&times;</button>
             <h1>Add New Student</h1>
-            <form action="manage_student.php" id="add-form" method="post">
+            <form action="manage_student.php" id="add-form" method="post" onsubmit="return validate_student();">
             </form>
         </div>
     </div>

@@ -64,6 +64,16 @@ if ($action == "delete") {
         <small>Error message</small>
     </li>
 
+    <!-- Profile Picture for Edit and Add Event -->
+    <?php if ($action == "edit" || $action == "add") : ?>
+    <li class="flex-item">
+        Event Image <br>
+        <input type="file" name="image" class="input-disabled" id="image" style="border: none; padding-left: 0;">
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+    <?php endif; ?>
 
     <li class="flex-item">
         Organizing Club <br>
@@ -102,6 +112,17 @@ if ($action == "delete") {
         <small>Error message</small>
     </li>
 
+    <?php if ($action == "view" || $action == "edit") : ?>
+    <li class="flex-item">
+        Date Posted <br>
+        <input type="date" name="date" id="date" class="input-disabled" value="<?php echo $event_row['Date'] ?>"
+            disabled>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+    <?php endif; ?>
+
     <li class="flex-item">
         Start Time <br>
         <input type="text" name="start-time" id="start-time" class="input-disabled"
@@ -120,20 +141,18 @@ if ($action == "delete") {
         <small>Error message</small>
     </li>
 
+    <?php if ($action == "view" || $action == "edit") : ?>
     <li class="flex-item">
         Approval Status <br>
-        <input type="text" name="approval-status" id="approval-status" class="input-disabled"
-            value="<?php echo $event_row['Approval_status'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
-    </li>
-
-    <!-- Profile Picture for Edit and Add Event -->
-    <?php if ($action == "edit" || $action == "add") : ?>
-    <li class="flex-item">
-        Event Image <br>
-        <input type="file" name="image" class="input-disabled" id="image" style="border: none; padding-left: 0;">
+        <?php $status_list = ['Pending', 'Approved', 'Rejected']; ?>
+        <select name="approval-status" id="approval-status" class="input-disabled" disabled>
+            <?php foreach ($status_list as $status) : ?>
+            <option value="<?php echo $status ?>"
+                <?php echo ($event_row['Approval_status'] == $status) ? "selected" : ""; ?>>
+                <?php echo $status ?>
+            </option>
+            <?php endforeach; ?>
+        </select>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
@@ -182,7 +201,7 @@ document.getElementById("description").value = "";
 <?php endif; ?>
 
 
-<?php if ($action == "edit" || $action == "add") : ?>
+<?php if ($action == "add") : ?>
 
 <!-- Date limit script -->
 <script defer src="scripts/date_limit.js"></script>

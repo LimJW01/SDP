@@ -78,6 +78,9 @@ if ($action == "delete") {
         Club Description<br>
         <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
             disabled><?php echo $row['Description']; ?></textarea>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
     </li>
 
     <!-- Profile Picture for Edit and Add Club -->
@@ -97,7 +100,18 @@ if ($action == "delete") {
 
     <li class="flex-item">
         Day <br>
-        <input type="text" name="day" id="day" class="input-disabled" value="<?php echo $row['Day'] ?>" disabled>
+        <?php $day_list = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']; ?>
+        <select name="day" id="day" class="input-disabled" disabled>
+            <?php if ($action == "add") : ?>
+            <option value="" selected disabled hidden>Please select</option>
+            <?php endif; ?>
+            <?php foreach ($day_list as $day) : ?>
+            <option value="<?php echo $day ?>" <?php if ($action == "edit" || $action == "view") {
+                                            echo ($row['Day'] == $day) ? "selected" : "";
+                                        } ?>><?php echo $day ?>
+            </option>
+            <?php endforeach; ?>
+        </select>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
@@ -105,8 +119,8 @@ if ($action == "delete") {
 
     <li class="flex-item">
         Start Time <br>
-        <input type="text" name="start-time" id="start-time" class="input-disabled"
-            value="<?php echo change_time_format($row['Start_time']) ?>" disabled>
+        <input type="text" name="start-time" id="start-time" class="input-disabled" placeholder="e.g. 17:00"
+            value="<?php echo change_time_format($row['Start_time']) ?> " disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
@@ -114,7 +128,7 @@ if ($action == "delete") {
 
     <li class="flex-item">
         End Time <br>
-        <input type="text" name="end-time" id="end-time" class="input-disabled"
+        <input type="text" name="end-time" id="end-time" class="input-disabled" placeholder="e.g. 17:00"
             value="<?php echo change_time_format($row['End_time']) ?>" disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>

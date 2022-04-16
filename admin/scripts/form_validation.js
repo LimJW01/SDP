@@ -25,24 +25,49 @@ function set_success_for(input) {
 }
 
 
-// Patient Validation
-function validate_patient_full_name() {
-    const full_name_input = document.getElementById("full-name");
-    const full_name = full_name_input.value.trim();
-    if (!is_empty(full_name) && !(/^[a-zA-Z]*[a-zA-Z\s]*[a-zA-Z]$/.test(full_name))) {
-        return set_error_for(full_name_input, "Invalid full name");
+// Input Validation
+function validate_student_name() {
+    const student_name_input = document.getElementById("student-name");
+    const student_name = student_name_input.value.trim();
+    if (is_empty(student_name)) {
+        return set_error_for(student_name_input, "Student name cannot be left blank");
+    } else if (!(/^[a-zA-Z]*[a-zA-Z\s]*[a-zA-Z]$/.test(student_name))) {
+        return set_error_for(student_name_input, "Invalid student name");
     } else {
-        return set_success_for(full_name_input);
+        return set_success_for(student_name_input);
     }
 }
 
-function validate_patient_contact_number() {
-    const contact_number_input = document.getElementById("contact-number");
-    const contact_number = contact_number_input.value.trim();
-    if (!is_empty(contact_number) && !/^([0-9]{3})-([0-9]{7})$/.test(contact_number)) {
-        return set_error_for(contact_number_input, "Invalid contact number");
+// validate club name and event name
+function validate_name() {
+    const name_input = document.getElementById("name");
+    const name = name_input.value.trim();
+    if (is_empty(name)) {
+        return set_error_for(name_input, "Name cannot be left blank");
     } else {
-        return set_success_for(contact_number_input);
+        return set_success_for(name_input);
+    }
+}
+
+function validate_tp_number() {
+    const tp_number_input = document.getElementById("tp-number");
+    const tp_number = tp_number_input.value.trim();
+    if (is_empty(tp_number)) {
+        return set_error_for(tp_number_input, "TP number cannot be left blank");
+    } else if (!/^([Tt][Pp][0-9]{6})$/.test(tp_number)) { 
+        return set_error_for(tp_number_input, "Invalid TP number");
+    } else {
+		return set_success_for(tp_number_input);
+	}
+}
+
+function validate_gender() {
+    const gender_input = document.getElementById("gender");
+    const gender = gender_input.value.trim();
+    if (is_empty(gender)) {
+        return set_error_for(gender_input, "Gender cannot be left blank");
+    } else {
+        return set_success_for(gender_input);
     }
 }
 
@@ -72,73 +97,185 @@ function validate_password() {
 	}
 }
 
-function validate_address_line_1() {
-    const address_line_1_input = document.getElementById("address-line-1");
-    return set_success_for(address_line_1_input);
-}
-
-function validate_address_line_2() {
-    const address_line_2_input = document.getElementById("address-line-2");
-    return set_success_for(address_line_2_input);
-}
-
-function validate_zip_code() {
-    const zip_code_input = document.getElementById("zip-code");
-    const zip_code = zip_code_input.value.trim();
-    if (!is_empty(zip_code) && !/^\d{5}$/.test(zip_code)) {
-        return set_error_for(zip_code_input, "Zip code should be 5 digits");
+function validate_contact_number() {
+    const contact_number_input = document.getElementById("contact-number");
+    const contact_number = contact_number_input.value.trim();
+    if (is_empty(contact_number)) {
+        return set_error_for(contact_number_input, "Contact number cannot be left blank");
+    } else if (/^011/.test(contact_number)) {
+        if (!/^([0-9]{3})-([0-9]{8})$/.test(contact_number)) {
+            return set_error_for(contact_number_input, "Numbers starting with 011 must have 8 numbers at the back");
+        } else {
+            return set_success_for(contact_number_input);
+        } 
+    } else if (!/^([0-9]{3})-([0-9]{7})$/.test(contact_number)) {
+        return set_error_for(contact_number_input, "Invalid contact number");
     } else {
-        return set_success_for(zip_code_input);
+        return set_success_for(contact_number_input);
     }
 }
 
-function validate_city() {
-    const city_input = document.getElementById("city");
-    const city = city_input.value.trim();
-    if (!is_empty(city) && !/^[A-Za-z\s]+$/.test(city)) {
-        return set_error_for(city_input, "Only letters are allowed");
+function validate_add_image() {
+    const image_input = document.getElementById("image");
+    const image = image_input.value.trim();
+
+    // Allowed file types
+    var allowed_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/;
+    if (is_empty(image)) {
+        return set_error_for(image_input, "Image cannot be left blank");
+    } else if (!allowed_extensions.exec(image)) {
+        return set_error_for(image_input, "Only .jpg, .jpeg, .png and .gif files are allowed");
+    } else if (image_input.files[0].size / 1024 / 1024 > 16) {
+        return set_error_for(image_input, "Image size should not exceed 16 MiB");
     } else {
-        return set_success_for(city_input);
+        return set_success_for(image_input);
     }
 }
 
-function validate_state() {
-    const state_input = document.getElementById("state");
-    const state = state_input.value.trim();
-    if (!is_empty(state) && !/^[A-Za-z\s]+$/.test(state)) {
-        return set_error_for(state_input, "Only letters are allowed");
+function validate_edit_image() {
+    const image_input = document.getElementById("image");
+    const image = image_input.value.trim();
+
+    // Allowing file type
+    var allowed_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/;
+    if (!is_empty(image)) {
+
+        // https://www.geeksforgeeks.org/file-type-validation-while-uploading-it-using-javascript/
+        if (!allowed_extensions.exec(image)) {
+            return set_error_for(image_input, "Only .jpg, .jpeg, .png and .gif files are allowed");
+            
+        // https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation
+        } else if (image_input.files[0].size / 1024 / 1024 > 5) {
+            return set_error_for(image_input, "Image size should not exceed 5 MiB");
+        }
+    }
+    return set_success_for(image_input);
+}
+
+function validate_description() {
+    const description_input = document.getElementById("description");
+    const description = description_input.value.trim();
+    if (is_empty(description)) {
+        return set_error_for(description_input, "Description cannot be left blank");
     } else {
-        return set_success_for(state_input);
+        return set_success_for(description_input);  
     }
 }
 
-function validate_country() {
-    const country_input = document.getElementById("country");
-    const country = country_input.value.trim();
-    if (!is_empty(country) && !/^[A-Za-z\s]+$/.test(country)) {
-        return set_error_for(country_input, "Only letters are allowed");
+function validate_day() {
+    const day_input = document.getElementById("day");
+    const day = day_input.value.trim();
+    if (is_empty(day)) {
+        return set_error_for(day_input, "Day cannot be left blank");
     } else {
-        return set_success_for(country_input);
+        return set_success_for(day_input);  
     }
 }
 
-function validate_profile() {
-    var country = validate_country();
-    var state = validate_state();
-    var city = validate_city();
-    var zip_code = validate_zip_code();
-    var address_line_2 = validate_address_line_2();
-    var address_line_1 = validate_address_line_1();
+function validate_start_time() {
+    const start_time_input = document.getElementById("start-time");
+    const start_time = start_time_input.value.trim();
+    if (is_empty(start_time)) {
+        return set_error_for(start_time_input, "Start time cannot be left blank");
+    } else if (!/^[0-9]{1,2}:[0-9]{2}/.test(start_time)) {
+        return set_error_for(start_time_input, "Invalid start time format");
+    } else {
+        return set_success_for(start_time_input);
+    }
+}
+
+function validate_end_time() {
+    const end_time_input = document.getElementById("end-time");
+    const end_time = end_time_input.value.trim();
+    if (is_empty(end_time)) {
+        return set_error_for(end_time_input, "End time cannot be left blank");
+    } else if (!/^[0-9]{1,2}:[0-9]{2}/.test(end_time)) {
+        return set_error_for(end_time_input, "Invalid end time format");
+    } else {
+        return set_success_for(end_time_input);
+    }
+}
+
+function validate_venue() {
+    const venue_input = document.getElementById("venue");
+    const venue = venue_input.value.trim();
+    if (is_empty(venue)) {
+        return set_error_for(venue_input, "Venue cannot be left blank");
+    } else {
+        return set_success_for(venue_input);  
+    }
+}
+
+function validate_date() {
+    const date_input = document.getElementById("date");
+    const date = date_input.value.trim();
+    if (is_empty(date)) {
+        return set_error_for(date_input, "Date cannot be left blank");
+    } else {
+        return set_success_for(date_input);  
+    }
+}
+
+
+// Student Validation
+function validate_student() {
+    var contact_number = validate_contact_number();
     var password = validate_password();
     var email = validate_email();
-    var contact_number = validate_patient_contact_number();
-    var full_name = validate_patient_full_name();
-    const validation = [full_name, contact_number, email, password, address_line_1, address_line_2, zip_code, city, state, country];
+    var gender = validate_gender();
+    var tp_number = validate_tp_number();
+    var student_name = validate_student_name();
+    
+    const validation = [student_name, tp_number, gender, email, password, contact_number];
     if (validation.includes(false)) {
         return false;
     } else {
         return true;
     }
+}
+
+// Club Validation
+function validate_add_club() {
+    var venue = validate_venue();
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var day = validate_day();
+    var image = validate_add_image();
+    var description = validate_description();
+    var contact_number = validate_contact_number();
+    var club_email = validate_email();
+    var club_name = validate_name();
+
+    const validation = [club_name, club_email, contact_number, description, image, day, start_time, end_time, venue];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validate_edit_club() {
+    var venue = validate_venue();
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var day = validate_day();
+    var image = validate_edit_image();
+    var description = validate_description();
+    var contact_number = validate_contact_number();
+    var club_email = validate_email();
+    var club_name = validate_name();
+
+    const validation = [club_name, club_email, contact_number, description, image, day, start_time, end_time, venue];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// Event Validation
+function validate_add_event() {
+    
 }
 
 // Doctor Validation
@@ -163,18 +300,6 @@ function validate_gender() {
         return set_error_for(gender_input, "Gender cannot be left blank");
     } else {
         return set_success_for(gender_input);
-    }
-}
-
-function validate_contact_number() {
-    const contact_number_input = document.getElementById("contact-number");
-    const contact_number = contact_number_input.value.trim();
-    if (is_empty(contact_number)) {
-        return set_error_for(contact_number_input, "Contact number cannot be left blank");
-    } else if (!/^([0-9]{3})-([0-9]{7})$/.test(contact_number)) {
-        return set_error_for(contact_number_input, "Invalid contact number");
-    } else {
-        return set_success_for(contact_number_input);
     }
 }
 
@@ -215,23 +340,6 @@ function validate_doctor_languages() {
         return set_error_for(languages_input, "Languages cannot exceed 50 words");
     } else {
         return set_success_for(languages_input);
-    }
-}
-
-function validate_doctor_image() {
-    const image_input = document.getElementById("image");
-    const image = image_input.value.trim();
-
-    // Allowing file type
-    var allowed_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/;
-    if (is_empty(image)) {
-        return set_error_for(image_input, "Profile picture cannot be left blank");
-    } else if (!allowed_extensions.exec(image)) {
-        return set_error_for(image_input, "Only .jpg, .jpeg, .png and .gif files are allowed");
-    } else if (image_input.files[0].size / 1024 / 1024 > 16) {
-        return set_error_for(image_input, "Image size should not exceed 16 MiB");
-    } else {
-        return set_success_for(image_input);
     }
 }
 

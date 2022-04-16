@@ -7,6 +7,7 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
     $event_name = trim($_POST['event-name']);
     $event_description = trim($_POST['description']);
     $date = trim($_POST['date']);
+    $date = date("Y-m-d", strtotime($date));
     $start_time = trim($_POST['start-time']);
     $end_time = trim($_POST['end-time']);
     $approval_status = trim($_POST['approval-status']);

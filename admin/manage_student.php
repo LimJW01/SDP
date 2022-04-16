@@ -6,6 +6,8 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
     // Get data from HTML Form
     $student_name = trim($_POST['student-name']);
     $tp_number = trim($_POST['tp-number']);
+    // Convert TP number to upper case
+    $tp_number = strtoupper(substr($tp_number, 0, 2)).substr($tp_number, 2);
     $gender = trim($_POST['gender']);
     $email_address = trim($_POST['email-address']);
     $password = trim($_POST['password']);

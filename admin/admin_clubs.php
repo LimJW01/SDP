@@ -77,7 +77,8 @@ include_once "includes/header.php";
         <div class="modal-content" id="edit-club">
             <button close-button class="close">&times;</button>
             <h1>Edit Club Details</h1>
-            <form action="manage_club.php" id="edit-form" method="post" enctype="multipart/form-data">
+            <form action="manage_club.php" id="edit-form" method="post" enctype="multipart/form-data"
+                onsubmit="return validate_edit_club();">
             </form>
         </div>
     </div>
@@ -88,7 +89,8 @@ include_once "includes/header.php";
         <div class="modal-content" id="add-club">
             <button close-button class="close">&times;</button>
             <h1>Add New Club</h1>
-            <form action="manage_club.php" id="add-form" method="post" enctype="multipart/form-data">
+            <form action="manage_club.php" id="add-form" method="post" enctype="multipart/form-data"
+                onsubmit="return validate_add_club();">
             </form>
         </div>
     </div>
