@@ -101,6 +101,9 @@ if ($action == "delete") {
         Event Description<br>
         <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
             disabled><?php echo $event_row['Description']; ?></textarea>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
     </li>
 
     <li class="flex-item">
@@ -115,8 +118,7 @@ if ($action == "delete") {
     <?php if ($action == "view" || $action == "edit") : ?>
     <li class="flex-item">
         Date Posted <br>
-        <input type="date" name="date" id="date" class="input-disabled" value="<?php echo $event_row['Date'] ?>"
-            disabled>
+        <input type="date" name="date-posted" id="posted-date" value="<?php echo $event_row['Date_posted'] ?>" disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>

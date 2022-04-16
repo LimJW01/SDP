@@ -82,7 +82,8 @@ include_once "../change_time_format.php";
         <div class="modal-content" id="edit-event">
             <button close-button class="close">&times;</button>
             <h1>Edit Event Details</h1>
-            <form action="manage_event.php" id="edit-form" method="post" enctype="multipart/form-data">
+            <form action="manage_event.php" id="edit-form" method="post" enctype="multipart/form-data"
+                onsubmit="return validate_edit_event();">
             </form>
         </div>
     </div>
@@ -93,7 +94,8 @@ include_once "../change_time_format.php";
         <div class="modal-content" id="add-event">
             <button close-button class="close">&times;</button>
             <h1>Add New Event</h1>
-            <form action="manage_event.php" id="add-form" method="post" enctype="multipart/form-data">
+            <form action="manage_event.php" id="add-form" method="post" enctype="multipart/form-data"
+                onsubmit="return validate_add_event();">
             </form>
         </div>
     </div>

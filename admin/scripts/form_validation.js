@@ -26,15 +26,15 @@ function set_success_for(input) {
 
 
 // Input Validation
-function validate_student_name() {
-    const student_name_input = document.getElementById("student-name");
-    const student_name = student_name_input.value.trim();
-    if (is_empty(student_name)) {
-        return set_error_for(student_name_input, "Student name cannot be left blank");
-    } else if (!(/^[a-zA-Z]*[a-zA-Z\s]*[a-zA-Z]$/.test(student_name))) {
-        return set_error_for(student_name_input, "Invalid student name");
+function validate_user_name() {
+    const user_name_input = document.getElementById("user-name");
+    const user_name = user_name_input.value.trim();
+    if (is_empty(user_name)) {
+        return set_error_for(user_name_input, "Name cannot be left blank");
+    } else if (!(/^[a-zA-Z]*[a-zA-Z\s]*[a-zA-Z]$/.test(user_name))) {
+        return set_error_for(user_name_input, "Invalid Name");
     } else {
-        return set_success_for(student_name_input);
+        return set_success_for(user_name_input);
     }
 }
 
@@ -209,10 +209,31 @@ function validate_venue() {
 function validate_date() {
     const date_input = document.getElementById("date");
     const date = date_input.value.trim();
+    
     if (is_empty(date)) {
         return set_error_for(date_input, "Date cannot be left blank");
     } else {
         return set_success_for(date_input);  
+    }
+}
+
+function validate_organizing_club() {
+    const organizing_club_input = document.getElementById("organizing-club");
+    const organizing_club = organizing_club_input.value.trim();
+    if (is_empty(organizing_club)) {
+        return set_error_for(organizing_club_input, "Organizing club cannot be left blank");
+    } else {
+        return set_success_for(organizing_club_input);  
+    }
+}
+
+function validate_approval_status() {
+    const approval_status_input = document.getElementById("approval-status");
+    const approval_status = approval_status_input.value.trim();
+    if (is_empty(approval_status)) {
+        return set_error_for(approval_status_input, "Approval Status cannot be left blank");
+    } else {
+        return set_success_for(approval_status_input);  
     }
 }
 
@@ -224,7 +245,7 @@ function validate_student() {
     var email = validate_email();
     var gender = validate_gender();
     var tp_number = validate_tp_number();
-    var student_name = validate_student_name();
+    var student_name = validate_user_name();
     
     const validation = [student_name, tp_number, gender, email, password, contact_number];
     if (validation.includes(false)) {
@@ -275,241 +296,53 @@ function validate_edit_club() {
 
 // Event Validation
 function validate_add_event() {
-    
-}
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var date = validate_date();
+    var description = validate_description();
+    var organizing_club = validate_organizing_club();
+    var image = validate_add_image();
+    var event_name = validate_name();
 
-// Doctor Validation
-function validate_full_name() {
-    const full_name_input = document.getElementById("full-name");
-    const full_name = full_name_input.value.trim();
-    if (is_empty(full_name)) {
-        return set_error_for(full_name_input, "Full name cannot be left blank");
-    } else if (!/^[a-zA-Z/]*[a-zA-Z\s/]*[a-zA-Z/]$/.test(full_name)) {
-        return set_error_for(full_name_input, "Invalid full name");
-    }  else if (full_name.length > 100) {
-        return set_error_for(full_name_input, "Full name cannot exceed 100 words");
+    const validation = [event_name, image, organizing_club, description, date, start_time, end_time];
+    if (validation.includes(false)) {
+        return false;
     } else {
-        return set_success_for(full_name_input);
+        return true;
     }
 }
 
-function validate_gender() {
-    const gender_input = document.getElementById("gender");
-    const gender = gender_input.value.trim();
-    if (is_empty(gender)) {
-        return set_error_for(gender_input, "Gender cannot be left blank");
+function validate_edit_event() {
+    var approval_status = validate_approval_status();
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var date = validate_date();
+    var description = validate_description();
+    var organizing_club = validate_organizing_club();
+    var image = validate_edit_image();
+    var event_name = validate_name();
+
+    const validation = [event_name, image, organizing_club,description, date, start_time, end_time, approval_status];
+    if (validation.includes(false)) {
+        return false;
     } else {
-        return set_success_for(gender_input);
+        return true;
     }
 }
 
-function validate_doctor_qualification() {
-    const qualification_input = document.getElementById("qualification");
-    const qualification = qualification_input.value.trim();
-    if (is_empty(qualification)) {
-        return set_error_for(qualification_input, "Qualification cannot be left blank");
-    } else if (qualification.length > 100) {
-        return set_error_for(qualification_input, "Qualification cannot exceed 100 words");
-    } else {
-        return set_success_for(qualification_input);
-    }
-}
-
-function validate_doctor_specialty() {
-    const specialty_input = document.getElementById("specialty");
-    const specialty = specialty_input.value.trim();
-    if (is_empty(specialty)) {
-        return set_error_for(specialty_input, "Specialty cannot be left blank");
-    } else if (!/^[A-Za-z\s,]+$/.test(specialty)) {
-        return set_error_for(specialty_input, "Only letters are allowed");
-    } else if (specialty.length > 50) {
-        return set_error_for(specialty_input, "Specialty cannot exceed 50 words");
-    } else {
-        return set_success_for(specialty_input);
-    }
-}
-
-function validate_doctor_languages() {
-    const languages_input = document.getElementById("languages");
-    const languages = languages_input.value.trim();
-    if (is_empty(languages)) {
-        return set_error_for(languages_input, "Languages cannot be left blank");
-    } else if (!/^[A-Za-z\s,]+$/.test(languages)) {
-        return set_error_for(languages_input, "Only letters are allowed");
-    } else if (languages.length > 50) {
-        return set_error_for(languages_input, "Languages cannot exceed 50 words");
-    } else {
-        return set_success_for(languages_input);
-    }
-}
-
-function validate_add_doctor() {
-    var country = validate_country();
-    var state = validate_state();
-    var city = validate_city();
-    var zip_code = validate_zip_code();
-    var address_line_2 = validate_address_line_2();
-    var address_line_1 = validate_address_line_1();
-    var image = validate_doctor_image();
-    var languages = validate_doctor_languages();
-    var specialty = validate_doctor_specialty();
-    var qualification = validate_doctor_qualification();
+// Admin Validation
+function validate_admin_profile() {
     var contact_number = validate_contact_number();
     var password = validate_password();
     var email = validate_email();
-    var gender = validate_gender();
-    var full_name = validate_full_name();
-    const validation = [full_name, gender, email, password, contact_number, qualification, specialty, languages, image, address_line_1, address_line_2, zip_code, city, state, country];
+    var tp_number = validate_tp_number();
+    var admin_name = validate_user_name();
+
+    const validation = [admin_name, tp_number, email, password, contact_number];
     if (validation.includes(false)) {
         return false;
     } else {
         return true;
-    }
-}
-
-
-function validate_doctor_edit_image() {
-    const image_input = document.getElementById("image");
-    const image = image_input.value.trim();
-
-    // Allowing file type
-    var allowed_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/;
-    if (!is_empty(image)) {
-
-        // https://www.geeksforgeeks.org/file-type-validation-while-uploading-it-using-javascript/
-        if (!allowed_extensions.exec(image)) {
-            return set_error_for(image_input, "Only .jpg, .jpeg, .png and .gif files are allowed");
-            
-        // https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation
-        } else if (image_input.files[0].size / 1024 / 1024 > 2) {
-            return set_error_for(image_input, "Image size should not exceed 2 MiB");
-        }
-    }
-    return set_success_for(image_input);
-}
-
-function validate_edit_doctor() {
-    var country = validate_country();
-    var state = validate_state();
-    var city = validate_city();
-    var zip_code = validate_zip_code();
-    var address_line_2 = validate_address_line_2();
-    var address_line_1 = validate_address_line_1();
-    var image = validate_doctor_edit_image();
-    var languages = validate_doctor_languages();
-    var specialty = validate_doctor_specialty();
-    var qualification = validate_doctor_qualification();
-    var contact_number = validate_contact_number();
-    var password = validate_password();
-    var email = validate_email();
-    var gender = validate_gender();
-    var full_name = validate_full_name();
-    const validation = [full_name, gender, email, password, contact_number, qualification, specialty, languages, image, address_line_1, address_line_2, zip_code, city, state, country];
-    if (validation.includes(false)) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-// Appointment validation
-function validate_appointment_doctor_name() {
-    const doctor_name_input = document.getElementById("doctor-name");
-    const doctor_name = doctor_name_input.value.trim();
-    if (is_empty(doctor_name)) {
-        return set_error_for(doctor_name_input, "Doctor name cannot be left blank");
-    } else {
-        return set_success_for(doctor_name_input);
-    }
-}
-
-function validate_appointment_patient_name() {
-    const patient_name_input = document.getElementById("patient-name");
-    const patient_name = patient_name_input.value.trim();
-    if (is_empty(patient_name)) {
-        return set_error_for(patient_name_input, "Patient name cannot be left blank");
-    } else {
-        return set_success_for(patient_name_input);
-    }
-}
-
-function validate_date() {
-    const date_input = document.getElementById("appointment-date");
-    const date = date_input.value.trim();
-    if (is_empty(date)) {
-        return set_error_for(date_input, "Date cannot be left blank");
-    } else {
-        return set_success_for(date_input);
-    }
-}
-
-function validate_time() {
-    const time_input = document.getElementById("appointment-time");
-    const time = time_input.value.trim();
-    if (is_empty(time)) {
-        return set_error_for(time_input, "Time cannot be left blank");
-    } else {
-        return set_success_for(time_input);
-    }
-}
-
-function validate_remarks() {
-    const remarks_input = document.getElementById("remarks");
-    const remarks = remarks_input.value.trim();
-    if (!is_empty(remarks) && remarks.length > 500) {
-        return set_error_for(remarks_input, "Remarks cannot exceed 500 words");
-    } else {
-        return set_success_for(remarks_input);
-    }
-}
-
-function validate_add_appointment() {
-    var remarks = validate_remarks();
-    var time = validate_time();
-    var date = validate_date();
-    var patient_contact_number = validate_contact_number();
-    var patient_name = validate_appointment_patient_name();
-    var doctor_name = validate_appointment_doctor_name();
-    const validation = [doctor_name, patient_name, patient_contact_number, date, time, remarks];
-    if (validation.includes(false)) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function validate_edit_appointment() {
-    var time = validate_time();
-    var date = validate_date();
-    var validation = [date, time];
-    if (validation.includes(false)) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function validate_book_appointment() {
-    var remarks = validate_remarks();
-    var time = validate_time();
-    var date = validate_date();
-    var patient_contact_number = validate_contact_number();
-    var patient_name = validate_appointment_patient_name();
-    var validation = [patient_name, patient_contact_number, date, time, remarks];
-    if (validation.includes(false)) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function validate_inquiry() {
-    const inquiry_input = document.getElementById("inquiry");
-    const inquiry = inquiry_input.value.trim();
-    if (is_empty(inquiry)) {
-        return set_error_for(inquiry_input, "Inquiry cannot be left blank");
-    } else {
-        return set_success_for(inquiry_input);
     }
 }
 

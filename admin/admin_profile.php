@@ -20,11 +20,11 @@ $row = mysqli_fetch_assoc($result);
                     <i class="fas fa-user-edit"></i>Edit
                 </button>
             </div>
-            <form action="admin_update_profile.php" method="post">
+            <form action="admin_update_profile.php" method="post" onsubmit="return validate_admin_profile();">
                 <ul class="flex-container">
                     <li class="flex-item">
                         Admin Name <br>
-                        <input type="text" name="admin-name" id="admin-name" class="input-disabled"
+                        <input type="text" name="admin-name" id="user-name" class="input-disabled"
                             value="<?php echo $row['Admin_name'] ?>" disabled>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>

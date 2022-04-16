@@ -41,7 +41,7 @@ if ($action == "delete") {
 
     <li class="flex-item">
         Student Name <br>
-        <input type="text" name="student-name" id="student-name" class="input-disabled"
+        <input type="text" name="student-name" id="user-name" class="input-disabled"
             value="<?php echo $row['Student_name'] ?>" disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>

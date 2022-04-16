@@ -7,11 +7,11 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
     $event_name = trim($_POST['event-name']);
     $event_description = trim($_POST['description']);
     $date = trim($_POST['date']);
-    $date = date("Y-m-d", strtotime($date));
     $start_time = trim($_POST['start-time']);
     $end_time = trim($_POST['end-time']);
     $approval_status = trim($_POST['approval-status']);
     $club_id = trim($_POST['organizing-club']);
+
 
     if (isset($_POST['update'])) {
         $id = $_SESSION['event_id'];
@@ -42,8 +42,10 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
 
 
     if (isset($_POST['add'])) {
+        $date_posted = date("Y-m-d");
+
         $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-        $sql_query = "INSERT INTO events (Name, Description, Date, Start_time, End_time, Approval_status, Image, Admin_ID, Club_ID) VALUES ('$event_name', '$event_description', '$date', '$start_time', '$end_time', '$approval_status', '$image', 1, '$club_id');";
+        $sql_query = "INSERT INTO events (Name, Description, Date, Start_time, End_time, Date_posted, Approval_status, Image, Admin_ID, Club_ID) VALUES ('$event_name', '$event_description', '$date', '$start_time', '$end_time', '$date_posted', 'Approved', '$image', 1, '$club_id');";
         $result = mysqli_query($conn, $sql_query);
 
         // If database is updated
