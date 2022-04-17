@@ -1,5 +1,5 @@
 <?php
-include_once "../includes/dbh.php";
+include_once "../tbc/includes/dbh.php";
 
 $patient_id = $_POST['patient_id'];
 $sql_query = "SELECT * FROM patient WHERE Patient_ID = $patient_id;";

@@ -4,7 +4,7 @@
 <!-- Database Connnection for View, Edit, Delete Record -->
 <?php
 if ($action == "view" || $action == "edit" || $action == "delete") {
-    include_once "../includes/dbh.php";
+    include_once "../tbc/includes/dbh.php";
     session_start();
 
     $id = $_POST['id'];
@@ -145,6 +145,9 @@ $("#add-form .input-disabled").removeAttr("value");
 
 <!-- Validate Email Exist Error Script -->
 <script defer src="scripts/admin_email_exist_error.js"></script>
+
+<!-- Validate TP Number Exist Error Script -->
+<script defer src="scripts/tp_exist_error.js"></script>
 
 <!-- Close Database Connection -->
 <?php

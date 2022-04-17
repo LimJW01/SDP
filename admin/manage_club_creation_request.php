@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../includes/dbh.php";
+include_once "../tbc/includes/dbh.php";
 
 $club_creation_id = $_SESSION['club_creation_id'];
 

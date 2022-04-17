@@ -105,6 +105,9 @@ window.onload = function() {
 <!-- Validate Email Exist Error Script -->
 <script defer src="scripts/admin_email_exist_error.js"></script>
 
+<!-- Validate TP Number Exist Error Script -->
+<script defer src="scripts/tp_exist_error.js"></script>
+
 <?php
 include_once "includes/footer.php";
 ?>

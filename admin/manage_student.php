@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../includes/dbh.php";
+include_once "../tbc/includes/dbh.php";
 if (isset($_POST['update']) || (isset($_POST['add']))) {
 
     // Get data from HTML Form
@@ -26,11 +26,25 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
                   SELECT Email FROM students WHERE Student_ID != '$id'
                   ) AS All_email
                   WHERE All_email.Email = '$email_address'";
-        $result = $conn->query($email_sql);
-        $result_check = mysqli_num_rows($result);
+        $email_result = $conn->query($email_sql);
+        $email_result_check = mysqli_num_rows($email_result);
 
-        if ($result_check > 0) {
+        // Check if tp number exist or not
+        $tp_number_sql = "SELECT * FROM (
+                  SELECT TP_number FROM admin
+                  UNION
+                  SELECT TP_number FROM students WHERE Student_ID != '$id'
+                  ) AS All_tp_number
+                  WHERE All_tp_number.TP_number = '$tp_number'";
+        $tp_number_result = $conn->query($tp_number_sql);
+        $tp_number_result_check = mysqli_num_rows($tp_number_result);
+
+        if ($email_result_check > 0) {
             $_SESSION['message'] = "Email already exists. Please enter another one.";
+            $_SESSION['update'] = false;
+            header("Location: admin_students.php");
+        } else if ($tp_number_result_check > 0) {
+            $_SESSION['message'] = "TP number already exists. Please enter another one.";
             $_SESSION['update'] = false;
             header("Location: admin_students.php");
         } else {
@@ -54,20 +68,34 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
 
     if (isset($_POST['add'])) {
 
-        // Check if email exist or not
+       // Check if email exist or not
         $email_sql = "SELECT * FROM (
-            SELECT Email FROM admin
-            UNION
-            SELECT Email FROM clubs
-            UNION
-            SELECT Email FROM students
-            ) AS All_email
-            WHERE All_email.Email = '$email_address'";
-        $result = $conn->query($email_sql);
-        $result_check = mysqli_num_rows($result);
+                  SELECT Email FROM admin
+                  UNION
+                  SELECT Email FROM clubs
+                  UNION
+                  SELECT Email FROM students
+                  ) AS All_email
+                  WHERE All_email.Email = '$email_address'";
+        $email_result = $conn->query($email_sql);
+        $email_result_check = mysqli_num_rows($email_result);
 
-        if ($result_check > 0) {
+        // Check if tp number exist or not
+        $tp_number_sql = "SELECT * FROM (
+                  SELECT TP_number FROM admin
+                  UNION
+                  SELECT TP_number FROM students
+                  ) AS All_tp_number
+                  WHERE All_tp_number.TP_number = '$tp_number'";
+        $tp_number_result = $conn->query($tp_number_sql);
+        $tp_number_result_check = mysqli_num_rows($tp_number_result);
+
+        if ($email_result_check > 0) {
             $_SESSION['message'] = "Email already exists. Please enter another one.";
+            $_SESSION['add'] = false;
+            header("Location: admin_students.php");
+        } else if ($tp_number_result_check > 0) {
+            $_SESSION['message'] = "TP number already exists. Please enter another one.";
             $_SESSION['add'] = false;
             header("Location: admin_students.php");
         } else {

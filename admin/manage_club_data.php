@@ -4,7 +4,7 @@
 <!-- Database Connnection for View, Edit, Delete Record -->
 <?php
 if ($action == "view" || $action == "edit" || $action == "delete" || $action == "add") {
-    include_once "../includes/dbh.php";
+    include_once "../tbc/includes/dbh.php";
     include_once "../change_time_format.php";
 
     if ($action == "view" || $action == "edit" || $action == "delete") {
