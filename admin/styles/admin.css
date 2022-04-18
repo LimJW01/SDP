@@ -255,7 +255,8 @@ table img {
 }
 
 #specific-club .content-container {
-  height: 860px;
+  padding-bottom: 20px;
+  height: auto;
 }
 
 #specific-club i {
@@ -310,6 +311,10 @@ table img {
   font-size: 20px;
   padding-top: 5px;
   font-weight: normal;
+}
+
+#specific-club-member-list {
+  margin-bottom: 50px;
 }
 
 /* POP UP */

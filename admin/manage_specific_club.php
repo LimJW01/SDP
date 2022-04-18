@@ -1,6 +1,31 @@
 <?php
 session_start();
 include_once "../tbc/includes/dbh.php";
+
+$id = $_SESSION['club_id'];
+if (isset($_POST['delete'])) {
+
+    $club_sql_query = "SELECT * FROM clubs WHERE Club_ID = $id;";
+    $club_result = mysqli_query($conn, $club_sql_query);
+    $row = mysqli_fetch_assoc($club_result);
+    $club_name = $row['Name'];
+
+    $delete_sql_query = "DELETE FROM clubs WHERE Club_ID = $id;";
+    $delete_result = mysqli_query($conn, $delete_sql_query);
+    if (mysqli_affected_rows($conn) >= 1) {
+        $_SESSION['message'] = "Record Deleted Successfully";
+        $_SESSION['delete'] = true;
+
+        unset($_SESSION['club_id']);
+        header("Location: admin_clubs.php");
+    } else {
+        $_SESSION['message'] = "Failed to Delete Record";
+        $_SESSION['delete'] = false;
+
+        header("Location: admin_specific_club.php?club=" . $club_name);
+    }
+}
+
 if (isset($_POST['update'])) {
 
     // Get data from HTML Form
@@ -12,8 +37,6 @@ if (isset($_POST['update'])) {
     $start_time = trim($_POST['start-time']);
     $end_time = trim($_POST['end-time']);
     $venue = trim($_POST['venue']);
-
-    $id = $_SESSION['club_id'];
 
     // Check if email exist or not
     $email_sql = "SELECT * FROM (
@@ -30,7 +53,7 @@ if (isset($_POST['update'])) {
     if ($result_check > 0) {
         $_SESSION['message'] = "Email already exists. Please enter another one.";
         $_SESSION['update'] = false;
-        header("Location: admin_specific_club.php?club=". $club_name);
+        header("Location: admin_specific_club.php?club=" . $club_name);
     } else {
         // if no file was uploaded to the club image field
         if (empty($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -56,8 +79,7 @@ if (isset($_POST['update'])) {
 
         unset($_SESSION['club_id']);
     }
-    
     mysqli_close($conn);
 
-    header("Location: admin_specific_club.php?club=". $club_name);
+    header("Location: admin_specific_club.php?club=" . $club_name);
 }
