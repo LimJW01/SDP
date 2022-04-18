@@ -3,11 +3,11 @@ session_start();
 include_once "../tbc/includes/dbh.php";
 
 // Admin Account Authentication
-// if (!isset($_SESSION['admin_id']) && !isset($_SESSION['admin_email'])) {
-//     $_SESSION['login'] = false;
-//     $_SESSION['message'] = "Unauthorize access! Please login to continue";
-//     header("Location: ../login.php");
-// }
+if (!isset($_SESSION['admin_id'])) {
+    $_SESSION['login'] = false;
+    $_SESSION['message'] = "Unauthorized access! Please login to continue";
+    header("Location: ../tbc/login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

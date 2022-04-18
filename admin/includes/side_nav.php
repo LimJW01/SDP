@@ -50,7 +50,7 @@
     </ul>
     <div id="log-out">
         <h1>Admin</h1>
-        <a href="../logout.php">
+        <a href="../tbc/logout.php">
             <i class="fas fa-sign-out-alt"></i>
         </a>
     </div>

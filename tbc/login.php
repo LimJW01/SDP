@@ -18,7 +18,7 @@ session_start();
 
 <body id="login-page">
     <section class="entry-form">
-        <form name="login" action="logging_in.php" method="post" class="text-center"
+        <form name="login" action="manage_login.php" method="post" class="text-center"
             onsubmit="return validate_login();">
             <a href="index.php"><img title="Home" class="entry-logo" src="../images/logo.png" alt="logo"></a>
             <br>

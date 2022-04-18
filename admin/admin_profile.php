@@ -1,9 +1,8 @@
 <?php
 include_once "includes/header.php";
 
-$email = "admin@mail.apu.edu.my";
-// $email = $_SESSION['admin_email'];
-$sql_query = "SELECT * FROM admin WHERE Email = '$email';";
+$id = $_SESSION['admin_id'];
+$sql_query = "SELECT * FROM admin WHERE Admin_ID = '$id';";
 $result = mysqli_query($conn, $sql_query);
 $row = mysqli_fetch_assoc($result);
 

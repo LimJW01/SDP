@@ -4,8 +4,7 @@ include_once "../tbc/includes/dbh.php";
 
 
 if (isset($_POST['update'])) {
-    $id = "1";
-    // $id = $_SESSION['admin_id'];
+    $id = $_SESSION['admin_id'];
 
     // Get data from HTML Form
     $admin_name = trim($_POST['admin-name']);
