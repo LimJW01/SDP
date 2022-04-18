@@ -15,7 +15,7 @@ $row = mysqli_fetch_assoc($result);
         <div class="content-container" id="profile-details">
             <div class="title-container">
                 <h2>Profile Settings</h2>
-                <button data-modal-target="#add" title="Edit" id="edit-button">
+                <button title="Edit" id="edit-button">
                     <i class="fas fa-user-edit"></i>Edit
                 </button>
             </div>
@@ -75,18 +75,11 @@ $row = mysqli_fetch_assoc($result);
 var editButton = document.getElementById("edit-button");
 var updateButton = document.getElementById("update-button");
 
-
 // When the user clicks on the edit button,
 editButton.onclick = function() {
     updateButton.style.display = "block";
     editButton.style.display = "none";
     $("input[class='input-disabled']").prop('disabled', false);
-}
-
-// When the user clicks on the update button,
-updateButton.onsubmit = function() {
-    editButton.style.display = "block";
-    updateButton.style.display = "none";
 }
 
 // Alert message if record updated

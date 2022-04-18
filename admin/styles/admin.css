@@ -142,7 +142,8 @@ body {
 }
 
 .content-container #add-button,
-.content-container #edit-button {
+.content-container #edit-button,
+.content-container #delete-button {
   float: right;
   padding: 10px 2%;
   margin: 40px 3% 20px;
@@ -151,9 +152,18 @@ body {
   font-weight: bold;
 }
 
-.content-container #edit-button {
+.content-container #edit-button,
+.content-container #delete-button {
   margin: 21px 3% 13px;
   display: block;
+}
+
+.content-container #edit-button {
+  margin-right: 0;
+}
+
+.content-container #delete-button {
+  background-color: red;
 }
 
 .table-container {
@@ -198,15 +208,15 @@ table .padding-left {
   padding-left: 0.5%;
 }
 
-.fa-eye {
+.table-container .fa-eye {
   color: #00cf08;
 }
 
-.fa-edit {
+.table-container .fa-edit {
   color: #ffb800;
 }
 
-.fa-trash-alt {
+.table-container .fa-trash-alt {
   color: red;
 }
 
@@ -236,11 +246,20 @@ table img {
   padding-top: 40px;
 }
 
-/* PROFILE PAGE */
+/* SPECIFIC CLUB AND PROFILE PAGE */
 
+#specific-club .content-container,
 #profile .content-container {
   height: 550px;
   margin: 40px auto;
+}
+
+#specific-club .content-container {
+  height: 860px;
+}
+
+#specific-club i {
+  margin: 0 5px;
 }
 
 .title-container {
@@ -258,10 +277,15 @@ table img {
   margin: 25px 4% 20px;
 }
 
-.fa-user-edit {
+#profile .fa-user-edit {
   padding-right: 3px;
 }
 
+#specific-club .fa-trash-alt {
+  color: black;
+}
+
+#specific-club .flex-container,
 #profile .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -270,16 +294,18 @@ table img {
   list-style-type: none;
 }
 
+#specific-club .flex-item,
 #profile .flex-item {
   flex-basis: 45%;
   padding-bottom: 45px;
   position: relative;
 }
 
-#profile .address {
+#specific-club .activity-details {
   flex-basis: 100%;
 }
 
+#specific-club h3,
 #profile h3 {
   font-size: 20px;
   padding-top: 5px;
@@ -548,7 +574,10 @@ table img {
   margin: 8% 20% 5% 21%;
 }
 
-#view-club img, #view-event img, #view-club-creation-request img {
+#specific-club img,
+#view-club img, 
+#view-event img, 
+#view-club-creation-request img {
   width: 150px;
   margin: auto;
   display: block;
@@ -578,3 +607,80 @@ table img {
 #club-creation-requests table {
   margin-top: 60px;
 }
+
+/* Clubs Page */
+#clubs .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 40px 10px;
+  justify-content: space-between;
+  margin: 50px 80px;
+}
+
+#clubs .grid-item {
+  height: auto;
+  width: 200px;
+  text-align: center;
+}
+
+#clubs .img-container {
+  height: 250px;
+  position: relative;
+  background: white;
+  border: 1px solid black;
+}
+
+#clubs .grid-item img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#clubs .grid-item h2 {
+  margin: 15px 0px 10px 0px;
+  font-size: 18px;
+}
+
+@media (max-width: 1400px) {
+  #clubs .grid-container {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media (max-width: 1040px) {
+  #clubs .grid-container {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 690px) {
+  #clubs .grid-container {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+}
+
+#clubs .grid-container a:visited,
+#clubs .grid-container a:link {
+  color: black;
+  text-decoration: none;
+}
+
+/* Edit Specific Club */
+
+img#club-image {  
+  margin: 20px auto;
+}
+
+.flex-item#edit-club-image {
+  display: none;
+}
+
+
