@@ -18,7 +18,7 @@ $_SESSION['club_id'] = $club_id;
         <div class="content-container" id="specific-club-details">
             <div class="title-container">
                 <h2>Club Settings</h2>
-                <form action="manage_specific_club.php" method="post">
+                <form action="manage_specific_club.php" method="post" onsubmit="return delete_confirmation();">
                     <button title="Delete" name="delete" type="submit" id="delete-button">
                         <i class="fas fa-trash-alt"></i>Delete
                     </button>

@@ -4,7 +4,6 @@ include_once "../tbc/includes/dbh.php";
 
 $id = $_SESSION['club_id'];
 if (isset($_POST['delete'])) {
-
     $club_sql_query = "SELECT * FROM clubs WHERE Club_ID = $id;";
     $club_result = mysqli_query($conn, $club_sql_query);
     $row = mysqli_fetch_assoc($club_result);

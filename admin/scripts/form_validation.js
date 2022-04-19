@@ -390,3 +390,9 @@ function validate_add_club_member() {
         return true;
     }
 }
+
+// Delete Confirmation
+
+function delete_confirmation() {
+    return (confirm("Are you sure you want to delete this record?")) ? true : false;
+}
