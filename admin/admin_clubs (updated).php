@@ -6,6 +6,7 @@ include_once "includes/header.php";
     <br>
     <hr>
     <article id="clubs">
+        <button data-modal-target="#add" title="Add Club" id="add-button">Add Club</button>
         <div class="grid-container">
             <?php $sql = "SELECT * FROM clubs ORDER BY Name ASC";
                 $result = $conn->query($sql);
@@ -27,6 +28,33 @@ include_once "includes/header.php";
         </div>
     </article>
 
-    <?php
+    <!-- Add Club -->
+    <div class="modal" id="add">
+        <!-- Modal content -->
+        <div class="modal-content" id="add-club">
+            <button close-button class="close">&times;</button>
+            <h1>Add New Club</h1>
+            <form action="manage_club.php" id="add-form" method="post" enctype="multipart/form-data"
+                onsubmit="return validate_add_club();">
+            </form>
+        </div>
+    </div>
+    <div id="overlay"></div>
+</main>
+
+<script>
+$(document).ready(function() {
+
+    // Load Add Club Data When Clicked
+    $("#add-button").click(function() {
+        var action = "add";
+        $("#add-form").load("manage_club_data.php", {
+            action: action
+        });
+    });
+});
+</script>
+
+<?php
 include_once "includes/footer.php";
 ?>
