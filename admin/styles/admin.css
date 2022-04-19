@@ -317,6 +317,13 @@ table img {
   margin-bottom: 50px;
 }
 
+.fa-angle-double-up {
+  color:#00cf08;
+}
+
+.fa-angle-double-down {
+  color:red;
+}
 /* POP UP */
 
 /* Modal Box */

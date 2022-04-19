@@ -174,14 +174,16 @@ $_SESSION['club_id'] = $club_id;
 
                         <td style="text-align: center;">
                             <?php if ($joined_club_row['Role'] == "Member") : ?>
-                            <i data-modal-target="#view" title="View" class="fas fa-eye"
-                                id="view-button-<?php echo $student_ID; ?>"></i>
+                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"><i
+                                    title="Promote to Committee" class="fas fa-angle-double-up"
+                                    id="promote-button-<?php echo $student_ID; ?>"></i></a>
                             <?php else : ?>
-                            <i data-modal-target="#edit" title="Edit" class="fas fa-edit"
-                                id="edit-button-<?php echo $student_ID; ?>"></i>
+                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"><i
+                                    title="Demote to Member" class="fas fa-angle-double-down"
+                                    id="demote-button-<?php echo $student_ID; ?>"></i></a>
                             <?php endif; ?>
-                            <a href="admin_students.php"><i title="Delete" class="fas fa-trash-alt"
-                                    id="delete-button-<?php echo $student_ID; ?>"></i>
+                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"><i title="Delete"
+                                    class="fas fa-trash-alt" id="delete-button-<?php echo $student_ID; ?>"></i>
                             </a>
 
                         </td>
@@ -220,6 +222,71 @@ editButton.onclick = function() {
     $("textarea[class='input-disabled']").prop('disabled', false);
     $("select[class='input-disabled']").prop('disabled', false);
 }
+
+$(document).ready(function() {
+    <?php foreach ($student_array as $student_id) : ?>
+
+    // Get specific student data
+    <?php
+            $id = str_replace("S", "", $student_id);
+            $specific_student_sql = "SELECT * FROM students WHERE Student_ID = '$id';";
+            $specific_student_result = $conn->query($specific_student_sql);
+            $specific_student_row = mysqli_fetch_assoc($specific_student_result)
+            ?>
+
+    var student_id = "<?php echo str_replace("S", "", $student_id) ?>";
+    var club_id = "<?php echo $club_id; ?>";
+
+    // Load Promote Club Member When Clicked
+    $("#promote-button-<?php echo $student_id; ?>").click(function() {
+        if (confirm(
+                "Are you sure you want to promote <?php echo $specific_student_row['Student_name'] ?> to committee?"
+            )) {
+            var action = "promote";
+            $(window).load("manage_specific_club_member.php", {
+                student_id: student_id,
+                club_id: club_id,
+                action: action
+            });
+        }
+    });
+
+    // Load Demote Club Committee When Clicked
+    $("#demote-button-<?php echo $student_id; ?>").click(function() {
+        if (confirm(
+                "Are you sure you want to demote <?php echo $specific_student_row['Student_name'] ?> to member?"
+            )) {
+            var action = "demote";
+            $(window).load("manage_specific_club_member.php", {
+                student_id: student_id,
+                club_id: club_id,
+                action: action
+            });
+        }
+    });
+
+    // Load Delete Club Member When Clicked
+    $("#delete-button-<?php echo $student_id; ?>").click(function() {
+        if (confirm("Are you sure you want to delete this record?")) {
+            var action = "delete";
+            $(window).load("manage_specific_club_member.php", {
+                student_id: student_id,
+                club_id: club_id,
+                action: action
+            });
+        }
+    });
+
+    <?php endforeach; ?>
+
+    // Load Add Club Data When Clicked
+    $("#add-button").click(function() {
+        var action = "add";
+        $("#add-form").load("manage_club_data.php", {
+            action: action
+        });
+    });
+});
 
 // Alert message if record updated
 <?php if (isset($_SESSION['update']) && isset($_SESSION['message'])) : ?>

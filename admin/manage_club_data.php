@@ -107,8 +107,8 @@ if ($action == "delete") {
             <?php endif; ?>
             <?php foreach ($day_list as $day) : ?>
             <option value="<?php echo $day ?>" <?php if ($action == "edit" || $action == "view") {
-                                            echo ($row['Day'] == $day) ? "selected" : "";
-                                        } ?>><?php echo $day ?>
+                                                            echo ($row['Day'] == $day) ? "selected" : "";
+                                                        } ?>><?php echo $day ?>
             </option>
             <?php endforeach; ?>
         </select>
