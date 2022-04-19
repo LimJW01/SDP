@@ -147,22 +147,21 @@ $_SESSION['club_id'] = $club_id;
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php
-                    $student_sql = "SELECT * FROM students ORDER BY Student_name ASC";
-                    $student_result = $conn->query($student_sql);
-                    $student_result_check = mysqli_num_rows($student_result);
+                    // Get members data that joined the club
+                    $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
+                    $joined_club_result = $conn->query($joined_club_sql);
+                    $joined_club_result_check = mysqli_num_rows($joined_club_result);
                     ?>
-                    <?php if ($student_result_check > 0) : ?>
-                    <?php while ($student_row = mysqli_fetch_assoc($student_result)) : ?>
-                    <?php
-                            $student_ID = "S" . $student_row['Student_ID'];
-
-                            $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id' AND Student_ID = " . $student_row['Student_ID'] .  ";";
-                            $joined_club_result = $conn->query($joined_club_sql);
-                            $joined_club_result_check = mysqli_num_rows($joined_club_result);
-                            ?>
 
                     <?php if ($joined_club_result_check > 0) : ?>
-                    <?php $joined_club_row = mysqli_fetch_assoc($joined_club_result) ?>
+                    <?php while ($joined_club_row = mysqli_fetch_assoc($joined_club_result)) : ?>
+                    <?php
+                            $student_sql = "SELECT * FROM students WHERE Student_ID =" . $joined_club_row['Student_ID'] .  ";";
+                            $student_result = $conn->query($student_sql);
+                            $student_row = mysqli_fetch_assoc($student_result);
+
+                            $student_ID = "S" . $student_row['Student_ID'];
+                            ?>
                     <tr>
                         <td class="padding-left"><?php echo $student_row['Student_name']; ?></td>
                         <td class="padding-left"><?php echo $student_row['TP_number']; ?></td>
@@ -183,15 +182,13 @@ $_SESSION['club_id'] = $club_id;
                             <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"><i title="Delete"
                                     class="fas fa-trash-alt" id="delete-button-<?php echo $student_ID; ?>"></i>
                             </a>
-
                         </td>
                     </tr>
-                    <?php endif; ?>
                     <?php endwhile; ?>
                     <?php else : ?>
                     <tr>
                         <td colspan="6">
-                            <h2 class="no-record">No Records Found</h2>
+                            <h3 class="no-record">No Records Found</h3>
                         </td>
                     </tr>
                     <?php endif; ?>
