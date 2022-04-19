@@ -237,6 +237,26 @@ function validate_approval_status() {
     }
 }
 
+function validate_add_student_name() {
+    const student_name_input = document.getElementById("student-name");
+    const student_name = student_name_input.value.trim();
+    if (is_empty(student_name)) {
+        return set_error_for(student_name_input, "Student name cannot be left blank");
+    } else {
+        return set_success_for(student_name_input);  
+    }
+}
+
+function validate_role() {
+    const role_input = document.getElementById("role");
+    const role = role_input.value.trim();
+    if (is_empty(role)) {
+        return set_error_for(role_input, "Role cannot be left blank");
+    } else {
+        return set_success_for(role_input);  
+    }
+}
+
 
 // Student Validation
 function validate_student() {
@@ -352,6 +372,18 @@ function validate_contact_us() {
     var email = validate_email();
     var full_name = validate_full_name();
     var validation = [full_name, email, contact_number, inquiry];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
+function validate_add_club_member() {
+    var role = validate_role();
+    var student_name = validate_add_student_name();
+    var validation = [role, student_name];
     if (validation.includes(false)) {
         return false;
     } else {

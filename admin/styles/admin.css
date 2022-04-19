@@ -152,6 +152,10 @@ body {
   font-weight: bold;
 }
 
+#specific-club-member-list .content-container #add-button {
+  margin-top: 10px;
+}
+
 .content-container #edit-button,
 .content-container #delete-button {
   margin: 21px 3% 13px;
@@ -317,6 +321,11 @@ table img {
   margin-bottom: 50px;
 }
 
+#specific-club-member-list h2 {
+  font-size: 27px;
+  padding: 30px 30px 0px;
+}
+
 .fa-angle-double-up {
   color:#00cf08;
 }
@@ -324,6 +333,8 @@ table img {
 .fa-angle-double-down {
   color:red;
 }
+
+
 /* POP UP */
 
 /* Modal Box */
@@ -377,13 +388,15 @@ table img {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#view-inquiry.modal-content {
-  margin: 4.5% 20% 1.5% 40%;
+#add-club-member.modal-content {
+  margin: 10% 20% 1.5% 38%;
   width: 30%;
   min-width: 350px;
+  padding: 20px 20px 30px;
 }
-#view-inquiry.modal-content .flex-item {
-  flex-basis: 95%;
+
+#add-club-member.modal-content .flex-item{
+  flex-basis: 100%;
 }
 
 .modal-content .subtitle {
@@ -481,6 +494,7 @@ table img {
   visibility: visible;
 }
 
+
 /* The Close Button */
 .close {
   color: #aaa;
@@ -545,6 +559,10 @@ table img {
   height: 40px;
   border-radius: 30px;
   font-weight: bold;
+}
+
+#add-club-member .submit-btn {
+  width: 30%;
 }
 
 #approve-btn, #reject-btn {

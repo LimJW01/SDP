@@ -1,6 +1,5 @@
 <?php
 include_once "includes/header.php";
-include_once "includes/scripts.php";
 include_once "../change_time_format.php";
 
 $club_name = $_GET['club'];
@@ -135,6 +134,7 @@ $_SESSION['club_id'] = $club_id;
 
     <article id="specific-club-member-list">
         <div class="content-container">
+            <h2>Club Member List</h2>
             <button data-modal-target="#add" title="Add Member" id="add-button">Add Member</button>
             <div class="table-container">
                 <table>
@@ -150,13 +150,11 @@ $_SESSION['club_id'] = $club_id;
                     $student_sql = "SELECT * FROM students ORDER BY Student_name ASC";
                     $student_result = $conn->query($student_sql);
                     $student_result_check = mysqli_num_rows($student_result);
-                    $student_array = array();
                     ?>
                     <?php if ($student_result_check > 0) : ?>
                     <?php while ($student_row = mysqli_fetch_assoc($student_result)) : ?>
                     <?php
                             $student_ID = "S" . $student_row['Student_ID'];
-                            array_push($student_array, $student_ID);
 
                             $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id' AND Student_ID = " . $student_row['Student_ID'] .  ";";
                             $joined_club_result = $conn->query($joined_club_sql);
@@ -174,7 +172,7 @@ $_SESSION['club_id'] = $club_id;
 
                         <td style="text-align: center;">
                             <?php if ($joined_club_row['Role'] == "Member") : ?>
-                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"><i
+                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"> <i
                                     title="Promote to Committee" class="fas fa-angle-double-up"
                                     id="promote-button-<?php echo $student_ID; ?>"></i></a>
                             <?php else : ?>
@@ -201,6 +199,19 @@ $_SESSION['club_id'] = $club_id;
             </div>
         </div>
     </article>
+
+    <!-- Add Club Member -->
+    <div class="modal" id="add">
+        <!-- Modal content -->
+        <div class="modal-content" id="add-club-member">
+            <button close-button class="close">&times;</button>
+            <h1>Add New Member</h1>
+            <form action="manage_add_club_member.php" id="add-form" method="post"
+                onsubmit="return validate_add_club_member();">
+            </form>
+        </div>
+    </div>
+    <div id="overlay"></div>
 </main>
 
 <script>
@@ -223,26 +234,62 @@ editButton.onclick = function() {
     $("select[class='input-disabled']").prop('disabled', false);
 }
 
+// Alert message if record updated
+<?php if (isset($_SESSION['update']) && isset($_SESSION['message'])) : ?> window.onload = function() {
+    alert("<?php echo $_SESSION['message'] ?>");
+}
+<?php
+        unset($_SESSION['update']);
+        unset($_SESSION['message']);
+    endif;
+    ?>
+
+
+// Action Controller
 $(document).ready(function() {
-    <?php foreach ($student_array as $student_id) : ?>
-
-    // Get specific student data
-    <?php
-            $id = str_replace("S", "", $student_id);
-            $specific_student_sql = "SELECT * FROM students WHERE Student_ID = '$id';";
-            $specific_student_result = $conn->query($specific_student_sql);
-            $specific_student_row = mysqli_fetch_assoc($specific_student_result)
-            ?>
-
-    var student_id = "<?php echo str_replace("S", "", $student_id) ?>";
     var club_id = "<?php echo $club_id; ?>";
 
+    // Get member of the specific club 
+    <?php
+        $club_member_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
+        $club_member_result = $conn->query($club_member_sql);
+        $club_member_result_check = mysqli_num_rows($club_member_result);
+        ?>
+
+    // Loop through each member in the club
+    <?php if ($club_member_result_check > 0) : ?>
+    <?php while ($club_member_row = mysqli_fetch_assoc($club_member_result)) : ?>
+
+    // Get student data using id
+    <?php
+                $student_id = $club_member_row['Student_ID'];
+                $specific_student_sql = "SELECT * FROM students WHERE Student_ID = '$student_id';";
+                $specific_student_result = $conn->query($specific_student_sql);
+                $specific_student_row = mysqli_fetch_assoc($specific_student_result)
+                ?>
+
+
+
+
+    // Get student role in the club
+    <?php
+                $club_member_details_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id' AND Student_ID = '$student_id';";
+                $club_member_details_result = $conn->query($club_member_details_sql);
+                $club_member_details_row = mysqli_fetch_assoc($club_member_details_result);
+
+                // Display different icon based on the role
+                if ($club_member_details_row['Role'] == 'Member') :
+                ?>
+
+
     // Load Promote Club Member When Clicked
-    $("#promote-button-<?php echo $student_id; ?>").click(function() {
+    $("#promote-button-S<?php echo $student_id; ?>").click(function() {
         if (confirm(
                 "Are you sure you want to promote <?php echo $specific_student_row['Student_name'] ?> to committee?"
             )) {
+            var student_id = "<?php echo $student_id; ?>";
             var action = "promote";
+
             $(window).load("manage_specific_club_member.php", {
                 student_id: student_id,
                 club_id: club_id,
@@ -251,11 +298,14 @@ $(document).ready(function() {
         }
     });
 
-    // Load Demote Club Committee When Clicked
-    $("#demote-button-<?php echo $student_id; ?>").click(function() {
+    <?php else : ?>
+
+    //Load Demote Club Committee When Clicked
+    $("#demote-button-S<?php echo $student_id; ?>").click(function() {
         if (confirm(
                 "Are you sure you want to demote <?php echo $specific_student_row['Student_name'] ?> to member?"
             )) {
+            var student_id = "<?php echo $student_id; ?>";
             var action = "demote";
             $(window).load("manage_specific_club_member.php", {
                 student_id: student_id,
@@ -264,10 +314,13 @@ $(document).ready(function() {
             });
         }
     });
+    <?php endif; ?>
+
 
     // Load Delete Club Member When Clicked
-    $("#delete-button-<?php echo $student_id; ?>").click(function() {
+    $("#delete-button-S<?php echo $student_id; ?>").click(function() {
         if (confirm("Are you sure you want to delete this record?")) {
+            var student_id = "<?php echo $student_id; ?>";
             var action = "delete";
             $(window).load("manage_specific_club_member.php", {
                 student_id: student_id,
@@ -277,33 +330,24 @@ $(document).ready(function() {
         }
     });
 
-    <?php endforeach; ?>
+    <?php endwhile; ?>
+    <?php endif; ?>
 
     // Load Add Club Data When Clicked
     $("#add-button").click(function() {
         var action = "add";
-        $("#add-form").load("manage_club_data.php", {
+        $("#add-form").load("manage_specific_club_member.php", {
+            club_id: club_id,
             action: action
         });
     });
 });
-
-// Alert message if record updated
-<?php if (isset($_SESSION['update']) && isset($_SESSION['message'])) : ?>
-window.onload = function() {
-    alert("<?php echo $_SESSION['message'] ?>");
-}
-<?php
-        unset($_SESSION['update']);
-        unset($_SESSION['message']);
-    endif;
-    ?>
 </script>
-
 <!-- Validate Email Exist Error Script -->
 <script defer src="scripts/admin_email_exist_error.js"></script>
 
 
 <?php
+include_once "includes/alert_message.php";
 include_once "includes/footer.php";
 ?>
