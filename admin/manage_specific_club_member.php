@@ -14,7 +14,6 @@ if ($action == "promote" || $action == "demote" || $action == "delete") {
 
 ?>
 
-<!-- SQL Query for View, Edit Record -->
 <?php
 if ($action == "promote") {
     $promote_sql_query = "UPDATE joined_clubs SET Role = 'Committee' WHERE Student_ID = '$student_id' AND Club_ID = '$club_id';";
@@ -68,10 +67,10 @@ if ($action == "delete") {
 }
 ?>
 
-
-
+<!-- Add New Club Member -->
 <?php if ($action == "add") : ?>
 <?php
+    // Get all students and store in an array
     $student_list = array();
     $student_sql_query = "SELECT * FROM students ORDER BY Student_name ASC;";
     $student_result = mysqli_query($conn, $student_sql_query);
@@ -82,6 +81,7 @@ if ($action == "delete") {
         }
     }
 
+    // Get club members and store in an array
     $club_member_list = array();
     $club_member_sql_query = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
     $club_member_result = mysqli_query($conn, $club_member_sql_query);
@@ -92,6 +92,7 @@ if ($action == "delete") {
         }
     }
 
+    // Compare both array and get the students that 
     $available_student_list = array_diff($student_list, $club_member_list);
     ?>
 
