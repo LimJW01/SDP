@@ -53,5 +53,6 @@ $(document).ready(function() {
 </script>
 
 <?php
+include_once "includes/alert_message.php";
 include_once "includes/footer.php";
 ?>
