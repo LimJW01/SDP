@@ -3,7 +3,7 @@
 $action = $_POST['action'];
 
 //Database Connnection for Promote, Demote, Delete, Add Record
-include_once "../tbc/includes/dbh.php";
+include_once "../user/includes/dbh.php";
 
 $club_id = $_POST['club_id'];
 
@@ -69,7 +69,7 @@ if ($action == "delete") {
 
 <!-- Add New Club Member -->
 <?php if ($action == "add") : ?>
-<?php
+    <?php
     // Get all students and store in an array
     $student_list = array();
     $student_sql_query = "SELECT * FROM students ORDER BY Student_name ASC;";
@@ -96,69 +96,69 @@ if ($action == "delete") {
     $available_student_list = array_diff($student_list, $club_member_list);
     ?>
 
-<?php if (empty($available_student_list)) : ?>
-<script>
-// Close opened modals
-var modals = document.querySelectorAll('.modal.active');
-modals.forEach(modal => {
-    close_modal(modal)
-})
+    <?php if (empty($available_student_list)) : ?>
+        <script>
+            // Close opened modals
+            var modals = document.querySelectorAll('.modal.active');
+            modals.forEach(modal => {
+                close_modal(modal)
+            })
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
 
-async function delay() {
-    await sleep(200);
-    alert("No available students to be added");
-}
+            async function delay() {
+                await sleep(200);
+                alert("No available students to be added");
+            }
 
-delay();
-</script>
-<?php else : ?>
+            delay();
+        </script>
+    <?php else : ?>
 
-<ul class="flex-container">
-    <li class="flex-item">
-        Student Name <br>
-        <select name="student-id" id="student-name">
-            <option value="" selected disabled hidden>Please select a student</option>
+        <ul class="flex-container">
+            <li class="flex-item">
+                Student Name <br>
+                <select name="student-id" id="student-name">
+                    <option value="" selected disabled hidden>Please select a student</option>
 
-            <?php if (!empty($available_student_list)) : ?>
-            <?php foreach ($available_student_list as $available_student_id) : ?>
-            <?php
+                    <?php if (!empty($available_student_list)) : ?>
+                        <?php foreach ($available_student_list as $available_student_id) : ?>
+                            <?php
                             $available_student_sql_query = "SELECT * FROM students WHERE Student_ID = '$available_student_id';";
                             $available_student_result = mysqli_query($conn, $available_student_sql_query);
                             $available_student_row = mysqli_fetch_assoc($available_student_result);
                             ?>
-            <option value="<?php echo $available_student_id; ?>">
-                <?php echo $available_student_row['Student_name']; ?>
-            </option>
-            <?php endforeach; ?>
-            <?php endif; ?>
-        </select>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
-    </li>
+                            <option value="<?php echo $available_student_id; ?>">
+                                <?php echo $available_student_row['Student_name']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </select>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </li>
 
-    <li class="flex-item">
-        Role<br>
-        <select name="role" id="role">
-            <option value="" selected disabled hidden>Please select a role</option>
-            <option value="Member">
-                Member
-            </option>
-            <option value="Committee">
-                Committee
-            </option>
-        </select>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
-    </li>
-</ul>
-<div class="submit-container">
-    <input class="submit-btn bg-color-eastern-blue" type="submit" name="add" value="Submit">
-</div>
-<?php endif; ?>
+            <li class="flex-item">
+                Role<br>
+                <select name="role" id="role">
+                    <option value="" selected disabled hidden>Please select a role</option>
+                    <option value="Member">
+                        Member
+                    </option>
+                    <option value="Committee">
+                        Committee
+                    </option>
+                </select>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </li>
+        </ul>
+        <div class="submit-container">
+            <input class="submit-btn bg-color-eastern-blue" type="submit" name="add" value="Submit">
+        </div>
+    <?php endif; ?>
 <?php endif; ?>

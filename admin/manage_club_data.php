@@ -1,7 +1,7 @@
 <!-- Database Connnection for Add Record -->
 <?php
-    include_once "../tbc/includes/dbh.php";
-    include_once "../change_time_format.php";
+include_once "../user/includes/dbh.php";
+include_once "../change_time_format.php";
 ?>
 
 <!-- HTML Content for Add Record -->
@@ -58,7 +58,7 @@
         <select name="day" id="day">
             <option value="" selected disabled hidden>Please select</option>
             <?php foreach ($day_list as $day) : ?>
-            <option value="<?php echo $day ?>"><?php echo $day ?></option>
+                <option value="<?php echo $day ?>"><?php echo $day ?></option>
             <?php endforeach; ?>
         </select>
         <i class="fas fa-check-circle"></i>
@@ -102,5 +102,5 @@
 
 <!-- Close Database Connection -->
 <?php
-    mysqli_close($conn);
+mysqli_close($conn);
 ?>

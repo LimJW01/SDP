@@ -1,18 +1,18 @@
 <?php
 session_start();
-include_once "../tbc/includes/dbh.php";
+include_once "../user/includes/dbh.php";
 if (isset($_POST['update']) || (isset($_POST['add']))) {
 
     // Get data from HTML Form
     $student_name = trim($_POST['student-name']);
     $tp_number = trim($_POST['tp-number']);
     // Convert TP number to upper case
-    $tp_number = strtoupper(substr($tp_number, 0, 2)).substr($tp_number, 2);
+    $tp_number = strtoupper(substr($tp_number, 0, 2)) . substr($tp_number, 2);
     $gender = trim($_POST['gender']);
     $email_address = trim($_POST['email-address']);
     $password = trim($_POST['password']);
     $contact_number = trim($_POST['contact-number']);
-    
+
 
     if (isset($_POST['update'])) {
         $id = $_SESSION['get_student_id'];
@@ -68,7 +68,7 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
 
     if (isset($_POST['add'])) {
 
-       // Check if email exist or not
+        // Check if email exist or not
         $email_sql = "SELECT * FROM (
                   SELECT Email FROM admin
                   UNION

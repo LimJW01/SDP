@@ -31,7 +31,7 @@ if (isset($_POST['login-btn'])) {
             $_SESSION['message'] = "Welcome to MediLife";
             $_SESSION['login'] = true;
             $_SESSION['student_id'] = $row['Student_ID'];
-            header("Location: ./mainpage.php");
+            header("Location: ./index.php");
         } else {
             $_SESSION['message'] = "Wrong password";
             $_SESSION['login'] = false;

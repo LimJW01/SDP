@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../tbc/includes/dbh.php";
+include_once "../user/includes/dbh.php";
 
 
 if (isset($_POST['update'])) {

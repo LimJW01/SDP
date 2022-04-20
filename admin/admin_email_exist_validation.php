@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../tbc/includes/dbh.php";
+include_once "../user/includes/dbh.php";
 
 if (isset($_POST['check_btn'])) {
     $email = mysqli_real_escape_string($conn, $_POST['input_email']);

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../tbc/includes/dbh.php";
+include_once "../user/includes/dbh.php";
 
 $id = $_SESSION['club_id'];
 if (isset($_POST['delete'])) {
