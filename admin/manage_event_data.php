@@ -57,8 +57,8 @@ if ($action == "delete") {
 <ul class="flex-container">
     <li class="flex-item">
         Event Name <br>
-        <input type="text" name="event-name" id="name" class="input-disabled" value="<?php echo $event_row['Name'] ?>"
-            disabled>
+        <input type="text" name="event-name" id="name" class="input-disabled"
+            value="<?php echo $event_row['Event_name'] ?>" disabled>
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
@@ -87,7 +87,7 @@ if ($action == "delete") {
             <option value="<?php echo $club_row['Club_ID']; ?>" <?php if ($action == "edit" || $action == "view") {
                                                                                 echo ($club_row['Club_ID'] == $event_row['Club_ID']) ? "selected" : "";
                                                                             } ?>>
-                <?php echo $club_row['Name']; ?></option>
+                <?php echo $club_row['Club_name']; ?></option>
             <?php endwhile; ?>
             <?php endif; ?>
         </select>

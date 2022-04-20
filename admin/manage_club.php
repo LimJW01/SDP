@@ -30,7 +30,7 @@ if ($result_check > 0) {
     header("Location: admin_clubs.php");
 } else {
     $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-    $sql_query = "INSERT INTO clubs (Email, Name, Contact_number, Description, Day, Start_time, End_time, Venue, Image, Admin_ID) VALUES ('$email_address', '$club_name', '$contact_number', '$club_description', '$day', '$start_time', '$end_time', '$venue', '$image', 1);";
+    $sql_query = "INSERT INTO clubs (Email, Club_name, Contact_number, Description, Day, Start_time, End_time, Venue, Image, Admin_ID) VALUES ('$email_address', '$club_name', '$contact_number', '$club_description', '$day', '$start_time', '$end_time', '$venue', '$image', 1);";
     $result = mysqli_query($conn, $sql_query);
 
     // If database is updated

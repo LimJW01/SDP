@@ -7,7 +7,7 @@ $club_creation_id = $_SESSION['club_creation_id'];
 if (isset($_POST['approve'])) {
 
     // Insert club data into Clubs table
-    $club_sql_query = "INSERT INTO clubs (Email, Name, Contact_number, Description, Day, Start_time, End_time, Venue, Image, Admin_ID)
+    $club_sql_query = "INSERT INTO clubs (Email, Club_name, Contact_number, Description, Day, Start_time, End_time, Venue, Image, Admin_ID)
         SELECT Club_email, Club_name, Club_contact_number, Club_description, Day, Start_time, End_time, Venue, Club_image, 1
         FROM `club_creation`
         WHERE `Club_creation_ID` = $club_creation_id;";

@@ -8,12 +8,19 @@ include_once "../change_time_format.php";
     <hr>
     <article id="events">
         <div class="content-container">
+            <form action="" method="post">
+                <div class="search-container">
+                    <input type="text" name="search-field" id="search-field" placeholder="Event Name">
+                    <input class="submit-btn" name="search" id="search-button" type="submit" value="Search">
+                </div>
+            </form>
             <button data-modal-target="#add" title="Add Event" id="add-button">Add Event</button>
             <div class="table-container">
                 <table>
                     <tr>
                         <th class="padding-left">Image</th>
                         <th class="padding-left">Event Name</th>
+                        <th class="padding-left">Organizing Club</th>
                         <th class="padding-left">Date</th>
                         <th class="padding-left">Start Time</th>
                         <th class="padding-left">End Time</th>
@@ -21,7 +28,12 @@ include_once "../change_time_format.php";
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php
-                    $event_sql = "SELECT * FROM events ORDER BY Event_ID ASC";
+                    if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
+                        $search = trim($_POST['search-field']);
+                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE E.Event_name LIKE '%$search%' ORDER BY Event_ID DESC";
+                    } else {
+                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID ORDER BY Event_ID DESC";
+                    }
                     $event_result = $conn->query($event_sql);
                     $event_result_check = mysqli_num_rows($event_result);
                     $event_array = array();
@@ -37,7 +49,8 @@ include_once "../change_time_format.php";
                                 src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>"
                                 alt="event_image">
                         </td>
-                        <td class="padding-left"><?php echo $row['Name']; ?></td>
+                        <td class="padding-left"><?php echo $row['Event_name']; ?></td>
+                        <td class="padding-left"><?php echo $row['Club_name']; ?></td>
                         <td class="padding-left"><?php echo $row['Date']; ?></td>
                         <td class="padding-left"><?php echo change_time_format($row['Start_time']); ?></td>
                         <td class="padding-left"><?php echo change_time_format($row['End_time']); ?></td>

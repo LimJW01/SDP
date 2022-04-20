@@ -7,6 +7,12 @@ include_once "includes/header.php";
     <hr>
     <article id="students">
         <div class="content-container">
+            <form action="" method="post">
+                <div class="search-container">
+                    <input type="text" name="search-field" id="search-field" placeholder="Student Name">
+                    <input class="submit-btn" name="search" id="search-button" type="submit" value="Search">
+                </div>
+            </form>
             <button data-modal-target="#add" title="Add Student" id="add-button">Add Student</button>
             <div class="table-container">
                 <table>
@@ -19,7 +25,13 @@ include_once "includes/header.php";
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php
-                    $student_sql = "SELECT * FROM students ORDER BY Student_name ASC";
+                    if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
+                        $search = trim($_POST['search-field']);
+                        $student_sql = "SELECT * FROM students WHERE Student_name LIKE '%$search%' ORDER BY Student_name ASC";
+                    } else {
+                        $student_sql = "SELECT * FROM students ORDER BY Student_name ASC";
+                    }
+                    
                     $student_result = $conn->query($student_sql);
                     $student_result_check = mysqli_num_rows($student_result);
                     $student_array = array();
@@ -44,7 +56,7 @@ include_once "includes/header.php";
                                     $club_sql = "SELECT * FROM Clubs WHERE Club_ID = $joined_club_id;";
                                     $club_result = $conn->query($club_sql);
                                     $club_row = mysqli_fetch_assoc($club_result);
-                                    array_push($joined_clubs_array, $club_row['Name']);
+                                    array_push($joined_clubs_array, $club_row['Club_name']);
                                     ?>
                     <?php endwhile; ?>
                     <?php $joined_clubs = join(", ", $joined_clubs_array) ?>

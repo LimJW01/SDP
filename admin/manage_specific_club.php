@@ -7,7 +7,7 @@ if (isset($_POST['delete'])) {
     $club_sql_query = "SELECT * FROM clubs WHERE Club_ID = $id;";
     $club_result = mysqli_query($conn, $club_sql_query);
     $row = mysqli_fetch_assoc($club_result);
-    $club_name = $row['Name'];
+    $club_name = $row['Club_name'];
 
     $delete_sql_query = "DELETE FROM clubs WHERE Club_ID = $id;";
     $delete_result = mysqli_query($conn, $delete_sql_query);
@@ -56,11 +56,11 @@ if (isset($_POST['update'])) {
     } else {
         // if no file was uploaded to the club image field
         if (empty($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
-            $sql_query = "UPDATE clubs SET Email = '$email_address', Name = '$club_name', Contact_number = '$contact_number', Description = '$club_description', Day = '$day', Start_time = '$start_time', End_time = '$end_time', Venue = '$venue'  WHERE Club_ID = $id";
+            $sql_query = "UPDATE clubs SET Email = '$email_address', Club_name = '$club_name', Contact_number = '$contact_number', Description = '$club_description', Day = '$day', Start_time = '$start_time', End_time = '$end_time', Venue = '$venue'  WHERE Club_ID = $id";
         } else {
             // if file was uploaded to the club image field
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $sql_query = "UPDATE clubs SET Email = '$email_address', Name = '$club_name', Contact_number = '$contact_number', Description = '$club_description', Day = '$day', Start_time = '$start_time', End_time = '$end_time', Venue = '$venue', Image = '$image' WHERE Club_ID = $id";
+            $sql_query = "UPDATE clubs SET Email = '$email_address', Club_name = '$club_name', Contact_number = '$contact_number', Description = '$club_description', Day = '$day', Start_time = '$start_time', End_time = '$end_time', Venue = '$venue', Image = '$image' WHERE Club_ID = $id";
         }
 
         $result = mysqli_query($conn, $sql_query);

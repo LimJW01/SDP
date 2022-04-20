@@ -3,7 +3,7 @@ include_once "includes/header.php";
 include_once "../change_time_format.php";
 
 $club_name = $_GET['club'];
-$club_sql = "SELECT * FROM clubs WHERE Name = '$club_name';";
+$club_sql = "SELECT * FROM clubs WHERE Club_name = '$club_name';";
 $club_details = $conn->query($club_sql);
 $club_row = mysqli_fetch_assoc($club_details);
 $club_id = $club_row['Club_ID'];
@@ -11,7 +11,7 @@ $_SESSION['club_id'] = $club_id;
 ?>
 
 <main id="main">
-    <h1 class="title"><?php echo $club_row['Name'] ?></h1>
+    <h1 class="title"><?php echo $club_row['Club_name'] ?></h1>
     <br>
     <hr>
     <article id="specific-club">
@@ -35,7 +35,7 @@ $_SESSION['club_id'] = $club_id;
                     <li class="flex-item">
                         Club Name <br>
                         <input type="text" name="club-name" id="name" class="input-disabled"
-                            value="<?php echo $club_row['Name'] ?>" disabled>
+                            value="<?php echo $club_row['Club_name'] ?>" disabled>
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
                         <small>Error message</small>
@@ -135,6 +135,12 @@ $_SESSION['club_id'] = $club_id;
     <article id="specific-club-member-list">
         <div class="content-container">
             <h2>Club Member List</h2>
+            <form action="" method="post">
+                <div class="search-container">
+                    <input type="text" name="search-field" id="search-field" placeholder="Student Name">
+                    <input class="submit-btn" name="search" id="search-button" type="submit" value="Search">
+                </div>
+            </form>
             <button data-modal-target="#add" title="Add Member" id="add-button">Add Member</button>
             <div class="table-container">
                 <table>
@@ -148,11 +154,16 @@ $_SESSION['club_id'] = $club_id;
                     </tr>
                     <?php
                     // Get members data that joined the club
-                    $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
+                    if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
+                        $search = trim($_POST['search-field']);
+                        $joined_club_sql = "SELECT J.*, S.* FROM joined_clubs AS J JOIN students AS S ON J.Student_ID = S.Student_ID WHERE J.Club_ID = '$club_id' AND S.Student_name LIKE '%$search%' ORDER BY Student_name ASC";
+                    } else {
+                        $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
+                        
+                    }
                     $joined_club_result = $conn->query($joined_club_sql);
                     $joined_club_result_check = mysqli_num_rows($joined_club_result);
                     ?>
-
                     <?php if ($joined_club_result_check > 0) : ?>
                     <?php while ($joined_club_row = mysqli_fetch_assoc($joined_club_result)) : ?>
                     <?php
@@ -171,16 +182,17 @@ $_SESSION['club_id'] = $club_id;
 
                         <td style="text-align: center;">
                             <?php if ($joined_club_row['Role'] == "Member") : ?>
-                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"> <i
-                                    title="Promote to Committee" class="fas fa-angle-double-up"
+                            <a href="admin_specific_club.php?club=<?php echo $club_row['Club_name'] ?>">
+                                <i title="Promote to Committee" class="fas fa-angle-double-up"
                                     id="promote-button-<?php echo $student_ID; ?>"></i></a>
                             <?php else : ?>
-                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"><i
-                                    title="Demote to Member" class="fas fa-angle-double-down"
+                            <a href="admin_specific_club.php?club=<?php echo $club_row['Club_name'] ?>">
+                                <i title="Demote to Member" class="fas fa-angle-double-down"
                                     id="demote-button-<?php echo $student_ID; ?>"></i></a>
                             <?php endif; ?>
-                            <a href="admin_specific_club.php?club=<?php echo $club_row['Name'] ?>"><i title="Delete"
-                                    class="fas fa-trash-alt" id="delete-button-<?php echo $student_ID; ?>"></i>
+                            <a href="admin_specific_club.php?club=<?php echo $club_row['Club_name'] ?>">
+                                <i title="Delete" class="fas fa-trash-alt"
+                                    id="delete-button-<?php echo $student_ID; ?>"></i>
                             </a>
                         </td>
                     </tr>
@@ -195,6 +207,7 @@ $_SESSION['club_id'] = $club_id;
                 </table>
             </div>
         </div>
+        <div id="bottom"></div>
     </article>
 
     <!-- Add Club Member -->

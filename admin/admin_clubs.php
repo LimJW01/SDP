@@ -8,19 +8,19 @@ include_once "includes/header.php";
     <article id="clubs">
         <button data-modal-target="#add" title="Add Club" id="add-button">Add Club</button>
         <div class="grid-container">
-            <?php $sql = "SELECT * FROM clubs ORDER BY Name ASC";
+            <?php $sql = "SELECT * FROM clubs ORDER BY Club_name ASC";
                 $result = $conn->query($sql);
                 $result_check = mysqli_num_rows($result);
                 ?>
             <?php if ($result_check > 0) : ?>
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-            <a href="admin_specific_club.php?club=<?php echo $row['Name']; ?>">
+            <a href="admin_specific_club.php?club=<?php echo $row['Club_name']; ?>">
                 <div class='grid-item'>
                     <div class="img-container">
-                        <img title="<?php echo $row['Name']; ?>"
+                        <img title="<?php echo $row['Club_name']; ?>"
                             src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt='club_image'>
                     </div>
-                    <h2><?php echo $row['Name']; ?></h2>
+                    <h2><?php echo $row['Club_name']; ?></h2>
                 </div>
             </a>
             <?php endwhile; ?>

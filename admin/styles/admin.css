@@ -141,6 +141,25 @@ body {
   box-shadow: 2px 2px 5px;
 }
 
+.content-container .search-container {
+  float: left;
+  margin: 50px 3% 10px;
+}
+
+#search-field {
+  border: 1px solid black;
+  height: 27px;
+  padding-left: 5px;
+}
+
+
+#search-button {
+  font-size: 14px;
+  background-color:#2596be;
+  height: 30px;
+  border-radius: 5px;
+}
+
 .content-container #add-button,
 .content-container #edit-button,
 .content-container #delete-button {
@@ -171,13 +190,17 @@ body {
   margin-top: 10px;
 }
 
+#specific-club-member-list .search-container {
+  margin-top: 25px;
+}
+
 .content-container #edit-button,
 .content-container #delete-button {
   margin: 21px 3% 13px;
   display: block;
 }
 
-.content-container #edit-button {
+#specific-club #edit-button {
   margin-right: 0;
 }
 

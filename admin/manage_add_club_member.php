@@ -6,7 +6,7 @@ if ((isset($_POST['add']))) {
     $club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
     $club_result = mysqli_query($conn, $club_sql);
     $club_row = mysqli_fetch_assoc($club_result);
-    $club_name = $club_row['Name'];
+    $club_name = $club_row['Club_name'];
 
     // Get data from HTML Form
     $student_id = trim($_POST['student-id']);

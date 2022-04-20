@@ -17,11 +17,11 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
         $id = $_SESSION['event_id'];
         // if no file was uploaded to the event image field
         if (empty($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
-            $sql_query = "UPDATE events SET Name = '$event_name', Description = '$event_description', Date = '$date', Start_time = '$start_time', End_time = '$end_time', Approval_status = '$approval_status', Club_ID = '$club_id'  WHERE Event_ID = $id";
+            $sql_query = "UPDATE events SET Event_name = '$event_name', Description = '$event_description', Date = '$date', Start_time = '$start_time', End_time = '$end_time', Approval_status = '$approval_status', Club_ID = '$club_id'  WHERE Event_ID = $id";
         } else {
             // if file was uploaded to the event image field
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $sql_query = "UPDATE events SET Name = '$event_name', Description = '$event_description', Date = '$date', Start_time = '$start_time', End_time = '$end_time', Approval_status = '$approval_status', Club_ID = '$club_id', Image = '$image' WHERE Event_ID = $id";
+            $sql_query = "UPDATE events SET Event_name = '$event_name', Description = '$event_description', Date = '$date', Start_time = '$start_time', End_time = '$end_time', Approval_status = '$approval_status', Club_ID = '$club_id', Image = '$image' WHERE Event_ID = $id";
         }
 
         $result = mysqli_query($conn, $sql_query);
@@ -45,7 +45,7 @@ if (isset($_POST['update']) || (isset($_POST['add']))) {
         $date_posted = date("Y-m-d");
 
         $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-        $sql_query = "INSERT INTO events (Name, Description, Date, Start_time, End_time, Date_posted, Approval_status, Image, Admin_ID, Club_ID) VALUES ('$event_name', '$event_description', '$date', '$start_time', '$end_time', '$date_posted', 'Approved', '$image', 1, '$club_id');";
+        $sql_query = "INSERT INTO events (Event_name, Description, Date, Start_time, End_time, Date_posted, Approval_status, Image, Admin_ID, Club_ID) VALUES ('$event_name', '$event_description', '$date', '$start_time', '$end_time', '$date_posted', 'Approved', '$image', 1, '$club_id');";
         $result = mysqli_query($conn, $sql_query);
 
         // If database is updated
