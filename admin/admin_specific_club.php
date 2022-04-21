@@ -29,7 +29,7 @@ $_SESSION['club_id'] = $club_id;
             </div>
             <form action="manage_specific_club.php" method="post" enctype="multipart/form-data"
                 onsubmit="return validate_edit_club();">
-                <img id="club-image" src="data:image/jpeg;base64,<?php echo base64_encode($club_row['Image']); ?>"
+                <img id="club-image" src="data:image/jpeg;base64,<?php echo base64_encode($club_row['Club_image']); ?>"
                     alt='club_image'>
                 <ul class="flex-container">
                     <li class="flex-item">
