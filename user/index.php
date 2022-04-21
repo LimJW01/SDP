@@ -40,7 +40,7 @@ include_once "includes/dbh.php";
     <div class="align-right">
         <a href="#" class="btn1 btn-primary" data-toggle="modal" data-target="#exampleModal">Create Club</a>
     </div>
-        <div class="grid-container">
+        <div class="grid-container" style='width: 190px; margin-left: 50px;'>
             <?php $sql = "SELECT * FROM clubs ORDER BY Club_name ASC";
                 $result = $conn->query($sql);
                 $result_check = mysqli_num_rows($result);
