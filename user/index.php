@@ -13,26 +13,6 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <style>
-    a:link {
-        color: white;
-        text-decoration: none;
-    }
-
-    a:visited {
-        color: white;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: red;
-        text-decoration: underline;
-    }
-
-    a:active {
-        color: yellow;
-        text-decoration: underline;
-    }
-
     .align-right {
         text-align: right;
         border: 0;

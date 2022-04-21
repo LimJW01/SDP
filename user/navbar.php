@@ -1,5 +1,7 @@
 <?php
-
+        if(!isset($_SESSION)){
+        session_start();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -52,44 +54,18 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                        ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Log Out</a>
-                        </li>
-                        <?php if ($_SESSION['role'] == 0) { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin.php">Manage User Profile</a>
+                        <?php if (isset($_SESSION['student_id'])) { ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            My Profile
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Clubs Joined</a>
+                            <a class="dropdown-item" href="#">Account Settings</a>
+                            <a class="dropdown-item" href="logout.php">Log Out</a>
+                            </div>
                         </li>
                         <?php } else { ?>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Add Products
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="addnewfish.php">Add New Fish</a></li>
-                                <li><a class="dropdown-item" href="addnewshellfish.php">Add New Shell Fish</a></li>
-                                <li><a class="dropdown-item" href="addnewcomboset.php">Add New Combo Set</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                My Products
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="myfishproduct.php">My Fish</a></li>
-                                <li><a class="dropdown-item" href="myshellfishproduct.php">My Shell Fish</a></li>
-                                <li><a class="dropdown-item" href="mycombosetproduct.php">My Combo Set</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="manageUser.php">My Profile</a>
-                        </li>
-                        <?php }
-                        } else { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="login.php">Login</a>
                         </li>
