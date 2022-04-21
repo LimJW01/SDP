@@ -60,7 +60,7 @@ if (isset($_POST['update'])) {
         } else {
             // if file was uploaded to the club image field
             $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-            $sql_query = "UPDATE clubs SET Email = '$email_address', Club_name = '$club_name', Contact_number = '$contact_number', Description = '$club_description', Day = '$day', Start_time = '$start_time', End_time = '$end_time', Venue = '$venue', Image = '$image' WHERE Club_ID = $id";
+            $sql_query = "UPDATE clubs SET Email = '$email_address', Club_name = '$club_name', Contact_number = '$contact_number', Description = '$club_description', Day = '$day', Start_time = '$start_time', End_time = '$end_time', Venue = '$venue', Event_image = '$image' WHERE Club_ID = $id";
         }
 
         $result = mysqli_query($conn, $sql_query);

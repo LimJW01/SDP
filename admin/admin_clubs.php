@@ -18,7 +18,8 @@ include_once "includes/header.php";
                 <div class='grid-item'>
                     <div class="img-container">
                         <img title="<?php echo $row['Club_name']; ?>"
-                            src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt='club_image'>
+                            src="data:image/jpeg;base64,<?php echo base64_encode($row['Club_image']); ?>"
+                            alt='club_image'>
                     </div>
                     <h2><?php echo $row['Club_name']; ?></h2>
                 </div>

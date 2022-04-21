@@ -46,7 +46,7 @@ include_once "../change_time_format.php";
                             ?>
                     <tr>
                         <td style="text-align: center;"><img
-                                src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>"
+                                src="data:image/jpeg;base64,<?php echo base64_encode($row['Event_image']); ?>"
                                 alt="event_image">
                         </td>
                         <td class="padding-left"><?php echo $row['Event_name']; ?></td>
