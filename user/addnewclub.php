@@ -1,13 +1,20 @@
 <?php
-    include('includes/dbh.php');
+    include ("includes/dbh.php");
 
     // start session if session hasn't set 
     if(!isset($_SESSION)){
         session_start();
     }
-    
-    // get the user's id from the session id
+
+    // get the user's id from the URL
     $student_id = $_SESSION['student_id'];
+    // sql query to retrieve user's data from the database based on the user's id
+    $sql_query = "SELECT * FROM students WHERE student_id = '$student_id'";
+    // store the result of sql query in a variable
+    $result = mysqli_query($conn, $sql_query);
+    // fetch a row of data as an associative array
+    $row = mysqli_fetch_assoc($result); 
+    
 
     // if submit button is clicked
     if(isset($_POST['addClub'])){

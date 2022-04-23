@@ -1,6 +1,5 @@
 <?php
     include('includes/dbh.php');
-    include('addnewclub.php')
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +39,10 @@
         <h1>Clubs and Societies<br></h1>
     </div>
     <div class="align-right">
-        <a href="#" class="btn1 btn-primary" data-toggle="modal" data-target="#exampleModal">Create Club</a>
+        <?php if (isset($_SESSION['student_id'])) { ?>
+            <a href="#" class="btn1 btn-primary" data-toggle="modal" data-target="#exampleModal">Create Club</a>
+        <?php } else { ?>
+        <?php } ?>
     </div>
         <div class="grid-container" style='width: 190px; margin-left: 50px;'>
             <?php $sql = "SELECT * FROM clubs ORDER BY Club_name ASC";
