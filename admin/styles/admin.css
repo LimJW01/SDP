@@ -243,6 +243,22 @@ table td {
   line-height: 50px;
 }
 
+#events table th, 
+#events table td {
+  line-height: 70px;
+}
+
+#club-creation-requests table th,
+#club-creation-requests table td {
+  line-height: 35px;
+  vertical-align: middle;
+  min-width: 70px;
+}
+
+#club-creation-requests table th {
+  line-height: 25px;
+}
+
 table td i {
   font-size: 25px;
   padding: 0 2%;
@@ -672,12 +688,14 @@ table img {
 } 
 
 /* Club Creation Request */
-#club-creation-requests .table-container {
-  border: none;
+#club-creation-requests .content-container {
+  margin-top: 70px;
+  padding-top: 10px;
 }
 
-#club-creation-requests table {
+#club-creation-requests .table-container {
   margin-top: 60px;
+  max-height: 360px;
 }
 
 /* Clubs Page */
