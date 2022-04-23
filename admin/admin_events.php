@@ -68,7 +68,7 @@ include_once "../change_time_format.php";
                     <?php endwhile; ?>
                     <?php else : ?>
                     <tr>
-                        <td colspan="7">
+                        <td colspan="8">
                             <h2 class="no-record">No Records Found</h2>
                         </td>
                     </tr>
