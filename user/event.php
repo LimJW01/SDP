@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    <?php include('navbar.php'); ?>
+    <?php include('includes/navbar.php'); ?>
     <div class="title">
         <h1>Events<br></h1>
     </div>

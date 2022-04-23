@@ -1,5 +1,5 @@
 <?php
-    include_once "dbh.php";
+    include('includes/dbh.php');
 
     // start session if session hasn't set 
     if(!isset($_SESSION)){
@@ -12,20 +12,20 @@
     // if submit button is clicked
     if(isset($_POST['addClub'])){
         // get the value from the form and store in a variable respectively
-        $club_image = $_POST['image'];
-        $club_name = $_POST['inputclubname'];
-        $club_description = $_POST['inputdescription'];
-        $purpose = $_POST['inputpurpose'];
-        $club_email = $_POST['inputemail'];
-        $club_contact_number = $_POST['inputcontact'];
-        $day = $_POST['inputday'];
-        $start_time = $_POST['inputstarttime'];
-        $end_time = $_POST['inputendtime'];
-        $venue = $_POST['inputvenue'];
+        $Club_image = $_POST['image'];
+        $Club_name = $_POST['inputclubname'];
+        $Club_description = $_POST['inputdescription'];
+        $Purpose = $_POST['inputpurpose'];
+        $Club_email = $_POST['inputemail'];
+        $Club_contact_number = $_POST['inputcontact'];
+        $Day = $_POST['inputday'];
+        $Start_time = $_POST['inputstarttime'];
+        $End_time = $_POST['inputendtime'];
+        $Venue = $_POST['inputvenue'];
 
         // query to insert data into database
-        $sql_query = "INSERT INTO `club_creation`(`fish_name`, `fish_description`, `fish_price`, `fish_picture`,`user_id`, `seller_contact`) 
-        VALUES ('$club_image','$club_name','$club_description','$purpose', '$club_email','$club_contact_number','$day','$start_time','$end_time','$venue')";
+        $sql_query = "INSERT INTO `club_creation`(`Club_image`, `Club_name`, `Club_description`, `Purpose`,`Club_email`, `Club_contact_number`, `Day`, `Start_time`, `End_time`, `Venue`) 
+        VALUES ('$Club_image','$Club_name','$Club_description','$Purpose', '$Club_email','$Club_contact_number','$Day','$Start_time','$End_time','$Venue')";
 
         // if sql query is executed successfully
         if(mysqli_query($conn,  $sql_query)){
@@ -39,10 +39,10 @@
     // get the user's id from the session id
     $student_id = $_SESSION['student_id'];
     // query to read find the user with the specific user id
-    $query = "SELECT * FROM students WHERE student_id = '$student_id'";
+    $sql_query = "SELECT * FROM students WHERE student_id = '$student_id'";
     // store the result of sql statement into a variable
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $sql_query);
     // fetch the result as an associative array
-    $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result);    
 
 ?>

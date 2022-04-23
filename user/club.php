@@ -30,7 +30,7 @@
 
 </head>
 <body>
-    <?php include('navbar.php'); ?>
+    <?php include('includes/navbar.php'); ?>
     <div class="align-right">
         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Register Now</a>
     </div>
