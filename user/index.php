@@ -1,5 +1,7 @@
 <?php
-include_once "includes/dbh.php";
+    include('includes/dbh.php');
+    include('addnewclub.php')
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,7 @@ include_once "includes/dbh.php";
 
 
 <body>
-    <?php include('navbar.php');?>  
+    <?php include('includes/navbar.php');?>  
     <article id="clubs">
     <div class="title">
         <h1>Clubs and Societies<br></h1>
@@ -79,50 +81,50 @@ include_once "includes/dbh.php";
                             <br>
                             <label for="clubname">Club Picture</label>
                             <br>
-                            <input type="file" name="image" class="input-disabled" name="image"
+                            <input type="file" name="image" id="image" class="input-disabled"
                             style="border: none; padding-left: 0;">
                         </div>
                         <div class="form-group">
                             <label for="clubname">Club Name</label>
-                            <input type="text" class="form-control" name="inputclubname">
+                            <input type="text" class="form-control" id="inputclubname" name="inputclubname">
                         </div>
                         <div class="form-group">
                             <label for="fullname">Description</label>
-                            <input type="text" class="form-control" name="inputdescription">
+                            <input type="text" class="form-control" id="inputdescription" name="inputdescription">
                         </div>
                         <div class="form-group">
                             <label for="purpose">Briefly explain the purpose of your club</label>
-                            <textarea class="form-control" name="inputpurpose" rows="3"></textarea>
+                            <textarea class="form-control" id="inputpurpose" name="inputpurpose" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="studentid">Club Email</label>
-                            <input type="email" class="form-control" name="inputemail">
+                            <input type="email" class="form-control" id="inputemail" name="inputemail">
                         </div>
                         <div class="form-group">
                             <label for="intakecode">Club Contact Number</label>
-                            <input type="text" class="form-control" name="inputcontact">
+                            <input type="text" class="form-control" id="inputcontact" name="inputcontact">
                         </div>
                         <div class="form-group">
                             <label for="contactnumber">Day</label>
-                            <input type="text" class="form-control" name="inputday">
+                            <input type="text" class="form-control" id="inputday" name="inputday">
                         </div>
                         <div class="form-group">
                             <label for="contactnumber">Start Time</label>
-                            <input type="int" class="form-control" name="inputstarttime">
+                            <input type="int" class="form-control" id="inputstarttime" name="inputstarttime">
                         </div>
                         <div class="form-group">
                             <label for="contactnumber">End Time</label>
-                            <input type="int" class="form-control" name="inputendtime">
+                            <input type="int" class="form-control" id="inputendtime" name="inputendtime">
                         </div>
                         <div class="form-group">
                             <label for="contactnumber">Venue</label>
-                            <input type="text" class="form-control" name="inputvenue">
+                            <input type="text" class="form-control" id="inputvenue" name="inputvenue">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" name="addClub" value="request">Submit</button>
+                    <button type="submit" name="addClub" value="Add Record" class="btn btn-outline-primary">Add Record</button>
                 </div>
             </div>
         </div>
@@ -130,153 +132,3 @@ include_once "includes/dbh.php";
     <div>
         <?php include_once "./includes/footer.php"; ?>
 </body>
-
-
-<!-- <body>
-    <div class="title">
-        <h1>Clubs and Societies<br></h1>
-    </div>
-    <div class="align-right">
-        <a href="#" class="btn1 btn-primary" data-toggle="modal" data-target="#exampleModal">Create Club</a>
-    </div>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a onclick="location.href='club.php';" class="btn btn-primary"> View More Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Club Creation Form</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label>
-                                <h5>Club Details</h5>
-                            </label>
-                            <br>
-                            <label for="clubname">Club Picture</label>
-                            <br>
-                            <input type="file" name="image" class="input-disabled" id="image"
-                            style="border: none; padding-left: 0;">
-                        </div>
-                        <div class="form-group">
-                            <label for="clubname">Club Name</label>
-                            <input type="name" class="form-control" id="inputclubname">
-                        </div>
-                        <div class="form-group">
-                            <label for="fullname">Description</label>
-                            <input type="description" class="form-control" id="inputdescription">
-                        </div>
-                        <div class="form-group">
-                            <label for="purpose">Briefly explain the purpose of your club</label>
-                            <textarea class="form-control" id="input purpose" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>
-                                <h5>Club President Details</h5>
-                            </label>
-                            <br>
-                            <label for="fullname">Full Name</label>
-                            <input type="name" class="form-control" id="inputfullname">
-                        </div>
-                        <div class="form-group">
-                            <label for="studentid">Student ID</label>
-                            <input type="id" class="form-control" id="inputstudentid">
-                        </div>
-                        <div class="form-group">
-                            <label for="intakecode">Intake Code</label>
-                            <input type="code" class="form-control" id="inputintakecode">
-                        </div>
-                        <div class="form-group">
-                            <label for="contactnumber">Contact Number</label>
-                            <input type="number" class="form-control" id="inputcontactnumber">
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
