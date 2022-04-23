@@ -44,8 +44,8 @@
         <?php } else { ?>
         <?php } ?>
     </div>
-        <div class="grid-container" style='width: 190px; margin-left: 50px;'>
-            <?php $sql = "SELECT * FROM clubs ORDER BY Club_name ASC";
+    <div class="card column" style='width: 190px; margin-left: 50px;'>
+        <?php $sql = "SELECT * FROM clubs ORDER BY Club_name ASC";
                 $result = $conn->query($sql);
                 $result_check = mysqli_num_rows($result);
                 ?>
@@ -55,7 +55,8 @@
                 <div class='grid-item'>
                     <div class="img-container">
                         <img title="<?php echo $row['Club_name']; ?>"
-                            src="data:image/jpeg;base64,<?php echo base64_encode($row['Image']); ?>" alt='club_image'>
+                            src="data:image/jpeg;base64,<?php echo base64_encode($row['Club_image']); ?>"
+                            alt='club_image'>
                     </div>
                     <h2><?php echo $row['Club_name']; ?></h2>
                 </div>
