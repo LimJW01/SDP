@@ -135,7 +135,7 @@ $_SESSION['club_id'] = $club_id;
     <article id="specific-club-member-list">
         <div class="content-container">
             <h2>Club Member List</h2>
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="window.location.href = '#specific-club-member-list'">
                 <div class="search-container">
                     <input type="text" name="search-field" id="search-field" placeholder="Student Name">
                     <input class="submit-btn" name="search" id="search-button" type="submit" value="Search">
@@ -182,15 +182,15 @@ $_SESSION['club_id'] = $club_id;
 
                         <td style="text-align: center;">
                             <?php if ($joined_club_row['Role'] == "Member") : ?>
-                            <a href="admin_specific_club.php?club=<?php echo $club_row['Club_name'] ?>">
+                            <a href="#specific-club-member-list" onclick="return window.location.reload()">
                                 <i title="Promote to Committee" class="fas fa-angle-double-up"
                                     id="promote-button-<?php echo $student_ID; ?>"></i></a>
                             <?php else : ?>
-                            <a href="admin_specific_club.php?club=<?php echo $club_row['Club_name'] ?>">
+                            <a href="#specific-club-member-list" onclick="return window.location.reload()">
                                 <i title="Demote to Member" class="fas fa-angle-double-down"
                                     id="demote-button-<?php echo $student_ID; ?>"></i></a>
                             <?php endif; ?>
-                            <a href="admin_specific_club.php?club=<?php echo $club_row['Club_name'] ?>">
+                            <a href="#specific-club-member-list" onclick="return window.location.reload()">
                                 <i title="Delete" class="fas fa-trash-alt"
                                     id="delete-button-<?php echo $student_ID; ?>"></i>
                             </a>
