@@ -29,5 +29,5 @@ if ((isset($_POST['add']))) {
 
     mysqli_close($conn);
 
-    header("Location: admin_specific_club.php?club=$club_name");
+    header("Location: admin_specific_club.php?club=$club_name #specific-club-member-list");
 }
