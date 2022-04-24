@@ -28,11 +28,12 @@ include_once "../change_time_format.php";
                         <th style="text-align: center;">Actions</th>
                     </tr>
                     <?php
+                    // Check if search button is clicked and search field is not empty
                     if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
                         $search = trim($_POST['search-field']);
-                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE E.Event_name LIKE '%$search%' ORDER BY Event_ID DESC";
+                        $event_sql = "SELECT C.*, E.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE E.Event_name LIKE '%$search%' ORDER BY CASE WHEN E.Approval_status = 'Pending' THEN 0 ELSE 1 END, E.Approval_status ASC, Date_posted DESC";
                     } else {
-                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID ORDER BY Event_ID DESC";
+                        $event_sql = "SELECT C.*, E.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID ORDER BY CASE WHEN E.Approval_status = 'Pending' THEN 0 ELSE 1 END, E.Approval_status ASC, Date_posted DESC";
                     }
                     $event_result = $conn->query($event_sql);
                     $event_result_check = mysqli_num_rows($event_result);
@@ -56,10 +57,14 @@ include_once "../change_time_format.php";
                         <td class="padding-left"><?php echo change_time_format($row['End_time']); ?></td>
                         <td class="padding-left"><?php echo $row['Approval_status']; ?></td>
                         <td style="text-align: center;">
+
                             <i data-modal-target="#view" title="View" class="fas fa-eye"
                                 id="view-button-<?php echo $event_id; ?>"></i>
+                            <!-- If approval status is Approved or Rejected -->
+                            <?php if (!($row['Approval_status'] == "Pending")) : ?>
                             <i data-modal-target="#edit" title="Edit" class="fas fa-edit"
                                 id="edit-button-<?php echo $event_id; ?>"></i>
+                            <?php endif; ?>
                             <a href="admin_events.php"><i title="Delete" class="fas fa-trash-alt"
                                     id="delete-button-<?php echo $event_id; ?>"></i>
                             </a>
@@ -84,7 +89,7 @@ include_once "../change_time_format.php";
         <div class="modal-content" id="view-event">
             <button close-button class="close">&times;</button>
             <h1>View Event Details</h1>
-            <form id="view-form">
+            <form action="manage_event.php" id="view-form" method="post">
             </form>
         </div>
     </div>

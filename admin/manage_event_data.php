@@ -166,11 +166,18 @@ if ($action == "delete") {
 
 <!-- HTML Content for View Record -->
 <?php if ($action == "view") : ?>
+<?php $_SESSION['event_id'] = $event_row['Event_ID']; ?>
 <script>
 $("#view-form .input-disabled").removeAttr('id');
 $("#edit-form .input-disabled").removeAttr('id');
 $("#add-form .input-disabled").removeAttr('id');
 </script>
+<?php if ($event_row['Approval_status'] == "Pending") : ?>
+<div class="submit-container">
+    <input id="approve-btn" class="submit-btn" type="submit" name="approve" value="Approve">
+    <input id="reject-btn" class="submit-btn" type="submit" name="reject" value="Reject">
+</div>
+<?php endif; ?>
 <?php endif; ?>
 
 <!-- HTML Content for Edit Record -->
