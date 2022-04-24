@@ -47,10 +47,10 @@
                             <a class="nav-link" href="event.php">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shellfish.php">About Us</a>
+                            <a class="nav-link" href="AboutUs.php">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="comboSet.php">Contact Us</a>
+                            <a class="nav-link" href="ContactUs.php">Contact Us</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">

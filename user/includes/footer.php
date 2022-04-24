@@ -17,16 +17,16 @@
                     Quick Links
                 </h4>
                 <p>
-                    <a href="">Clubs</a>
+                    <a href="index.php">Clubs</a>
                 </p>
                 <p>
-                    <a href="">Events</a>
+                    <a href="event.php">Events</a>
                 </p>
                 <p>
-                    <a href="">About Us</a>
+                    <a href="AboutUs.php">About Us</a>
                 </p>
                 <p>
-                    <a href="">Contact Us </a>
+                    <a href="ContactUs.php">Contact Us </a>
                 </p>
             </div>
             <div class="col-md-4 footer-col">
