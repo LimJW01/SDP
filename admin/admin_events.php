@@ -30,9 +30,9 @@ include_once "../change_time_format.php";
                     <?php
                     if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
                         $search = trim($_POST['search-field']);
-                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE E.Event_name LIKE '%$search%' ORDER BY Event_ID DESC";
+                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE E.Event_name LIKE '%$search%' ORDER BY CASE WHEN Approval_status = 'Pending' THEN 0 ELSE 1, Approval_status ASC";
                     } else {
-                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID ORDER BY Event_ID DESC";
+                        $event_sql = "SELECT E.*, C.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID ORDER BY CASE WHEN Approval_status = 'Pending' THEN 0 ELSE 1, Approval_status ASC";
                     }
                     $event_result = $conn->query($event_sql);
                     $event_result_check = mysqli_num_rows($event_result);
