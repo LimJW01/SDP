@@ -2,11 +2,14 @@
 <html lang="en-US">
    <head>
       <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/footer.css">
       <title>Club and Society Management System</title>
       <!-- CSS Style -->
       <link rel="stylesheet" href="css/AboutUs.css" />
    </head>
    <body>
+      <?php include('includes/navbar.php'); ?>
       <div class="section-container">
          <div class="columns image" style="background-image:url('https://picsum.photos/200')">
             &nbsp;
@@ -34,3 +37,4 @@
             &nbsp;
          </div>
       </div>
+      <?php include_once "./includes/footer.php"; ?>
