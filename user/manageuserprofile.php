@@ -1,6 +1,5 @@
 <?php
     include ("includes/dbh.php");
-    include ("includes/navbar.php");
 
 
     // start session if it is not set
@@ -65,6 +64,7 @@
 
 </head>
 <body>
+<?php include('includes/navbar.php'); ?>
 <form action="" method="post">
     <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
