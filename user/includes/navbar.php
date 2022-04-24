@@ -44,7 +44,7 @@
                             <a class="nav-link active" aria-current="page" href="index.php">Clubs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="fish.php">Events</a>
+                            <a class="nav-link" href="event.php">Events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="shellfish.php">About Us</a>
