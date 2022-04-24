@@ -60,7 +60,7 @@
                             My Profile
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Clubs Joined</a>
+                            <a class="dropdown-item" href="clubsjoined.php">Clubs Joined</a>
                             <a class="dropdown-item" href="manageuserprofile.php">Account Settings</a>
                             <a class="dropdown-item" href="logout.php">Log Out</a>
                             </div>
