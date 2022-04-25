@@ -2,6 +2,11 @@ body {
     margin-bottom: 100px;
 }
 
+.logo-name {
+    font-size: 15px;
+    color: rgba(255,255,255,.75);
+    float: left;
+}
 
 .leftside, .rightside {
 
@@ -49,4 +54,52 @@ img {
 
 .descevent {
     margin-left: 30px;
+}
+
+/* Form Validation */
+
+.flex-item i {
+  font-size: 18px;
+  position: absolute;
+  top: 42px;
+  right: 26px;
+  visibility: hidden;
+}
+
+.flex-item select ~ i {
+  right: 50px;
+  top: 230px;
+}
+
+.flex-item.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.flex-item.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.flex-item small {
+  position: absolute;
+  left: 20px;
+  visibility: hidden;
+}
+
+.flex-item.error small {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.flex-item.success input,
+.flex-item.success select,
+.flex-item.success textarea {
+  border-color: #2ecc71;
+}
+
+.flex-item.error input,
+.flex-item.error select,
+.flex-item.error textarea {
+  border-color: #e74c3c;
 }

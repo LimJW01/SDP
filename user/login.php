@@ -38,15 +38,20 @@ session_start();
             <input type="submit" name="login-btn" value="Log In">
         </form>
     </section>
+
+    <script>
+    $(document).ready(function() {
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == false) {
+            echo "window.onload = function() {
+                    alert('" . $_SESSION['message'] . "')
+                }";
+        unset($_SESSION['login']);
+        unset($_SESSION['message']);
+    }
+    ?>
+    });
+    </script>
+
 </body>
 
 </html>
-<?php
-if (isset($_SESSION['login']) && $_SESSION['login'] == false) {
-    echo "<script>window.onload = function() {
-                alert('" . $_SESSION['message'] . "')
-            };</script>";
-    unset($_SESSION['login']);
-    unset($_SESSION['message']);
-}
-?>

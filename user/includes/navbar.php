@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -32,7 +33,10 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-!" href="aboutus.php"><img src="images/Logo.png" height="60px" width="70px" alt=""></a>
+                <a class="navbar-!" href="aboutus.php"><img src="../images/logo.png" height="60px" width="70px"
+                        alt="logo">
+                    <h1 class="logo-name">ClubExpress</h1>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -56,13 +60,14 @@
                     <ul class="navbar-nav">
                         <?php if (isset($_SESSION['student_id'])) { ?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            My Profile
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                My Profile
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="clubsjoined.php">Clubs Joined</a>
-                            <a class="dropdown-item" href="manageuserprofile.php">Account Settings</a>
-                            <a class="dropdown-item" href="logout.php">Log Out</a>
+                                <a class="dropdown-item" href="clubsjoined.php">Clubs Joined</a>
+                                <a class="dropdown-item" href="user_profile.php">Account Settings</a>
+                                <a class="dropdown-item" href="logout.php">Log Out</a>
                             </div>
                         </li>
                         <?php } else { ?>

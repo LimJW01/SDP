@@ -81,17 +81,6 @@ editButton.onclick = function() {
     editButton.style.display = "none";
     $("input[class='input-disabled']").prop('disabled', false);
 }
-
-// Alert message if record updated
-<?php if (isset($_SESSION['update']) && isset($_SESSION['message'])) : ?>
-window.onload = function() {
-    alert("<?php echo $_SESSION['message'] ?>");
-}
-<?php
-        unset($_SESSION['update']);
-        unset($_SESSION['message']);
-    endif;
-    ?>
 </script>
 
 <!-- Validate Email Exist Error Script -->
@@ -101,5 +90,6 @@ window.onload = function() {
 <script defer src="scripts/tp_exist_error.js"></script>
 
 <?php
+include_once "includes/alert_message.php";
 include_once "includes/footer.php";
 ?>

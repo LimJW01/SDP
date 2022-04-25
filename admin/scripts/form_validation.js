@@ -26,6 +26,8 @@ function set_success_for(input) {
 
 
 // Input Validation
+
+// validate username
 function validate_user_name() {
     const user_name_input = document.getElementById("user-name");
     const user_name = user_name_input.value.trim();
@@ -421,6 +423,21 @@ function validate_report() {
     var report_list = validate_report_list();
     var report_category = validate_report_category();
     var validation = [report_list, report_category];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// Student Profile Validation 
+function validate_student_profile() {
+    var contact_number = validate_contact_number();
+    var password = validate_password();
+    var gender = validate_gender();
+    var student_name = validate_user_name();
+    
+    const validation = [student_name, gender, password, contact_number];
     if (validation.includes(false)) {
         return false;
     } else {
