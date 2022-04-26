@@ -23,10 +23,10 @@
                     <a href="event.php">Events</a>
                 </p>
                 <p>
-                    <a href="AboutUs.php">About Us</a>
+                    <a href="about_us.php">About Us</a>
                 </p>
                 <p>
-                    <a href="ContactUs.php">Contact Us </a>
+                    <a href="contact_us.php">Contact Us </a>
                 </p>
             </div>
             <div class="col-md-4 footer-col">
