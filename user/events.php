@@ -39,7 +39,7 @@ include_once "includes/dbh.php";
                 <h1 id="title">Event Details</h1>
                 <button close-button class="close-button">&times;</button>
             </div>
-            <form id="view-form">
+            <form id="view-form" class="event-content-container">
             </form>
         </div>
     </div>

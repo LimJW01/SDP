@@ -32,7 +32,8 @@ close_modal_buttons.forEach(button => {
 
 function open_modal(modal) {
     if (modal == null) return;
-   
+    const content = document.getElementById('view-form');
+    content.classList.add('active');
 
     modal.classList.add('active');
     overlay.classList.add('active');

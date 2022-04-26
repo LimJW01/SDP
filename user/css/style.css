@@ -505,10 +505,6 @@ img {
   font-size: 35px;
 }
 
-#event-content-wrapper h1 {
-  margin-bottom: 20px;
-}
-
 #event-content-wrapper .grid-container {
   /* margin: 10px; */
 
@@ -606,9 +602,9 @@ img {
   background-color: #fefefe;
   border: 1px solid #888;
   border-radius: 10px;
-  margin: 5.5% 7% 1.5% 21%;
+  margin: 5.5% auto 1.5%;
   padding: 10px;
-  width: 70%;
+  width: 45%;
   min-width: 640px;  
 }
 
@@ -783,7 +779,7 @@ img {
 }
 
 #specific-event #view-form {
-  height: 600px;
+  height: 400px;
 }
 
 .modal-title-container {
