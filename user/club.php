@@ -29,6 +29,7 @@
 
 
 </head>
+
 <body>
     <?php include('includes/navbar.php'); ?>
     <div class="align-right">

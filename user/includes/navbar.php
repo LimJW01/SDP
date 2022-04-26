@@ -12,10 +12,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" id="nav-clubs" aria-current="page" href="index.php">Clubs</a>
+                        <a class="nav-link" id="nav-clubs" aria-current="page" href="index.php">Clubs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-events" href="event.php">Events</a>
+                        <a class="nav-link" id="nav-events" href="events.php">Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="nav-about-us" href="about_us.php">About Us</a>

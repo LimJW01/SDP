@@ -7,9 +7,7 @@ include_once "includes/dbh.php";
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <article id="clubs">
-    <div class="title">
-        <h1>Clubs and Societies<br></h1>
-    </div>
+    <div class="title">Clubs and Societies</div>
     <div class="align-right">
         <?php if (isset($_SESSION['student_id'])) { ?>
         <a href="#" class="btn1 btn-primary" data-toggle="modal" data-target="#exampleModal">Create Club</a>

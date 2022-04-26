@@ -21,7 +21,6 @@ $row = mysqli_fetch_assoc($result);
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <form action="manage_user_profile.php" method="post" onsubmit="return validate_student_profile();">
     <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">

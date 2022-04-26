@@ -2,8 +2,8 @@
 include_once "includes/header.php";
 include_once "includes/dbh.php";
 ?>
-<main id="event-content-wrapper">
-    <h1 class="title">Events</h1>
+<article id="event-content-wrapper">
+    <div class="title">Events</div>
     <div class="grid-container">
         <?php
         $sql = "SELECT * FROM events WHERE Approval_status = 'Approved' ORDER BY Date_posted DESC";
@@ -46,7 +46,7 @@ include_once "includes/dbh.php";
 
 
     <div id="overlay"></div>
-</main>
+</article>
 <script>
 $(document).ready(function() {
     <?php foreach ($event_array as $event_id) : ?>

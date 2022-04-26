@@ -1,10 +1,8 @@
 <?php
 include_once "includes/header.php";
 ?>
-<div id="contact-us">
-    <div class="title">
-        <h1>Contact Us</h1>
-    </div>
+<article id="contact-us">
+    <div class="title">Contact Us</div>
     <div class="ContactUsform">
         <div class="container1">
             <div class="content">
@@ -33,17 +31,30 @@ include_once "includes/header.php";
                     <p>If you have any problem in this website, you can send us message from here. It's our pleasure to
                         help you.</p>
                     <form action="#">
-                        <div class="input-box">
+                        <div class="input-box flex-item">
                             <input type="text" placeholder="Enter your name">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="input-box">
+                        <div class="input-box flex-item">
                             <input type="text" placeholder="Enter your email">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="input-box">
+                        <div class="input-box flex-item">
                             <input type="tel" placeholder="Enter your contact number">
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
-                        <div class="input-box message-box">
-                            <input type="text" placeholder="Enter your message">
+                        <div class="input-box message-box flex-item">
+                            <textarea name="message" id="message" cols="30" rows="5"
+                                placeholder="Enter your message"></textarea>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                         </div>
                         <div class="button">
                             <input type="button" value="Send Now">
@@ -53,5 +64,5 @@ include_once "includes/header.php";
             </div>
         </div>
     </div>
-</div>
+</article>
 <?php include_once "./includes/footer.php"; ?>

@@ -173,16 +173,24 @@ img {
   color: inherit;
 }
 
+/* All Main Pages */
+
+article {
+  padding: 0 10% 2%;
+}
+
+.title {
+  font-size: 30px;
+  padding: 20px;
+  font-weight: 500;
+}
+
 /* Index Page */
 
 #clubs .align-right {
   text-align: right;
   border: 0;
   margin-right: 50px;
-}
-
-#clubs .title h1{
-  font-size: 30px;
 }
 
 /* Login */
@@ -264,20 +272,11 @@ img {
 
 /* Events */
 
-#events .title {
-  font-size: 30px;
-  padding: 20px;
-}
-
 #events figcaption {
   text-align: center;
 }
 
 /* Contact Us */
-#contact-us .title {
-  font-size: 25px;
-  margin: 1% 7% 0;
-}
 
 #contact-us .contact_usform {
   min-height: 100vh;
@@ -291,7 +290,6 @@ img {
 }
 
 #contact-us .container1 {
-  width: 85%;
   background: rgb(255, 255, 255);
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
@@ -449,17 +447,26 @@ img {
 
 /* Form Validation */
 
+.flex-item {
+  position: relative;
+}
+
 .flex-item i {
   font-size: 18px;
   position: absolute;
-  top: 42px;
-  right: 26px;
+  top: 45px;
+  right: 15px;
   visibility: hidden;
 }
 
 .flex-item select ~ i {
-  right: 50px;
-  top: 230px;
+  right: 40px;
+  top: 45px;
+}
+
+#contact-us .flex-item i {
+  top: 18px;
+  right: 20px;
 }
 
 .flex-item.success i.fa-check-circle {
@@ -497,17 +504,6 @@ img {
 
 
 /* DOCTORS PAGE */
-#event-content-wrapper {
-  margin: 2% 10%;
-}
-
-.title {
-  font-size: 35px;
-}
-
-#event-content-wrapper h1 {
-  margin-bottom: 20px;
-}
 
 #event-content-wrapper .grid-container {
   /* margin: 10px; */
@@ -662,13 +658,12 @@ img {
   border: 2px solid #262525;
   border-radius: 5px;
   width: 100%;
-  padding: 5px 0 5px 5px;
+  padding: 5px 0 5px 10px;
   margin-top: 3px;
   display: block;
 }
 
 .flex-item textarea {
-  font-family: Arial, Helvetica, sans-serif;
   padding: 5px;
 }
 
@@ -694,13 +689,13 @@ img {
   border-color: #e74c3c;
 }
 
-.flex-item i {
+/* .flex-item i {
   font-size: 18px;
   position: absolute;
   top: 30px;
   right: 3px;
   visibility: hidden;
-}
+} */
 
 #profile .flex-item i {
   top: 33px;
@@ -811,4 +806,57 @@ img {
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 20px;
+}
+
+/* About Us Page */
+
+#about-us {
+  padding: 0% 10% 2%;
+}
+
+#our-university,
+#our-clubs,
+#values {
+  display: inline-flex;
+  padding-bottom: 50px;
+}
+
+#our-clubs .image {
+  order: 2;
+}
+
+.image img {
+  height: 400px;
+  width: 600px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 0% 2.5%;
+  text-align: justify;
+}
+
+.content h2 {
+  font-size: 25px;
+  margin: 20px 0px;
+  color: #22386d;
+}
+
+.content h3 {
+  padding: 10px 0px;
+  color: #ff5956;
+}
+
+@media (max-width: 1100px) {
+  #our-university,
+  #our-clubs,
+  #values {
+    display: block;
+  }
+}
+
+@media (max-width: 750px) {
+  .image img {
+    width: 100%;
+  }
 }
