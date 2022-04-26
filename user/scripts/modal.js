@@ -42,9 +42,6 @@ function open_modal(modal) {
     body.style.width = "100%";
     body.style.overflowY = "scroll";
     body.style.overscrollBehaviorY = "contain";
-
-    
-   
 }
 
 function close_modal(modal) {
