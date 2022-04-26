@@ -389,7 +389,7 @@ article {
   margin-top: 12px;
 }
 
-#contact-us .right-side .button input[type="button"] {
+#contact-us .right-side .button input[type="submit"] {
   color: #fff;
   font-size: 18px;
   outline: none;
@@ -670,6 +670,15 @@ article {
 .flex-item.error i.fa-exclamation-circle {
   color: #e74c3c;
   visibility: visible;
+}
+
+#contact-us .flex-item input {
+  padding: 10px 10px;
+  background-color: #F0F1F8;
+}
+
+#contact-us .flex-item textarea {
+  background-color: #F0F1F8;
 }
 
 .flex-item small {
