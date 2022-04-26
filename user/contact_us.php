@@ -30,34 +30,39 @@ include_once "includes/header.php";
                     <div class="topic-text">Send us a message</div>
                     <p>If you have any problem in this website, you can send us message from here. It's our pleasure to
                         help you.</p>
-                    <form action="#">
+                    <form action="manage_contact_us.php" method="post" onsubmit="return validate_contact_us();">
                         <div class="input-box flex-item">
-                            <input type="text" placeholder="Enter your name">
+                            <input type="text" name="user-name" id="user-name" placeholder="Enter your name">
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
+                            <br>
                         </div>
                         <div class="input-box flex-item">
-                            <input type="text" placeholder="Enter your email">
+                            <input type="text" name="email-address" id="email-address" placeholder="Enter your email">
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
+                            <br>
                         </div>
                         <div class="input-box flex-item">
-                            <input type="tel" placeholder="Enter your contact number">
+                            <input type="tel" name="contact-number" id="contact-number"
+                                placeholder="Enter your contact number">
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
+                            <br>
                         </div>
                         <div class="input-box message-box flex-item">
-                            <textarea name="message" id="message" cols="30" rows="5"
-                                placeholder="Enter your message"></textarea>
+                            <textarea name="inquiry" id="inquiry" cols="30" rows="5"
+                                placeholder="Enter your inquiry"></textarea>
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
+                            <br>
                         </div>
                         <div class="button">
-                            <input type="button" value="Send Now">
+                            <input type="submit" name="submit" value="Send Now">
                         </div>
                     </form>
                 </div>
@@ -65,4 +70,6 @@ include_once "includes/header.php";
         </div>
     </div>
 </article>
+<?php include_once "../admin/includes/alert_message.php"; ?>
+<script defer src="../admin/scripts/form_validation.js"></script>
 <?php include_once "./includes/footer.php"; ?>

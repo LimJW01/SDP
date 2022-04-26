@@ -6,10 +6,11 @@ $student_id = $_SESSION['student_id'];
  
 if(isset($_POST['updateRecord'])){
         // get the value from the form and store in a variable
-        $Student_name = $_POST['txtName'];
-        $Gender = $_POST['txtGender'];
-        $Password = $_POST['txtPassword'];
-        $Contact_number = $_POST['txtContact'];
+        $Student_name = trim($_POST['txtName']);
+        $Gender = trim($_POST['txtGender']);
+        $Password = trim($_POST['txtPassword']);
+        $Contact_number = trim($_POST['txtContact']);
+
         //create update sql
         $query = "UPDATE `students` SET `Student_name`='$Student_name', `Gender`='$Gender', `Password`='$Password', `Contact_number`='$Contact_number'  WHERE student_id='$student_id'";
         // if query is executed successfully

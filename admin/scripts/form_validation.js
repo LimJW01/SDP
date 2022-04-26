@@ -211,7 +211,6 @@ function validate_venue() {
 function validate_date() {
     const date_input = document.getElementById("date");
     const date = date_input.value.trim();
-    
     if (is_empty(date)) {
         return set_error_for(date_input, "Date cannot be left blank");
     } else {
@@ -368,11 +367,23 @@ function validate_admin_profile() {
     }
 }
 
+function validate_inquiry() {
+    const inquiry_input = document.getElementById("inquiry");
+    const inquiry = inquiry_input.value.trim();
+    
+    if (is_empty(inquiry)) {
+        return set_error_for(inquiry_input, "Inquiry cannot be left blank");
+    } else {
+        return set_success_for(inquiry_input);  
+    }
+}
+
+// Contact Us Form Validation
 function validate_contact_us() {
     var inquiry = validate_inquiry();
     var contact_number = validate_contact_number();
     var email = validate_email();
-    var full_name = validate_full_name();
+    var full_name = validate_user_name();
     var validation = [full_name, email, contact_number, inquiry];
     if (validation.includes(false)) {
         return false;
