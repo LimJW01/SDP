@@ -3,10 +3,12 @@ include_once "../user/includes/dbh.php";
 include_once "../change_time_format.php";
 $id = $_POST['id'];
 
+// Get Event Details
 $event_sql_query = "SELECT * FROM events WHERE Event_ID = $id;";
 $event_result = mysqli_query($conn, $event_sql_query);
 $event_row = mysqli_fetch_assoc($event_result);
 
+// Get Club Name
 $club_id = $event_row['Club_ID'];
 $club_sql_query = "SELECT * FROM clubs WHERE Club_ID = $club_id";
 $club_result = mysqli_query($conn, $club_sql_query);
@@ -17,20 +19,7 @@ $club_row = mysqli_fetch_assoc($club_result);
     <div id="event-details">
         <h1><?php echo $event_row['Event_name'] ?></h1>
         <p id="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quos nostrum quis eligendi
-            tenetur laudantium
-            sunt repellat! Id nisi facilis repellendus vel cupiditate, odit ut. Doloremque totam nam mollitia impedit
-            vero
-            laudantium quod, laborum sit voluptatibus nesciunt vitae itaque nulla rem veniam id praesentium dolore ipsum
-            deleniti aut minima? Eaque repudiandae doloribus aliquam aut maxime sequi voluptatibus amet earum
-            necessitatibus
-            magnam dicta ea, modi quos placeat quaerat animi, unde ipsum. Perferendis beatae adipisci consequatur
-            obcaecati
-            vero odit, sequi voluptatibus doloribus impedit enim velit doloremque totam minus laboriosam qui autem sint
-            a,
-            ratione iure unde itaque recusandae ut! Voluptatum, animi aperiam, architecto vitae fugit laudantium
-            suscipit
-            sequi error quaerat delectus eaque atque maxime quidem temporibus quasi obcaeca
+            <?php echo $event_row['Description'] ?>
         </p>
         <p>
             <img src="../images/date.png" class="icon">
@@ -54,3 +43,8 @@ $club_row = mysqli_fetch_assoc($club_result);
         </p>
     </div>
 </div>
+
+<script>
+// Scroll to top when user open the modal
+$('#view-form').scrollTop(0);
+</script>
