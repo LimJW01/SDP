@@ -794,3 +794,21 @@ img {
   position: relative;
 }
 
+.card1 {
+  position: relative;
+  display: flex;
+  float: left;
+  width: 25%;
+  width: 100%;
+  min-width: 0;
+}
+
+.column1 {
+  padding: 0 10px;
+}
+
+.grid-item {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
+}

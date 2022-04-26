@@ -16,7 +16,7 @@ include_once "includes/dbh.php";
         <?php } else { ?>
         <?php } ?>
     </div>
-    <div class="card column" style='width: 190px; margin-left: 50px;'>
+    <div class="card1 column1">
         <?php $sql = "SELECT * FROM clubs ORDER BY Club_name ASC";
         $result = $conn->query($sql);
         $result_check = mysqli_num_rows($result);
@@ -26,14 +26,17 @@ include_once "includes/dbh.php";
         <a href="club.php?club=<?php echo $row['Club_name']; ?>">
             <div class='grid-item'>
                 <div class="img-container">
-                    <img title="<?php echo $row['Club_name']; ?>"
+                    <img title="<?php echo $row['Club_name']; ?>" height="175" width="250"
                         src="data:image/jpeg;base64,<?php echo base64_encode($row['Club_image']); ?>" alt='club_image'>
                 </div>
                 <h2><?php echo $row['Club_name']; ?></h2>
             </div>
-        </a>
-        <?php endwhile; ?>
-        <?php endif; ?>
+            <h2><?php echo $row['Club_name']; ?></h2>
+    </div>
+    </a>
+    <?php endwhile; ?>
+    <?php endif; ?>
+
     </div>
 </article>
 
@@ -104,5 +107,7 @@ include_once "includes/dbh.php";
         </div>
     </div>
 </div>
-<div>
-    <?php include_once "./includes/footer.php"; ?>
+<?php
+include_once "includes/footer.php";
+mysqli_close($conn);
+?>
