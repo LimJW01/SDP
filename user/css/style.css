@@ -814,3 +814,329 @@ article {
     width: 100%;
   }
 }
+
+
+/* specific club css starts here */
+
+
+.flex-container{
+  display: flex;
+  position: relative;
+}
+
+.flex-container .clogo{
+  position: absolute;
+  margin: 10px;
+}
+
+.flex-container .ctitle{
+  position: absolute;
+  margin-left: 250px;
+  margin-top: 90px;
+
+}
+
+.flex-container .cbutton{
+  position: absolute;
+  top: 90px;
+  right: 260px;
+}
+
+.section1{
+  margin-top: 200px;
+  margin-left: 250px;
+}
+
+.section1 .addevent{
+  position: absolute;
+  top: 290px;
+  right: 260px;
+}
+
+
+.section2 .image1{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.section2 .mbutton{
+  position: absolute;
+  top: 800px;
+  right: 260px;
+}
+
+.section3{
+  margin-top: 200px;
+  margin-left: 250px;
+}
+
+.section3 .addactivity{
+  position: absolute;
+  top: 850px;
+  right: 260px;
+}
+
+.wrapper {
+  margin-left: 450px;
+}
+
+.box {
+  width: 1000px;
+  height: 300px;
+  border-radius: 8px;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 74%;
+}
+
+.descevent {
+  margin-left: 30px;
+}
+
+.btn1{
+  background-color: #0004ff;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn1:hover,
+.btn1:focus {
+  background-color: #0004ff;
+}
+
+/* Club Registration Request css starts here */
+
+.reqtitle{
+  margin-left: 50px;
+}
+
+.clubreq{
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 40px;
+}
+
+.clubfeed{
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 40px;
+}
+
+
+.responsive-table1 li {
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.responsive-table1 .table-header {
+  background-color: #95A5A6;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.responsive-table1 .table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+
+.responsive-table1 .col-1 {
+  flex-basis: 60%;
+}
+
+.responsive-table1 .col-2 {
+  flex-basis: 30%;
+  margin-left: 50px;
+}
+
+.responsive-table1 .col-3 {
+  flex-basis: 90%;
+}
+
+.responsive-table1 .col-4 {
+  flex-basis: 90%;
+}
+
+.responsive-table1 .col-5 {
+  flex-basis: 90%;
+}
+
+.responsive-table1 .col-6 {
+  flex-basis: 90%;
+}
+
+.responsive-table2 li {
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  margin-bottom: 25px;
+}
+.responsive-table2 .table-header {
+  background-color: #95A5A6;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.responsive-table2 .table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+
+.responsive-table2 .col-2 {
+  flex-basis: 100px;
+}
+
+.responsive-table2 .col-3 {
+  flex-basis: 900px;
+  margin-left: 200px;
+}
+
+@media all and (max-width: 1000px) {
+  .table-header {
+    display: none;
+  }
+  li {
+    display: block;
+  }
+  .col {
+    
+    flex-basis: 1000px;
+    
+  }
+  .col {
+    display: flex;
+    padding: 10px 0;
+  }
+}
+
+/* Club Feedbacks */
+
+.table-users {
+ border: 1px solid darken(10px, 5%);
+ border-radius: 10px;
+ max-width: calc(100% - 2em);
+ margin: 1em auto;
+ overflow: hidden;
+ width: 800px;
+}
+
+table {
+ width: 100%;
+}
+ 
+table td, th { 
+  color: #000000;
+  padding: 10px; 
+}
+ 
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+ 
+table th { 
+  background-color: #95A5A6;
+  font-weight: 300;
+}
+ 
+table tr {     
+  background-color: white; 
+  background-color: #d8d8d8;
+}
+
+/* Club Details */
+
+.header {
+  background-color: #596364;
+  color: white;
+  font-size: 1.5em;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 50px;
+}
+
+/* Side Navigation */
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
