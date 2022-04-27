@@ -37,6 +37,9 @@ include_once "includes/header.php";
                             <i class="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
                             <br>
+                            <br>
+                            <br>
+                            <br>
                         </div>
                         <div class="input-box flex-item">
                             <input type="text" name="email-address" id="email-address" placeholder="Enter your email">

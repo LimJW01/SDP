@@ -7,7 +7,7 @@ function set_error_for(input, message) {
 	const error_field = form_control.querySelector("small");
 
     // Add error class
-	form_control.className = "flex-item error";
+	form_control.classList.add('error');
 
     // Add error message
 	error_field.innerText = message;
@@ -20,7 +20,7 @@ function set_success_for(input) {
 	const form_control = input.parentElement;
 
     // Add success class
-	form_control.className = "flex-item success";
+	form_control.classList.add('success');
     return true;
 }
 
