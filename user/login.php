@@ -18,9 +18,8 @@ session_start();
 
 <body id="login-page">
     <section class="entry-form">
-        <form name="login" action="manage_login.php" method="post" class="text-center"
-            onsubmit="return validate_login();">
-            <a href="index.php"><img title="Home" class="entry-logo" src="../images/logo.png" alt="logo"></a>
+        <form name="login" action="manage_login.php" method="post" class="text-center" onsubmit="return validate_login();">
+            <a href="clubs.php"><img title="Home" class="entry-logo" src="../images/logo.png" alt="logo"></a>
             <br>
             <h1>ClubExpress Account Login</h1>
             <ul>
@@ -40,16 +39,16 @@ session_start();
     </section>
 
     <script>
-    $(document).ready(function() {
-        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == false) {
-            echo "window.onload = function() {
+        $(document).ready(function() {
+            <?php if (isset($_SESSION['login']) && $_SESSION['login'] == false) {
+                echo "window.onload = function() {
                     alert('" . $_SESSION['message'] . "')
                 }";
-        unset($_SESSION['login']);
-        unset($_SESSION['message']);
-    }
-    ?>
-    });
+                unset($_SESSION['login']);
+                unset($_SESSION['message']);
+            }
+            ?>
+        });
     </script>
 
 </body>

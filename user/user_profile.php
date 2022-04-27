@@ -1,6 +1,6 @@
 <?php
 include_once "includes/header.php";
-include("includes/dbh.php");
+include_once "includes/dbh.php";
 
 // get the user's id from the URL
 $student_id = $_SESSION['student_id'];
@@ -123,3 +123,4 @@ $row = mysqli_fetch_assoc($result);
 
     <script defer src="../admin/scripts/form_validation.js"></script>
     <?php include_once "./includes/footer.php"; ?>
+    <?php mysqli_close($conn); ?>

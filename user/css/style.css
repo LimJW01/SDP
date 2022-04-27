@@ -289,20 +289,20 @@ article {
   box-sizing: border-box;
 }
 
-#contact-us .container1 {
+#contact-us .contact-us-container {
   background: rgb(255, 255, 255);
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(255, 0, 0, 0.2);
 }
 
-#contact-us .container1 .content {
+#contact-us .contact-us-container .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#contact-us .container1 .content .left-side {
+#contact-us .contact-us-container .content .contact-detail {
   width: 25%;
   height: 100%;
   display: flex;
@@ -313,7 +313,7 @@ article {
   position: relative;
 }
 
-#contact-us .content .left-side::before {
+#contact-us .content .contact-detail::before {
   content: '';
   position: absolute;
   height: 70%;
@@ -324,47 +324,47 @@ article {
   background: #afafb6;
 }
 
-#contact-us .content .left-side .details {
+#contact-us .content .contact-detail .details {
   margin: 14px;
   text-align: center;
 }
 
-#contact-us .content .left-side .details i {
+#contact-us .content .contact-detail .details i {
   font-size: 30px;
   color: #3e2093;
   margin-bottom: 10px;
 }
 
-#contact-us .content .left-side .details .topic {
+#contact-us .content .contact-detail .details .topic {
   font-size: 18px;
   font-weight: 500;
 }
 
-#contact-us .content .left-side .details .text-one,
-#contact-us .content .left-side .details .text-two {
+#contact-us .content .contact-detail .details .text-one,
+#contact-us .content .contact-detail .details .text-two {
   font-size: 14px;
   color: #afafb6;
 }
 
-#contact-us .container1 .content .right-side {
+#contact-us .contact-us-container .content .contact-us-form {
   width: 75%;
   margin-left: 75px;
 }
 
-#contact-us .content .right-side .topic-text {
+#contact-us .content .contact-us-form .topic-text {
   font-size: 23px;
   font-weight: 600;
   color: #3e2093;
 }
 
-#contact-us .right-side .input-box {
+#contact-us .contact-us-form .input-box {
   height: 50px;
   width: 100%;
   margin: 20px 0;
 }
 
-#contact-us .right-side .input-box input,
-#contact-us .right-side .input-box textarea {
+#contact-us .contact-us-form .input-box input,
+#contact-us .contact-us-form .input-box textarea {
   height: 100%;
   width: 100%;
   font-size: 16px;
@@ -375,20 +375,20 @@ article {
   display: block;
 }
 
-#contact-us .right-side .message-box {
+#contact-us .contact-us-form .message-box {
   min-height: 110px;
 }
 
-#contact-us .right-side .input-box textarea {
+#contact-us .contact-us-form .input-box textarea {
   padding-top: 6px;
 }
 
-#contact-us .right-side .button {
+#contact-us .contact-us-form .button {
   display: inline-block;
   margin-top: 12px;
 }
 
-#contact-us .right-side .button input[type="submit"] {
+#contact-us .contact-us-form .button input[type="submit"] {
   color: #fff;
   font-size: 18px;
   outline: none;
@@ -405,28 +405,28 @@ article {
 }
 
 @media (max-width: 950px) {
-  #contact-us .container1{
+  #contact-us .contact-us-container{
     width: 90%;
     padding: 30px 40px 40px 35px ;
   }
 
-  #contact-us .container1 .content .right-side{
+  #contact-us .contact-us-container .content .contact-us-form{
    width: 75%;
    margin-left: 55px;
   }
 }
 
 @media (max-width: 820px) {
-  #contact-us .container1{
+  #contact-us .contact-us-container{
     margin: 40px 0;
     height: 100%;
   }
 
-  #contact-us .container1 .content {
+  #contact-us .contact-us-container .content {
     flex-direction: column-reverse;
   }
 
-  #contact-us .container1 .content .left-side {
+  #contact-us .contact-us-container .content .contact-detail {
    width: 100%;
    flex-direction: row;
    margin-top: 40px;
@@ -434,11 +434,11 @@ article {
    flex-wrap: wrap;
  }
 
- #contact-us .container1 .content .left-side::before {
+ #contact-us .contact-us-container .content .contact-detail::before {
    display: none;
  }
 
- #contact-us .container1 .content .right-side {
+ #contact-us .contact-us-container .content .contact-us-form {
    width: 100%;
    margin-left: 0;
  }
@@ -511,6 +511,10 @@ article {
   width: 403px;
   text-align: left;
   position: relative;
+}
+
+#event-content-wrapper .grid-item:hover {
+  cursor: pointer;
 }
 
 #event-content-wrapper .grid-item img {
@@ -715,7 +719,7 @@ article {
 }
 
 
-
+/* 
 #clubs .card1 {
   position: relative;
   display: flex;
@@ -733,7 +737,7 @@ article {
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 20px;
-}
+} */
 
 /* About Us Page */
 
@@ -786,6 +790,68 @@ article {
   .image img {
     width: 100%;
   }
+}
+
+/* Clubs Page */
+#clubs .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 40px 10px;
+  justify-content: space-between;
+  margin: 80px;
+}
+
+#clubs .grid-item {
+  height: auto;
+  width: 200px;
+  text-align: center;
+}
+
+#clubs .img-container {
+  height: 250px;
+  position: relative;
+  background: white;
+  border: 1px solid black;
+}
+
+#clubs .grid-item img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#clubs .grid-item h2 {
+  margin: 15px 0px 10px 0px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#clubs .grid-container a:visited,
+#clubs .grid-container a:link {
+  color: black;
+  text-decoration: none;
+}
+
+#clubs #create-button {
+  float:right;
+  padding: 12px 2%;
+  margin: -20px 0 0;
+  border-radius: 50px;
+  background-color: #20ff00;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+#clubs #create-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 
