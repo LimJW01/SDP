@@ -22,24 +22,37 @@ $club_row = mysqli_fetch_assoc($club_result);
             <?php echo $event_row['Description'] ?>
         </p>
         <p>
-            <img src="../images/date.png" class="icon">
+            <img src="../images/date.png" class="icon" alt="date-icon">
             Date: <span><?php echo $event_row['Date']; ?></span>
         </p>
         <p>
-            <img src="../images/time.png" class="icon">
+            <img src="../images/time.png" class="icon" alt="time-icon">
             Start Time:
             <span><?php echo change_time_format($event_row['Start_time']); ?>
                 (GMT +8)</span>
         </p>
         <p>
-            <img src="../images/time.png" class="icon">
+            <img src="../images/time.png" class="icon" alt="time-icon">
             End Time:
             <span><?php echo change_time_format($event_row['End_time']); ?> (GMT
                 +8)</span>
         </p>
         <p>
-            <img src="../images/club.png" class="icon">
-            Organized by: <span><?php echo $club_row['Club_name']; ?></span>
+            <img src="../images/club.png" class="icon" alt="Organizer-icon">
+            Organized By: <span><?php echo $club_row['Club_name']; ?></span>
+        </p>
+        <p>
+            Contact Details
+            <br>
+            <img src="../images/email.png" class="icon" alt="email-icon">
+            Email address: <span><?php echo $club_row['Email']; ?></span>
+            <br>
+            <img src="../images/phone.png" class="icon">
+            Phone number: <span><?php echo $club_row['Contact_number']; ?></span>
+        </p>
+        <p>
+            Registration Link : <a href="<?php echo $event_row['Link']; ?>"
+                target="_blank"><?php echo $event_row['Link']; ?></a>
         </p>
     </div>
 </div>

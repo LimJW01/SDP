@@ -3,10 +3,10 @@ include_once "includes/header.php";
 ?>
 <article id="contact-us">
     <div class="title">Contact Us</div>
-    <div class="ContactUsform">
-        <div class="container1">
+    <div class="contact-us-details">
+        <div class="contact-us-container">
             <div class="content">
-                <div class="left-side">
+                <div class="contact-detail">
                     <div class="address details">
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="topic">Location</div>
@@ -26,7 +26,7 @@ include_once "includes/header.php";
                         <div class="text-two">blablabla@gmail.com</div>
                     </div>
                 </div>
-                <div class="right-side">
+                <div class="contact-us-form">
                     <div class="topic-text">Send us a message</div>
                     <p>If you have any problem in this website, you can send us message from here. It's our pleasure to
                         help you.</p>
@@ -73,6 +73,8 @@ include_once "includes/header.php";
         </div>
     </div>
 </article>
-<?php include_once "../admin/includes/alert_message.php"; ?>
 <script defer src="../admin/scripts/form_validation.js"></script>
-<?php include_once "./includes/footer.php"; ?>
+<?php
+include_once "../admin/includes/alert_message.php";
+include_once "./includes/footer.php";
+?>
