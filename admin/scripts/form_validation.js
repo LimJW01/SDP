@@ -8,6 +8,7 @@ function set_error_for(input, message) {
 
     // Add error class
 	form_control.classList.add('error');
+    form_control.classList.remove('success');
 
     // Add error message
 	error_field.innerText = message;
@@ -21,6 +22,7 @@ function set_success_for(input) {
 
     // Add success class
 	form_control.classList.add('success');
+     form_control.classList.remove('error');
     return true;
 }
 
@@ -228,6 +230,18 @@ function validate_organizing_club() {
     }
 }
 
+function validate_link() {
+    const link_input = document.getElementById("link");
+    const link = link_input.value.trim();
+    if (is_empty(link)) {
+        return set_error_for(link_input, "Link cannot be left blank");
+    } else if (!/^(http|https):\/\/(www.)?[a-zA-Z0-9@:%.\+~#?&//=]+/.test(link)) {
+         return set_error_for(link_input, "Invalid link format");
+     } else {
+        return set_success_for(link_input);
+    }
+}
+
 function validate_approval_status() {
     const approval_status_input = document.getElementById("approval-status");
     const approval_status = approval_status_input.value.trim();
@@ -255,6 +269,17 @@ function validate_role() {
         return set_error_for(role_input, "Role cannot be left blank");
     } else {
         return set_success_for(role_input);  
+    }
+}
+
+function validate_inquiry() {
+    const inquiry_input = document.getElementById("inquiry");
+    const inquiry = inquiry_input.value.trim();
+    
+    if (is_empty(inquiry)) {
+        return set_error_for(inquiry_input, "Inquiry cannot be left blank");
+    } else {
+        return set_success_for(inquiry_input);  
     }
 }
 
@@ -317,6 +342,7 @@ function validate_edit_club() {
 
 // Event Validation
 function validate_add_event() {
+    var link = validate_link();
     var end_time = validate_end_time();
     var start_time = validate_start_time();
     var date = validate_date();
@@ -325,7 +351,7 @@ function validate_add_event() {
     var image = validate_add_image();
     var event_name = validate_name();
 
-    const validation = [event_name, image, organizing_club, description, date, start_time, end_time];
+    const validation = [event_name, image, organizing_club, description, date, start_time, end_time, link];
     if (validation.includes(false)) {
         return false;
     } else {
@@ -335,6 +361,7 @@ function validate_add_event() {
 
 function validate_edit_event() {
     var approval_status = validate_approval_status();
+    var link = validate_link();
     var end_time = validate_end_time();
     var start_time = validate_start_time();
     var date = validate_date();
@@ -343,7 +370,7 @@ function validate_edit_event() {
     var image = validate_edit_image();
     var event_name = validate_name();
 
-    const validation = [event_name, image, organizing_club,description, date, start_time, end_time, approval_status];
+    const validation = [event_name, image, organizing_club,description, date, start_time, end_time, link, approval_status];
     if (validation.includes(false)) {
         return false;
     } else {
@@ -364,17 +391,6 @@ function validate_admin_profile() {
         return false;
     } else {
         return true;
-    }
-}
-
-function validate_inquiry() {
-    const inquiry_input = document.getElementById("inquiry");
-    const inquiry = inquiry_input.value.trim();
-    
-    if (is_empty(inquiry)) {
-        return set_error_for(inquiry_input, "Inquiry cannot be left blank");
-    } else {
-        return set_success_for(inquiry_input);  
     }
 }
 
