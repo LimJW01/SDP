@@ -601,7 +601,7 @@ article {
   min-width: 640px;  
 }
 
-.mymodal-title-container {
+.modal-title-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -880,16 +880,6 @@ article {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#add-club-member.mymodal-content {
-  margin: 10% 20% 1.5% 38%;
-  width: 30%;
-  min-width: 350px;
-  padding: 20px 20px 30px;
-}
-
-#add-club-member.mymodal-content .flex-item{
-  flex-basis: 100%;
-}
 
 .mymodal-content .subtitle {
   flex-basis: 100%;
