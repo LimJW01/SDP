@@ -4,15 +4,17 @@ include_once "includes/dbh.php";
 ?>
 <article id="clubs">
     <h1 class="title">Clubs</h1>
+    <?php if (isset($_SESSION['student_id'])) : ?>
     <button data-modal-target="#create" title="Create New Club" id="create-button">Create New Club</button>
-    <div class="grid-container">
+    <?php endif; ?>
+    <div class="grid-container" <?php echo (isset($_SESSION['student_id'])) ?  "" : "style='margin: 30px 80px;'"; ?>>
         <?php $sql = "SELECT * FROM clubs ORDER BY Club_name ASC";
         $result = $conn->query($sql);
         $result_check = mysqli_num_rows($result);
         ?>
         <?php if ($result_check > 0) : ?>
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-        <a href="admin_specific_club.php?club=<?php echo $row['Club_name']; ?>">
+        <a href="specific_clubs.php?club=<?php echo $row['Club_name']; ?>">
             <div class='grid-item'>
                 <div class="img-container">
                     <img title="<?php echo $row['Club_name']; ?>"
@@ -25,13 +27,13 @@ include_once "includes/dbh.php";
         <?php endif; ?>
     </div>
 
-    <!-- Add Club -->
-    <div class="modal" id="create">
+    <!-- Create New Club -->
+    <div class="mymodal" id="create">
         <!-- Modal content -->
-        <div class="modal-content" id="add-club">
-            <button close-button class="close">&times;</button>
-            <h1>Add New Club</h1>
-            <form action="manage_club.php" id="add-form" method="post" enctype="multipart/form-data"
+        <div class="mymodal-content" id="create-club">
+            <button close-button class="close-btn">&times;</button>
+            <h1>Create New Club</h1>
+            <form action="manage_club.php" id="create-form" method="post" enctype="multipart/form-data"
                 onsubmit="return validate_add_club();">
             </form>
         </div>
@@ -41,16 +43,24 @@ include_once "includes/dbh.php";
 
 <script>
 $(document).ready(function() {
-
-    // Load Add Club Data When Clicked
-    $("#add-button").click(function() {
-        $("#add-form").load("manage_club_data.php");
+    // Load Create New Club Data When Clicked
+    $("#create-button").click(function() {
+        $("#create-form").load("manage_create_club_data.php");
     });
 });
 </script>
 
+<!-- Activate Modal Script -->
+<script defer src="scripts/modal.js"></script>
 <?php
 include_once "../admin/includes/alert_message.php";
 include_once "includes/footer.php";
+
+if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+    echo "<script>window.onload = function() {alert('" . $_SESSION['message'] . "')};</script>";
+    unset($_SESSION['login']);
+    unset($_SESSION['message']);
+}
+
 mysqli_close($conn);
 ?>

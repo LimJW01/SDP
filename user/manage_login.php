@@ -28,7 +28,7 @@ if (isset($_POST['login-btn'])) {
     } else if ($student_result_check > 0) {
         $row = mysqli_fetch_assoc($student_result);
         if ($row['Password'] == $password) {
-            $_SESSION['message'] = "Welcome to MediLife";
+            $_SESSION['message'] = "Welcome to ClubExpress";
             $_SESSION['login'] = true;
             $_SESSION['student_id'] = $row['Student_ID'];
             header("Location: ./clubs.php");

@@ -544,19 +544,13 @@ article {
   margin: 2px 0px 2px 0px;
 }
 
-@media (max-width: 1400px) {
-  #event-content-wrapper .grid-container {
-    grid-template-columns: auto auto auto;
-  }
-}
-
-@media (max-width: 1040px) {
+@media (max-width: 1380px) {
   #event-content-wrapper .grid-container {
     grid-template-columns: auto auto;
   }
 }
 
-@media (max-width: 690px) {
+@media (max-width: 960px) {
   #event-content-wrapper .grid-container {
     grid-template-columns: auto;
     justify-content: center;
@@ -571,7 +565,7 @@ article {
 
 /* POP UP */
 
-/* Modal Box */
+/* Event Modal Box */
 
 .event-modal {
   position: fixed; /* Stay in place */
@@ -586,11 +580,12 @@ article {
 
 .event-modal.active {
   transform: translate(-50%, -50%) scale(1);
-  
 }
+
 .event-content-container {
  background-color:#eae5e5 ;
 }
+
 .event-content-container.active {
   /* Enable scroll if needed */
   overflow: auto;
@@ -606,7 +601,7 @@ article {
   min-width: 640px;  
 }
 
-.modal-title-container {
+.mymodal-title-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -717,27 +712,6 @@ article {
   opacity: 1;
   pointer-events: all;
 }
-
-
-/* 
-#clubs .card1 {
-  position: relative;
-  display: flex;
-  float: left;
-  width: 25%;
-  width: 100%;
-  min-width: 0;
-}
-
-#clubs .column1 {
-  padding: 0 10px;
-}
-
-#clubs .grid-item {
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 20px;
-} */
 
 /* About Us Page */
 
@@ -854,11 +828,163 @@ article {
   cursor: pointer;
 }
 
+/* Modal Box */
+
+.mymodal {
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+}
+
+.mymodal.active {
+  transform: translate(-50%, -50%) scale(1);
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Content */
+.mymodal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 10px;
+  margin: 5.5% 7% 1.5% 21%;
+  padding: 10px;
+  width: 70%;
+  min-width: 640px;  
+}
+
+.mymodal-content h1 {
+  padding: 25px 4% 15px;
+  width: fit-content;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.mymodal-content .flex-container,
+.report-container .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 4%;
+  list-style-type: none;
+}
+
+.mymodal-content .flex-item{
+  flex-basis: 45%;
+  padding-bottom: 30px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#add-club-member.mymodal-content {
+  margin: 10% 20% 1.5% 38%;
+  width: 30%;
+  min-width: 350px;
+  padding: 20px 20px 30px;
+}
+
+#add-club-member.mymodal-content .flex-item{
+  flex-basis: 100%;
+}
+
+.mymodal-content .subtitle {
+  flex-basis: 100%;
+}
+
+.mymodal-content h3 {
+  font-size: 20px;
+  padding-top: 5px;
+  font-weight: normal;
+}
+
+.flex-item input,
+.flex-item select,
+.flex-item textarea {
+  border: 2px solid #262525;
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px 0 5px 5px;
+  margin-top: 3px;
+  display: block;
+}
+
+.flex-item select {
+  height: 38px;
+}
+
+.flex-item textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+}
+
+.mymodal-content .flex-item input[type="date"] {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-item input:disabled,
+.flex-item select:disabled,
+.flex-item textarea:disabled {
+  background-color: #e8e8e8;
+}
+
+.submit-container {
+  text-align: center;
+}
+
+.submit-container #update-button {
+  margin: auto;
+  display: none;
+}
+
+.submit-btn {
+  color: white;
+  width: 20%;
+  min-width: 87px;
+  height: 40px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.submit-btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.bg-color-light-green {
+  background-color: #00c949;
+}
+
+.bg-color-eastern-blue {
+  background-color: #2596be;
+}
+
+/* The Close Button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 0 15px;
+  border-radius: 10px;
+  background: none;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: white;
+  background-color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /* specific club css starts here */
 
 
-.flex-container{
+/* .flex-container{
   display: flex;
   position: relative;
 }
@@ -966,7 +1092,7 @@ article {
 .btn1:hover,
 .btn1:focus {
   background-color: #0004ff;
-}
+} */
 
 /* Club Registration Request css starts here */
 

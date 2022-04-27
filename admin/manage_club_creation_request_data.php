@@ -26,37 +26,33 @@ $student_row = mysqli_fetch_assoc($student_result);
 <ul class="flex-container">
     <li class="flex-item">
         Club Name <br>
-        <input type="text" name="club-name" id="club-name" class="input-disabled" value="<?php echo $club_creation_row['Club_name'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="club-name" id="club-name" class="input-disabled"
+            value="<?php echo $club_creation_row['Club_name'] ?>" disabled>
     </li>
 
     <li class="flex-item">
         Club Email <br>
-        <input type="text" name="email-address" id="email-address" class="input-disabled" value="<?php echo $club_creation_row['Club_email'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="email-address" id="email-address" class="input-disabled"
+            value="<?php echo $club_creation_row['Club_email'] ?>" disabled>
     </li>
 
     <li class="flex-item">
         Club Description<br>
-        <textarea name="description" id="description" cols="30" rows="5" class="input-disabled" disabled><?php echo $club_creation_row['Club_description']; ?></textarea>
+        <textarea name="description" id="description" cols="30" rows="5" class="input-disabled"
+            disabled><?php echo $club_creation_row['Club_description']; ?></textarea>
     </li>
 
 
     <li class="flex-item">
         Purpose<br>
-        <textarea name="purpose" id="purpose" cols="30" rows="5" class="input-disabled" disabled><?php echo $club_creation_row['Purpose']; ?></textarea>
+        <textarea name="purpose" id="purpose" cols="30" rows="5" class="input-disabled"
+            disabled><?php echo $club_creation_row['Purpose']; ?></textarea>
     </li>
 
     <li class="flex-item">
         Club Contact Number <br>
-        <input type="tel" name="club-contact-number" id="club-contact-number" class="input-disabled" value="<?php echo $club_creation_row['Club_contact_number'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="tel" name="club-contact-number" id="club-contact-number" class="input-disabled"
+            value="<?php echo $club_creation_row['Club_contact_number'] ?>" disabled>
     </li>
 
     <li class="flex-item subtitle">
@@ -65,26 +61,20 @@ $student_row = mysqli_fetch_assoc($student_result);
 
     <li class="flex-item">
         Student Name <br>
-        <input type="text" name="student-name" id="student-name" class="input-disabled" value="<?php echo $student_row['Student_name'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="student-name" id="student-name" class="input-disabled"
+            value="<?php echo $student_row['Student_name'] ?>" disabled>
     </li>
 
     <li class="flex-item">
         Student Contact Number <br>
-        <input type="tel" name="student-contact-number" id="student-contact-number" class="input-disabled" value="<?php echo $student_row['Contact_number'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="tel" name="student-contact-number" id="student-contact-number" class="input-disabled"
+            value="<?php echo $student_row['Contact_number'] ?>" disabled>
     </li>
 
     <li class="flex-item">
         TP Number <br>
-        <input type="text" name="tp-number" id="tp-number" class="input-disabled" value="<?php echo $student_row['TP_number'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="tp-number" id="tp-number" class="input-disabled"
+            value="<?php echo $student_row['TP_number'] ?>" disabled>
     </li>
 
     <li class="flex-item subtitle">
@@ -93,34 +83,26 @@ $student_row = mysqli_fetch_assoc($student_result);
 
     <li class="flex-item">
         Day <br>
-        <input type="text" name="day" id="day" class="input-disabled" value="<?php echo $club_creation_row['Day'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="day" id="day" class="input-disabled" value="<?php echo $club_creation_row['Day'] ?>"
+            disabled>
     </li>
 
     <li class="flex-item">
         Start Time <br>
-        <input type="text" name="start-time" id="start-time" class="input-disabled" value="<?php echo change_time_format($club_creation_row['Start_time']) ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="start-time" id="start-time" class="input-disabled"
+            value="<?php echo change_time_format($club_creation_row['Start_time']) ?>" disabled>
     </li>
 
     <li class="flex-item">
         End Time <br>
-        <input type="text" name="end-time" id="end-time" class="input-disabled" value="<?php echo change_time_format($club_creation_row['End_time']) ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="end-time" id="end-time" class="input-disabled"
+            value="<?php echo change_time_format($club_creation_row['End_time']) ?>" disabled>
     </li>
 
     <li class="flex-item">
         Venue <br>
-        <input type="text" name="venue" id="venue" class="input-disabled" value="<?php echo $club_creation_row['Venue'] ?>" disabled>
-        <i class="fas fa-check-circle"></i>
-        <i class="fas fa-exclamation-circle"></i>
-        <small>Error message</small>
+        <input type="text" name="venue" id="venue" class="input-disabled"
+            value="<?php echo $club_creation_row['Venue'] ?>" disabled>
     </li>
 
 </ul>

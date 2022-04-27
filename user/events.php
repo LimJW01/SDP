@@ -72,6 +72,10 @@ $(document).ready(function() {
     <?php endforeach; ?>
 });
 </script>
+
+<!-- Activate Event Modal Script -->
+<script defer src="scripts/event_modal.js"></script>
+
 <?php
 include_once "includes/footer.php";
 mysqli_close($conn);
