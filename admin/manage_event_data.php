@@ -143,6 +143,15 @@ if ($action == "delete") {
         <small>Error message</small>
     </li>
 
+    <li class="flex-item">
+        Registration Link <br>
+        <input type="text" name="link" id="link" class="input-disabled" value="<?php echo $event_row['Link'] ?>"
+            disabled>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+    </li>
+
     <?php if ($action == "view" || $action == "edit") : ?>
     <li class="flex-item">
         Approval Status <br>
