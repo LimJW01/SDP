@@ -360,20 +360,19 @@ article {
 #contact-us .right-side .input-box {
   height: 50px;
   width: 100%;
-  margin: 12px 0;
+  margin: 20px 0;
 }
 
 #contact-us .right-side .input-box input,
 #contact-us .right-side .input-box textarea {
   height: 100%;
   width: 100%;
-  border: none;
-  outline: none;
   font-size: 16px;
   background: #F0F1F8;
   border-radius: 6px;
   padding: 0 15px;
   resize: none;
+  display: block;
 }
 
 #contact-us .right-side .message-box {
@@ -479,17 +478,6 @@ article {
   visibility: visible;
 }
 
-.flex-item small {
-  position: absolute;
-  left: 20px;
-  visibility: hidden;
-}
-
-.flex-item.error small {
-  color: #e74c3c;
-  visibility: visible;
-}
-
 .flex-item.success input,
 .flex-item.success select,
 .flex-item.success textarea {
@@ -502,6 +490,10 @@ article {
   border-color: #e74c3c;
 }
 
+#contact-us .flex-item.error input, 
+#contact-us .flex-item.error textarea{
+  border: 2px solid #e74c3c;
+}
 
 /* DOCTORS PAGE */
 
@@ -660,25 +652,6 @@ article {
 
 #profile .flex-item i {
   top: 33px;
-}
-
-.flex-item.success i.fa-check-circle {
-  color: #2ecc71;
-  visibility: visible;
-}
-
-.flex-item.error i.fa-exclamation-circle {
-  color: #e74c3c;
-  visibility: visible;
-}
-
-#contact-us .flex-item input {
-  padding: 10px 10px;
-  background-color: #F0F1F8;
-}
-
-#contact-us .flex-item textarea {
-  background-color: #F0F1F8;
 }
 
 .flex-item small {
