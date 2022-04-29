@@ -7,8 +7,9 @@
                         ClubExpress
                     </a>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis non corporis cupiditate ad
-                        totam pariatur accusamus vel, dolores maxime? Optio recusa
+                    Our mission is to take the drudgery out of running and growing a club or association. 
+                    Using the powerful technologies of the Internet, we make it as easy as possible to create, manage and sustain a strong, vibrant club, 
+                    one that people join because it's fun, because it helps them, and because it adds to their communities.
                     </p>
                 </div>
             </div>

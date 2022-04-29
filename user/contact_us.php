@@ -22,8 +22,8 @@ include_once "includes/header.php";
                     <div class="email details">
                         <i class="fas fa-envelope"></i>
                         <div class="topic">Email</div>
-                        <div class="text-one">blablabla@gmail.com</div>
-                        <div class="text-two">blablabla@gmail.com</div>
+                        <div class="text-one">yeesiang68@gmail.com</div>
+                        <div class="text-two">kaibinyong2002@gmail.com</div>
                     </div>
                 </div>
                 <div class="contact-us-form">
