@@ -504,11 +504,13 @@ article {
   border: 2px solid #e74c3c;
 }
 
-/* DOCTORS PAGE */
+/* EVENTS PAGE */
+
+#event-content-wrapper {
+  margin-bottom: 30px;
+}
 
 #event-content-wrapper .grid-container {
-  /* margin: 10px; */
-
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 15px 10px;
@@ -520,6 +522,8 @@ article {
   width: 403px;
   text-align: left;
   position: relative;
+  background-color: white;
+  border-radius: 20px;
 }
 
 #event-content-wrapper .grid-item:hover {
@@ -797,7 +801,8 @@ article {
 }
 
 #clubs .img-container,
-#joined-clubs .img-container {
+#joined-clubs .img-container, 
+.logo-container {
   height: 250px;
   position: relative;
   background: white;
@@ -806,7 +811,8 @@ article {
 
 #clubs .grid-item img,
 #specific-club-content img,
-#joined-clubs .grid-item img {
+#joined-clubs .grid-item img,
+#specific-joined-club .logo-container img {
   position: absolute;
   width: auto;
   height: auto;
@@ -1083,6 +1089,37 @@ article {
   background-color: #2081b3;
 }
 
+/* Specific Joined Club */
+
+#specific-joined-club h1.title{
+  font-size: 35px;
+  margin: 10px 0;
+}
+
+#specific-joined-club .logo-container {
+  margin: initial;
+  display: inline-block;
+  height: 113px;
+  width: 114px;
+  position: absolute;
+  left: 26px;
+  justify-content: center;
+  top: 102px;
+  background: none;
+  border:none;
+}
+
+#specific-joined-club .logo-container img {
+  width:100%;
+
+}
+
+
+
+
+
+
+
 
 /* .flex-container{
   display: flex;
@@ -1192,11 +1229,11 @@ article {
 .btn1:hover,
 .btn1:focus {
   background-color: #0004ff;
-} */
-
+} 
+*/
 /* Club Registration Request css starts here */
 
-.reqtitle{
+/* .reqtitle{
   margin-left: 50px;
 }
 
@@ -1306,7 +1343,7 @@ article {
     display: flex;
     padding: 10px 0;
   }
-}
+} */
 
 /* Club Feedbacks */
 /* 
@@ -1345,7 +1382,7 @@ table tr {
 
 /* Club Details */
 
-.header {
+/* .header {
   background-color: #596364;
   color: white;
   font-size: 1.5em;
@@ -1353,7 +1390,7 @@ table tr {
   text-align: center;
   text-transform: uppercase;
   margin-top: 50px;
-}
+} */
 
 /* Side Navigation */
 /* The side navigation menu */
@@ -1372,6 +1409,7 @@ table tr {
 
 /* The navigation menu links */
 .sidenav a {
+  margin: 10px;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -1383,25 +1421,17 @@ table tr {
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
+  text-decoration: none;
 }
 
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+.fa-chevron-right {
+  position: fixed;
+  z-index: 0;
+  top: 400px;
+  left: 0px;
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+  background-color: black;
+  border-radius: 0 10px 10px 0;
 }

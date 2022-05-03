@@ -5,7 +5,7 @@ include_once "includes/dbh.php";
 <article id="joined-clubs">
     <h1 class="title">Joined Clubs</h1>
     <div class="grid-container">
-        <?php 
+        <?php
         $id = $_SESSION['student_id'];
         $sql = "SELECT C.*, J.* FROM clubs AS C JOIN joined_clubs AS J ON C.Club_ID = J.Club_ID WHERE J.Student_ID = '$id' ORDER BY C.Club_name ASC";
         $result = $conn->query($sql);
@@ -13,7 +13,7 @@ include_once "includes/dbh.php";
         ?>
         <?php if ($result_check > 0) : ?>
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-        <a href="specific_clubs.php?club=<?php echo $row['Club_name']; ?>">
+        <a href="specific_joined_club.php?club=<?php echo $row['Club_name']; ?>">
             <div class='grid-item'>
                 <div class="img-container">
                     <img title="<?php echo $row['Club_name']; ?>"
