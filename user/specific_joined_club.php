@@ -1,6 +1,7 @@
 <?php
 include_once "includes/header.php";
 include_once "includes/dbh.php";
+include_once "../change_time_format.php";
 
 // Get Specific Club Details
 $club_name = $_GET['club'];
@@ -60,6 +61,7 @@ $club_activity_result = $conn->query($club_activity_sql);
             <?php endif; ?>
         </div>
     </div>
+
     <!-- Edit Event -->
     <div class="event-modal" id="specific-event">
         <!-- Modal content -->
@@ -75,11 +77,30 @@ $club_activity_result = $conn->query($club_activity_sql);
     <div id="overlay"></div>
 
     <div class="title">Club Activities</div>
-    <?php while ($club_activity_row = mysqli_fetch_assoc($club_activity_result)) : ?>
     <div id="club-activities">
-
+        <?php while ($club_activity_row = mysqli_fetch_assoc($club_activity_result)) : ?>
+        <div class="activity-container">
+            <p class="activity-description"><?php echo $club_activity_row['Description'] ?></p>
+            <hr>
+            <p>
+                <img src="../images/date.png" class="icon" alt="date-icon">
+                Date: <span><?php echo $club_activity_row['Day']; ?></span>
+            </p>
+            <p>
+                <img src="../images/time.png" class="icon" alt="time-icon">
+                Start Time:
+                <span><?php echo change_time_format($club_activity_row['Start_time']); ?>
+                    (GMT +8)</span>
+            </p>
+            <p>
+                <img src="../images/time.png" class="icon" alt="time-icon">
+                End Time:
+                <span><?php echo change_time_format($club_activity_row['End_time']); ?> (GMT
+                    +8)</span>
+            </p>
+        </div>
+        <?php endwhile; ?>
     </div>
-    <?php endwhile; ?>
 </article>
 <script>
 $(document).ready(function() {
