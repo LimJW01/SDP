@@ -3,7 +3,7 @@ include_once "includes/header.php";
 include_once "includes/dbh.php";
 ?>
 <article id="clubs">
-    <h1 class="title">Clubs</h1>
+    <div class="title">Clubs</div>
     <?php if (isset($_SESSION['student_id'])) : ?>
     <button data-modal-target="#create" title="Create New Club" id="create-button">Create New Club</button>
     <?php endif; ?>

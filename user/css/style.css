@@ -801,8 +801,7 @@ article {
 }
 
 #clubs .img-container,
-#joined-clubs .img-container, 
-.logo-container {
+#joined-clubs .img-container {
   height: 250px;
   position: relative;
   background: white;
@@ -812,7 +811,7 @@ article {
 #clubs .grid-item img,
 #specific-club-content img,
 #joined-clubs .grid-item img,
-#specific-joined-club .logo-container img {
+.logo-container img {
   position: absolute;
   width: auto;
   height: auto;
@@ -1091,12 +1090,12 @@ article {
 
 /* Specific Joined Club */
 
-#specific-joined-club h1.title{
+h1.title{
   font-size: 35px;
   margin: 10px 0;
 }
 
-#specific-joined-club .logo-container {
+.logo-container {
   margin: initial;
   display: inline-block;
   height: 113px;
@@ -1105,13 +1104,10 @@ article {
   left: 26px;
   justify-content: center;
   top: 102px;
-  background: none;
-  border:none;
 }
 
-#specific-joined-club .logo-container img {
+.logo-container img {
   width:100%;
-
 }
 
 
@@ -1398,7 +1394,7 @@ table tr {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 2; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #111; /* Black*/
@@ -1434,4 +1430,146 @@ table tr {
   padding: 10px;
   background-color: black;
   border-radius: 0 10px 10px 0;
+}
+
+/* DATA TABLE */
+
+.content-container {
+  width: 97%;
+  height: 520px;
+  border-radius: 20px;
+  background-color: white;
+  margin: 40px auto 0;
+  box-shadow: 2px 2px 5px;
+}
+
+.content-container .search-container,
+.content-container .report-container {
+  float: left;
+  margin: 50px 3% 10px;
+}
+
+#search-field {
+  border: 1px solid black;
+  height: 27px;
+  padding-left: 5px;
+}
+
+
+#search-button,
+#generate-button,
+#export-button {
+  font-size: 14px;
+  background-color:#2596be;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.content-container #add-button,
+.content-container #edit-button,
+.content-container #delete-button {
+  float: right;
+  padding: 10px 2%;
+  margin: 40px 3% 20px;
+  border-radius: 50px;
+  background-color: #20ff00;
+  font-weight: bold;
+}
+
+.content-container #edit-button,
+.content-container #delete-button {
+  margin: 21px 3% 13px;
+  display: block;
+}
+
+.content-container #delete-button {
+  background-color: red;
+}
+
+.table-container {
+  overflow-y: auto;
+  margin: 10px 2%;
+  width: 95%;
+  max-height: 365px;
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+}
+
+table th,
+table td {
+  line-height: 50px;
+}
+
+table td i {
+  font-size: 25px;
+  padding: 0 2%;
+  vertical-align: middle;
+}
+
+table .padding-left {
+  padding-left: 0.5%;
+}
+
+.table-container .fa-eye {
+  color: #00cf08;
+}
+
+.table-container .fa-edit {
+  color: #ffb800;
+}
+
+.table-container .fa-trash-alt {
+  color: red;
+}
+
+.fa-angle-double-up {
+  color:#00cf08;
+}
+
+.table-container i:hover,
+.content-container button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.no-record {
+  text-align: center;
+  font-size: 25px;
+  color: red;
+}
+
+table img {
+  width: 80px;
+  vertical-align: middle;
+  padding: 2px 0;
+}
+
+/* CLUB MEMBER TABLE */
+
+#specific-club-member-list .content-container h2 {
+  padding: 25px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#specific-club-member-list .content-container .search-container {
+  margin: 0 3% 25px;
 }
