@@ -468,6 +468,15 @@ article {
   right: 20px;
 }
 
+#clubs .flex-item i {
+  top: 38px;
+}
+
+#clubs .flex-item select ~ i {
+  top: 39px;
+  right: 25px;
+}
+
 .flex-item.success i.fa-check-circle {
   color: #2ecc71;
   visibility: visible;
@@ -767,7 +776,8 @@ article {
 }
 
 /* Clubs Page */
-#clubs .grid-container {
+#clubs .grid-container,
+#joined-clubs .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 40px 10px;
@@ -775,20 +785,28 @@ article {
   margin: 80px;
 }
 
-#clubs .grid-item {
+#joined-clubs .grid-container {
+  margin-top: 40px;
+}
+
+#clubs .grid-item,
+#joined-clubs .grid-item {
   height: auto;
   width: 200px;
   text-align: center;
 }
 
-#clubs .img-container {
+#clubs .img-container,
+#joined-clubs .img-container {
   height: 250px;
   position: relative;
   background: white;
   border: 1px solid black;
 }
 
-#clubs .grid-item img, #specific-club-content img {
+#clubs .grid-item img,
+#specific-club-content img,
+#joined-clubs .grid-item img {
   position: absolute;
   width: auto;
   height: auto;
@@ -801,14 +819,17 @@ article {
   right: 0;
 }
 
-#clubs .grid-item h2 {
+#clubs .grid-item h2,
+#joined-clubs .grid-item h2 {
   margin: 15px 0px 10px 0px;
   font-size: 18px;
   font-weight: bold;
 }
 
 #clubs .grid-container a:visited,
-#clubs .grid-container a:link {
+#clubs .grid-container a:link,
+#joined-clubs .grid-container a:visited,
+#joined-clubs .grid-container a:link {
   color: black;
   text-decoration: none;
 }
