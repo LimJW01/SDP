@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 
     // Email Settings
     $mail->setFrom($email, $name);
-    $mail->addAddress(address: "liqi2002@gmail.com");
+    $mail->addAddress(address: "kaibinyong2002@gmail.com");
     $mail->Subject = "ClubExpress Inquiry";
     $mail->Body = "Name: " . $name . "\nEmail: ". $email . "\nContact Number: ". $contact . "\nInquiry: " . $inquiry;
 
