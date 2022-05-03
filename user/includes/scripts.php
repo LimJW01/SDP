@@ -1,5 +1,8 @@
-<!-- Script for all pages -->
+<!-- Script for validating login -->
 <script defer src="scripts/login_validation.js"></script>
+
+<!-- Script for validating form -->
+<script defer src="../admin/scripts/form_validation.js"></script>
 
 <!-- Jquery Script -->
 <script src="scripts/jquery.js"></script>

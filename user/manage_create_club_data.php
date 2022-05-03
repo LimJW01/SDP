@@ -16,7 +16,7 @@ $student_row = mysqli_fetch_assoc($student_result);
 <ul class="flex-container">
     <li class="flex-item">
         Club Name <br>
-        <input type="text" name="club-name" id="club-name">
+        <input type="text" name="club-name" id="name">
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
@@ -49,7 +49,7 @@ $student_row = mysqli_fetch_assoc($student_result);
 
     <li class="flex-item">
         Club Contact Number <br>
-        <input type="tel" name="club-contact-number" id="club-contact-number">
+        <input type="tel" name="club-contact-number" id="contact-number">
         <i class="fas fa-check-circle"></i>
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>

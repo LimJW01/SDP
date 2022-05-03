@@ -468,6 +468,15 @@ article {
   right: 20px;
 }
 
+#clubs .flex-item i {
+  top: 38px;
+}
+
+#clubs .flex-item select ~ i {
+  top: 39px;
+  right: 25px;
+}
+
 .flex-item.success i.fa-check-circle {
   color: #2ecc71;
   visibility: visible;

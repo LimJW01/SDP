@@ -33,8 +33,8 @@ include_once "includes/dbh.php";
         <div class="mymodal-content" id="create-club">
             <button close-button class="close-btn">&times;</button>
             <h1>Create New Club</h1>
-            <form action="manage_club.php" id="create-form" method="post" enctype="multipart/form-data"
-                onsubmit="return validate_add_club();">
+            <form action="manage_create_club.php" id="create-form" method="post" enctype="multipart/form-data"
+                onsubmit="return validate_create_club();">
             </form>
         </div>
     </div>

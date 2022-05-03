@@ -283,6 +283,17 @@ function validate_inquiry() {
     }
 }
 
+function validate_purpose() {
+    const purpose_input = document.getElementById("purpose");
+    const purpose = purpose_input.value.trim();
+    
+    if (is_empty(purpose)) {
+        return set_error_for(purpose_input, "Purpose cannot be left blank");
+    } else {
+        return set_success_for(purpose_input);  
+    }
+}
+
 
 // Student Validation
 function validate_student() {
@@ -333,6 +344,27 @@ function validate_edit_club() {
     var club_name = validate_name();
 
     const validation = [club_name, club_email, contact_number, description, image, day, start_time, end_time, venue];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// Create Club Validation
+function validate_create_club() {
+    var venue = validate_venue();
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var day = validate_day();
+    var image = validate_add_image();
+    var contact_number = validate_contact_number();
+    var purpose = validate_purpose();
+    var description = validate_description();
+    var club_email = validate_email();
+    var club_name = validate_name();
+
+    const validation = [club_name, club_email, description, purpose, contact_number, image, day, start_time, end_time, venue];
     if (validation.includes(false)) {
         return false;
     } else {
