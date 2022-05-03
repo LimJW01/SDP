@@ -788,7 +788,7 @@ article {
   border: 1px solid black;
 }
 
-#clubs .grid-item img {
+#clubs .grid-item img, #specific-club-content img {
   position: absolute;
   width: auto;
   height: auto;
@@ -971,7 +971,96 @@ article {
   cursor: pointer;
 }
 
-/* specific club css starts here */
+/* SPECIFIC CLUB PAGE */
+
+#specific-club-content {
+  height: auto;
+  width: auto;
+  margin: 3% 10% 5% 10%;
+}
+
+#specific-club-content .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#specific-club-content .flex-container .flex-item img {
+  width: 100%;
+}
+
+#specific-club-content .club-img {
+  height: 550px;
+  position: relative;
+  background: white;
+  border: 2px solid black;
+  width: 475px;
+}
+
+#specific-club-content .club-details {
+  flex: 1 1 500px;
+  padding: 20px 30px;
+}
+
+#specific-club-content h1 {
+  font-size: 30px;
+  padding: 5px 0px;
+  font-weight: bold;
+}
+
+#specific-club-content h2 {
+  font-size: 22px;
+  margin: 30px 0;
+}
+
+#specific-club-content p {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 20px 0 0;
+  text-align: justify;
+}
+
+#specific-club-content .flex-item i {
+  position: initial;
+  top: initial;
+  right: initial;
+  visibility: initial;
+}
+
+#specific-club-content li {
+  list-style-type: none;
+  font-size: 19px;
+  padding: 10px 0px;
+}
+
+#specific-club-content table {
+  font-size: 18px;
+  margin-top: 15px;
+  text-align: left;
+  line-height: 25px;
+  width: 100%;
+}
+
+#specific-club-content th,
+#specific-club-content td {
+  padding: 10px 0;
+}
+
+#register-button {
+  font-size: 38px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+  background-color: rgba(51, 186, 255, 100);
+  padding: 15px 131px;
+  border-radius: 10px;
+  margin: 20px 0px;
+  transition: all 0.5s ease-in;
+}
+
+#register-button:hover {
+  cursor: pointer;
+  background-color: #2081b3;
+}
 
 
 /* .flex-container{
@@ -1199,7 +1288,7 @@ article {
 }
 
 /* Club Feedbacks */
-
+/* 
 .table-users {
  border: 1px solid darken(10px, 5%);
  border-radius: 10px;
@@ -1231,7 +1320,7 @@ table th {
 table tr {     
   background-color: white; 
   background-color: #d8d8d8;
-}
+} */
 
 /* Club Details */
 

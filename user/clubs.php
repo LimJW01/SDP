@@ -14,7 +14,7 @@ include_once "includes/dbh.php";
         ?>
         <?php if ($result_check > 0) : ?>
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-        <a href="specific_clubs.php?club=<?php echo $row['Club_name']; ?>">
+        <a href="specific_club.php?club=<?php echo $row['Club_name']; ?>">
             <div class='grid-item'>
                 <div class="img-container">
                     <img title="<?php echo $row['Club_name']; ?>"
