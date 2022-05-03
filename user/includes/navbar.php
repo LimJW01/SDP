@@ -33,7 +33,7 @@
                             My Profile
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="clubsjoined.php">Clubs Joined</a>
+                            <a class="dropdown-item" href="joined_clubs.php">Clubs Joined</a>
                             <a class="dropdown-item" href="user_profile.php">Account Settings</a>
                             <a class="dropdown-item" href="logout.php">Log Out</a>
                         </div>
