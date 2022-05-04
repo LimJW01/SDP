@@ -84,7 +84,6 @@ include_once "includes/sidenav.php";
             </table>
         </div>
     </div>
-    <div id="bottom"></div>
 </article>
 
 <script>

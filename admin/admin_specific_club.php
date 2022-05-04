@@ -207,7 +207,6 @@ $_SESSION['club_id'] = $club_id;
                 </table>
             </div>
         </div>
-        <div id="bottom"></div>
     </article>
 
     <!-- Add Club Member -->
