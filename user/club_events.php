@@ -20,7 +20,7 @@ include_once "includes/sidenav.php";
     <h1 class="title"><?php echo $club_row['Club_name']; ?></h1>
     <div class="content-container">
         <h2>Club Event List</h2>
-        <form action="" method="post" onsubmit="window.location.href = '#specific-club-event-list'">
+        <form action="" method="post">
             <div class="search-container">
                 <input type="text" name="search-field" id="search-field" placeholder="Event Name">
                 <input class="submit-btn" name="search" id="search-button" type="submit" value="Search">
@@ -140,5 +140,5 @@ $(document).ready(function() {
 
 <?php
 include_once "../admin/includes/alert_message.php";
-include_once "../admin/includes/footer.php";
+include_once "includes/footer.php";
 ?>

@@ -1639,12 +1639,14 @@ table, th, td {
   vertical-align: middle;
 }
 
-#specific-club-event-list .mymodal-content {
+#specific-club-event-list .mymodal-content,
+#specific-club-activity-list .mymodal-content {
   margin: 5.5% 7% 1.5% 15%;
 }
 
 #specific-club-member-list .content-container h2,
-#specific-club-event-list .content-container h2 {
+#specific-club-event-list .content-container h2,
+#specific-club-activity-list .content-container h2 {
   padding: 25px;
   font-size: 26px;
   font-weight: bold;
@@ -1655,6 +1657,12 @@ table, th, td {
   margin: 0 3% 25px;
 }
 
-#specific-club-event-list .content-container #add-button {
+#specific-club-event-list .content-container #add-button,
+#specific-club-activity-list .content-container #add-button {
   margin: -10px 3% 20px;
+}
+
+#specific-club-activity-list table th,
+#specific-club-activity-list table td {
+  min-width: 120px;
 }

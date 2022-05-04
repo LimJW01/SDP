@@ -536,6 +536,21 @@ function validate_student_profile() {
     }
 }
 
+// Activity Validation
+function validate_club_activity() {
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var day = validate_day();
+    var description = validate_description();
+    
+    const validation = [description, day, start_time, end_time];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 // Feedback Form Validation
 function validate_feedback() {
     var comment = validate_comment();

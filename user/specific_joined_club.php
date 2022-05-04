@@ -114,7 +114,7 @@ $club_activity_check = mysqli_num_rows($club_activity_result);
             <hr>
             <p>
                 <img src="../images/date.png" class="icon" alt="date-icon">
-                Date: <span><?php echo $club_activity_row['Day']; ?></span>
+                Day: <span><?php echo $club_activity_row['Day']; ?></span>
             </p>
             <p>
                 <img src="../images/time.png" class="icon" alt="time-icon">
