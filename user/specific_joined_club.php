@@ -84,7 +84,7 @@ $club_activity_result = $conn->query($club_activity_sql);
             <hr>
             <p>
                 <img src="../images/date.png" class="icon" alt="date-icon">
-                Date: <span><?php echo $club_activity_row['Day']; ?></span>
+                Day: <span><?php echo $club_activity_row['Day']; ?></span>
             </p>
             <p>
                 <img src="../images/time.png" class="icon" alt="time-icon">
