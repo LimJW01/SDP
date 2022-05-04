@@ -33,6 +33,7 @@ $club_activity_result = $conn->query($club_activity_sql);
     </div>
     <h1 class="title"><?php echo $club_row['Club_name']; ?></h1>
     <div class="title">Club Events</div>
+    <button data-modal-target="#feedback" title="Give Feedback" id="feedback-button">Give Feedback</button>
     <div id="event-content-wrapper">
         <div class="grid-container">
             <?php
@@ -47,7 +48,7 @@ $club_activity_result = $conn->query($club_activity_sql);
                     $event_id = "event-" . $row['Event_ID'];
                     array_push($event_array, $event_id);
                     ?>
-            <div data-modal-target="#specific-event" class='grid-item' id="<?php echo $event_id ?>">
+            <div data-event-modal-target="#specific-event" class='grid-item' id="<?php echo $event_id ?>">
                 <img title="<?php echo $row['Event_name']; ?>"
                     src="data:image/jpeg;base64,<?php echo base64_encode($row['Event_image']); ?>" alt='event_image'
                     width="403px" height="244px">
@@ -62,15 +63,40 @@ $club_activity_result = $conn->query($club_activity_sql);
         </div>
     </div>
 
-    <!-- Edit Event -->
+    <!-- View Event -->
     <div class="event-modal" id="specific-event">
         <!-- Modal content -->
-        <div class="event-modal-content" id="edit-event">
+        <div class="event-modal-content" id="view-event">
             <div class="modal-title-container">
                 <h1 id="title">Event Details</h1>
-                <button close-button class="close-button">&times;</button>
+                <button close-event-button class="close-button">&times;</button>
             </div>
             <form id="view-form" class="event-content-container">
+            </form>
+        </div>
+    </div>
+
+    <!-- Give Feedback -->
+    <div class="mymodal" id="feedback">
+        <!-- Modal content -->
+        <div class="mymodal-content" id="give-feedback">
+            <button close-button class="close-btn">&times;</button>
+            <h1>Give Feedback</h1>
+            <form action="manage_feedback.php" id="feedback-form" method="post" onsubmit="return validate_feedback();">
+                <ul class="flex-container">
+                    <li class="flex-item">
+                        Your Comment<br>
+                        <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </li>
+                </ul>
+
+                <!-- Submit button -->
+                <div class="submit-container">
+                    <input class="submit-btn bg-color-eastern-blue" type="submit" name="add" value="Submit">
+                </div>
             </form>
         </div>
     </div>
@@ -125,11 +151,16 @@ $(document).ready(function() {
         });
     });
     <?php endforeach; ?>
+
 });
 </script>
 
 <!-- Activate Event Modal Script -->
 <script defer src="scripts/event_modal.js"></script>
+
+<!-- Activate Modal Script -->
+<script defer src="scripts/modal.js"></script>
+
 
 <?php
 include_once "../admin/includes/alert_message.php";

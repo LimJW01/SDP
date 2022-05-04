@@ -17,7 +17,7 @@ include_once "includes/dbh.php";
                 $event_id = "event-" . $row['Event_ID'];
                 array_push($event_array, $event_id);
                 ?>
-        <div data-modal-target="#specific-event" class='grid-item' id="<?php echo $event_id ?>">
+        <div data-event-modal-target="#specific-event" class='grid-item' id="<?php echo $event_id ?>">
             <img title="<?php echo $row['Event_name']; ?>"
                 src="data:image/jpeg;base64,<?php echo base64_encode($row['Event_image']); ?>" alt='event_image'
                 width="403px" height="244px">
@@ -37,7 +37,7 @@ include_once "includes/dbh.php";
         <div class="event-modal-content" id="edit-event">
             <div class="modal-title-container">
                 <h1 id="title">Event Details</h1>
-                <button close-button class="close-button">&times;</button>
+                <button close-event-button class="close-button">&times;</button>
             </div>
             <form id="view-form" class="event-content-container">
             </form>
