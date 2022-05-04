@@ -383,7 +383,9 @@ function validate_add_event() {
     var image = validate_add_image();
     var event_name = validate_name();
 
+
     const validation = [event_name, image, organizing_club, description, date, start_time, end_time, link];
+    alert(validation);
     if (validation.includes(false)) {
         return false;
     } else {
@@ -403,6 +405,25 @@ function validate_edit_event() {
     var event_name = validate_name();
 
     const validation = [event_name, image, organizing_club,description, date, start_time, end_time, link, approval_status];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// Commitee Create Event Validation
+function validate_add_club_event() {
+    var link = validate_link();
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var date = validate_date();
+    var description = validate_description();
+    var image = validate_add_image();
+    var event_name = validate_name();
+
+
+    const validation = [event_name, image, description, date, start_time, end_time, link];
     if (validation.includes(false)) {
         return false;
     } else {

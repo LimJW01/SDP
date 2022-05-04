@@ -468,6 +468,14 @@ article {
   right: 20px;
 }
 
+#specific-club-event-list .flex-item i {
+  top: 39px;
+}
+
+#specific-club-event-list .flex-item input[type="date"] ~ i {
+  right: 30px;
+}
+
 #clubs .flex-item i {
   top: 38px;
 }
@@ -947,6 +955,13 @@ article {
   background-color: #e8e8e8;
 }
 
+#view-event img {
+  width: 150px;
+  margin: auto;
+  display: block;
+  border: 1px solid black;
+}
+
 .submit-container {
   text-align: center;
 }
@@ -1065,11 +1080,14 @@ article {
   text-align: left;
   line-height: 25px;
   width: 100%;
+  border: none;
 }
 
 #specific-club-content th,
 #specific-club-content td {
   padding: 10px 0;
+  border: none;
+  background: none;
 }
 
 #register-button {
@@ -1574,14 +1592,28 @@ table img {
   padding: 2px 0;
 }
 
-/* CLUB MEMBER TABLE */
+/* CLUB TABLE */
 
-#specific-club-member-list .content-container h2 {
+table, th, td {
+  vertical-align: middle;
+}
+
+#specific-club-event-list .mymodal-content {
+  margin: 5.5% 7% 1.5% 15%;
+}
+
+#specific-club-member-list .content-container h2,
+#specific-club-event-list .content-container h2 {
   padding: 25px;
   font-size: 26px;
   font-weight: bold;
 }
 
-#specific-club-member-list .content-container .search-container {
+#specific-club-member-list .content-container .search-container,
+#specific-club-event-list .content-container .search-container {
   margin: 0 3% 25px;
+}
+
+#specific-club-event-list .content-container #add-button {
+  margin: -10px 3% 20px;
 }
