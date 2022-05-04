@@ -1,6 +1,11 @@
 <?php
 session_start();
 include_once "includes/dbh.php";
+$club_id = $_SESSION['club_id'];
+
+$club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
+$club_details = $conn->query($club_sql);
+$club_row = mysqli_fetch_assoc($club_details);
 
 if (isset($_POST['update']) || (isset($_POST['add']))) {
 
@@ -35,7 +40,6 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['add'])) {
-    $club_id = $_SESSION['club_id'];
     $sql_query = "INSERT INTO club_activities (Description, Day, Start_time, End_time, Club_ID) VALUES ('$activity_description', '$day', '$start_time', '$end_time', '$club_id');";
     $result = mysqli_query($conn, $sql_query);
 
@@ -51,10 +55,6 @@ if (isset($_POST['add'])) {
         $_SESSION['message'] = "Failed to Add Record";
     }
 }
-
-$club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
-$club_details = $conn->query($club_sql);
-$club_row = mysqli_fetch_assoc($club_details);
 
 // Close Database Connection
 mysqli_close($conn);
