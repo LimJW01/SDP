@@ -25,6 +25,7 @@ if ($joined_club_row['Role'] == "Committee") {
 // Get all the club activity
 $club_activity_sql = "SELECT * FROM club_activities WHERE Club_ID = '$club_id';";
 $club_activity_result = $conn->query($club_activity_sql);
+$club_activity_check = mysqli_num_rows($club_activity_result);
 ?>
 
 <article id="specific-joined-club">
@@ -59,6 +60,8 @@ $club_activity_result = $conn->query($club_activity_sql);
             </div>
 
             <?php endwhile; ?>
+            <?php else : ?>
+            <p class="record-not-found">No Events Held Yet</p>
             <?php endif; ?>
         </div>
     </div>
@@ -104,6 +107,7 @@ $club_activity_result = $conn->query($club_activity_sql);
 
     <div class="title">Club Activities</div>
     <div id="club-activities">
+        <?php if ($club_activity_check > 0) : ?>
         <?php while ($club_activity_row = mysqli_fetch_assoc($club_activity_result)) : ?>
         <div class="activity-container">
             <p class="activity-description"><?php echo $club_activity_row['Description'] ?></p>
@@ -126,6 +130,9 @@ $club_activity_result = $conn->query($club_activity_sql);
             </p>
         </div>
         <?php endwhile; ?>
+        <?php else : ?>
+        <p class="record-not-found">No Activity Yet</p>
+        <?php endif; ?>
     </div>
 </article>
 <script>

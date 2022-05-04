@@ -11,12 +11,13 @@ include_once "../change_time_format.php";
             <div class="table-container">
                 <table>
                     <tr>
-                        <th class="padding-left">Club Image</th>
-                        <th class="padding-left">Club Name</th>
-                        <th class="padding-left">Club Description</th>
-                        <th class="padding-left">Student Name</th>
-                        <th class="padding-left">Student Contact Number</th>
-                        <th style="text-align: center;">Actions</th>
+                        <th class="padding-left" style="min-width: 90px; text-align:center;">Club Image</th>
+                        <th class="padding-left" style="min-width: 100px;">Club Name</th>
+                        <th class="padding-left" style="min-width: 600px;">Club Description</th>
+                        <th class="padding-left" style="min-width: 130px;">Student Name</th>
+                        <th class="padding-left" style="min-width: 130px; text-align:center;">Student Contact Number
+                        </th>
+                        <th style="min-width: 70px; text-align: center;">Actions</th>
                     </tr>
                     <?php
                     $club_creation_sql = "SELECT * FROM club_creation ORDER BY Club_creation_ID ASC";

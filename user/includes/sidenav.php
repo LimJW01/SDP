@@ -4,7 +4,7 @@
     <a href="club_events.php?club=<?php echo $club_row['Club_name'] ?>">Events</a>
     <a href="club_activities.php?club=<?php echo $club_row['Club_name'] ?>">Activities</a>
     <a href="club_registrations.php?club=<?php echo $club_row['Club_name'] ?>">Registration Approvals</a>
-    <a href="club_feedback.php?club=<?php echo $club_row['Club_name'] ?>">Feedback</a>
+    <a href="club_feedbacks.php?club=<?php echo $club_row['Club_name'] ?>">Feedback</a>
     <a href="club_report.php?club=<?php echo $club_row['Club_name'] ?>">Report</a>
 </div>
 

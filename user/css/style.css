@@ -987,6 +987,19 @@ article {
   cursor: pointer;
 }
 
+#approve-btn, #reject-btn {
+  margin: 0 30px;
+}
+
+#approve-btn {
+  background-color: #20ff00;
+  color:black;
+}
+
+#reject-btn {
+  background-color: red;
+}
+
 .bg-color-light-green {
   background-color: #00c949;
 }
@@ -1134,7 +1147,8 @@ h1.title{
   margin: -156px 0 0;
 }
 
-.activity-container {
+.activity-container,
+.feedback-container {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -1143,14 +1157,15 @@ h1.title{
   border: 1px solid black;
 }
 
-.activity-container .activity-description {
+.activity-container .activity-description,
+.feedback-container s.comment {
   font-size: 19px;
 }
 
 /* Feedback Form */
 #feedback .mymodal-content {
   width: 50%;
-  margin: 12.5% 7% 1.5% 26%;
+  margin: 12.5% auto 1.5%;
   padding: 10px 10px 25px;
 }
 
@@ -1158,8 +1173,19 @@ h1.title{
   flex-basis: 100%;
 }
 
+/* Club Feedback */
+.record-not-found {
+  padding: 0px 20px;
+  color: red;
+  font-weight: bold;
+  font-size: 25px;
+}
 
-
+/* Club Registration Request */
+#view-club-registration-request {
+  margin: 12% auto 0;
+  padding: 10px 10px 25px;
+}
 
 
 /* .flex-container{
