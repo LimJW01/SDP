@@ -159,7 +159,6 @@ $_SESSION['club_id'] = $club_id;
                         $joined_club_sql = "SELECT J.*, S.* FROM joined_clubs AS J JOIN students AS S ON J.Student_ID = S.Student_ID WHERE J.Club_ID = '$club_id' AND S.Student_name LIKE '%$search%' ORDER BY Student_name ASC";
                     } else {
                         $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
-                        
                     }
                     $joined_club_result = $conn->query($joined_club_sql);
                     $joined_club_result_check = mysqli_num_rows($joined_club_result);
@@ -244,7 +243,8 @@ editButton.onclick = function() {
 }
 
 // Alert message if record updated
-<?php if (isset($_SESSION['update']) && isset($_SESSION['message'])) : ?> window.onload = function() {
+<?php if (isset($_SESSION['update']) && isset($_SESSION['message'])) : ?>
+window.onload = function() {
     alert("<?php echo $_SESSION['message'] ?>");
 }
 <?php

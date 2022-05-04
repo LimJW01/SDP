@@ -3,10 +3,6 @@ session_start();
 include_once "includes/dbh.php";
 $club_id = $_SESSION['club_id'];
 
-$club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
-$club_details = $conn->query($club_sql);
-$club_row = mysqli_fetch_assoc($club_details);
-
 if (isset($_POST['update']) || (isset($_POST['add']))) {
 
     // Get data from HTML Form
@@ -55,6 +51,10 @@ if (isset($_POST['add'])) {
         $_SESSION['message'] = "Failed to Add Record";
     }
 }
+
+$club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
+$club_details = $conn->query($club_sql);
+$club_row = mysqli_fetch_assoc($club_details);
 
 // Close Database Connection
 mysqli_close($conn);

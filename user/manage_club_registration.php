@@ -47,6 +47,7 @@ if (isset($_POST['register'])) {
         $club_sql_query = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
         $club_result = mysqli_query($conn, $club_sql_query);
         $club_row = mysqli_fetch_assoc($club_result);
+
         header("Location: specific_club.php?club=" . $club_row['Club_name']);
     }
 }

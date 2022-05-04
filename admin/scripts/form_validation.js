@@ -561,3 +561,21 @@ function validate_feedback() {
         return true;
     }
 }
+
+function validate_edit_joined_club() {
+    var venue = validate_venue();
+    var end_time = validate_end_time();
+    var start_time = validate_start_time();
+    var day = validate_day();
+    var image = validate_edit_image();
+    var description = validate_description();
+    var contact_number = validate_contact_number();
+    var club_email = validate_email();
+
+    const validation = [club_email, contact_number, description, image, day, start_time, end_time, venue];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
