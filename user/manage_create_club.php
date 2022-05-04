@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../user/includes/dbh.php";
+include_once "includes/dbh.php";
 $id = $_SESSION['student_id'];
 
 // Get data from HTML Form

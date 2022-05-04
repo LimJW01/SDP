@@ -847,7 +847,8 @@ article {
   text-decoration: none;
 }
 
-#clubs #create-button {
+#clubs #create-button,
+#specific-joined-club #feedback-button {
   float:right;
   padding: 12px 2%;
   margin: -20px 0 0;
@@ -857,7 +858,8 @@ article {
   font-size: 17px;
 }
 
-#clubs #create-button:hover {
+#clubs #create-button:hover,
+#specific-joined-club #feedback-button:hover {
   opacity: 0.7;
   cursor: pointer;
 }
@@ -1128,6 +1130,10 @@ h1.title{
   width:100%;
 }
 
+#specific-joined-club #feedback-button {
+  margin: -156px 0 0;
+}
+
 .activity-container {
   background-color: white;
   padding: 20px;
@@ -1141,7 +1147,16 @@ h1.title{
   font-size: 19px;
 }
 
+/* Feedback Form */
+#feedback .mymodal-content {
+  width: 50%;
+  margin: 12.5% 7% 1.5% 26%;
+  padding: 10px 10px 25px;
+}
 
+#feedback .mymodal-content .flex-item {
+  flex-basis: 100%;
+}
 
 
 

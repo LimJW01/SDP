@@ -294,6 +294,17 @@ function validate_purpose() {
     }
 }
 
+function validate_comment() {
+    const comment_input = document.getElementById("comment");
+    const comment = comment_input.value.trim();
+    
+    if (is_empty(comment)) {
+        return set_error_for(comment_input, "Comment cannot be left blank");
+    } else {
+        return set_success_for(comment_input);  
+    }
+}
+
 
 // Student Validation
 function validate_student() {
@@ -533,6 +544,17 @@ function validate_club_activity() {
     var description = validate_description();
     
     const validation = [description, day, start_time, end_time];
+    if (validation.includes(false)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// Feedback Form Validation
+function validate_feedback() {
+    var comment = validate_comment();
+    const validation = [comment];
     if (validation.includes(false)) {
         return false;
     } else {
