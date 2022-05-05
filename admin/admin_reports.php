@@ -117,8 +117,27 @@ include_once "includes/header.php";
     </article>
 </main>
 
-
 <script src="scripts/add_report_selection.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load("current", {
+    packages: ["corechart"]
+});
+// google.charts.setOnLoadCallback(drawChart);
+
+function drawChart(header, data_array) {
+    var data = google.visualization.arrayToDataTable(data_array);
+
+    var options = {
+        title: header,
+        is3D: true,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+}
+</script>
 
 <?php
 include_once "includes/alert_message.php";
