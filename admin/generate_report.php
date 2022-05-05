@@ -1,5 +1,6 @@
 <?php
 include_once "../user/includes/dbh.php";
+include_once "../change_time_format.php";
 session_start();
 
 $report_category = $_POST['report_category'];
@@ -10,8 +11,6 @@ $data_array = array();
 
 <!-- Student Report Data -->
 <?php if ($report_category == "Students") : ?>
-
-
 
 <?php if ($subject_id == "all-student") : ?>
 <!-- All Student Table  -->
@@ -97,7 +96,61 @@ $data_array = array();
         }
         ?>
 <?php else : ?>
+<!-- All Student Table  -->
+<div class="table-container" id="student-report">
+    <table>
+        <tr>
+            <th class="padding-left">Student Name</th>
+            <th class="padding-left">TP Number</th>
+            <th class="padding-left">Gender</th>
+            <th class="padding-left">Clubs Joined</th>
+            <th class="padding-left">Contact Number</th>
+        </tr>
+        <?php
+                $student_sql = "SELECT * FROM students ORDER BY Student_name ASC";
+                $student_result = $conn->query($student_sql);
+                $student_result_check = mysqli_num_rows($student_result);
+                $student_array = array();
+                ?>
+        <?php if ($student_result_check > 0) : ?>
+        <?php while ($student_row = mysqli_fetch_assoc($student_result)) : ?>
+        <?php
+                        $joined_club_sql = "SELECT * FROM joined_clubs WHERE Student_ID = " . $student_row['Student_ID'] .  ";";
+                        $joined_club_result = $conn->query($joined_club_sql);
+                        $joined_club_result_check = mysqli_num_rows($joined_club_result);
+                        ?>
 
+        <?php $joined_clubs = "No Clubs Joined" ?>
+        <?php if ($joined_club_result_check > 0) : ?>
+        <?php $joined_clubs_array = array() ?>
+        <?php while ($joined_club_row = mysqli_fetch_assoc($joined_club_result)) : ?>
+        <?php
+                                $joined_club_id =  $joined_club_row['Club_ID'];
+                                $club_sql = "SELECT * FROM Clubs WHERE Club_ID = $joined_club_id;";
+                                $club_result = $conn->query($club_sql);
+                                $club_row = mysqli_fetch_assoc($club_result);
+                                array_push($joined_clubs_array, $club_row['Club_name']);
+                                ?>
+        <?php endwhile; ?>
+        <?php $joined_clubs = join(", ", $joined_clubs_array) ?>
+        <?php endif; ?>
+        <tr>
+            <td class="padding-left"><?php echo $student_row['Student_name']; ?></td>
+            <td class="padding-left"><?php echo $student_row['TP_number']; ?></td>
+            <td class="padding-left"><?php echo $student_row['Gender']; ?></td>
+            <td class="padding-left"><?php echo $joined_clubs ?></td>
+            <td class="padding-left"><?php echo $student_row['Contact_number']; ?></td>
+        </tr>
+        <?php endwhile; ?>
+        <?php else : ?>
+        <tr>
+            <td colspan="5">
+                <h2 class="no-record">No Records Found</h2>
+            </td>
+        </tr>
+        <?php endif; ?>
+    </table>
+</div>
 <?php endif; ?>
 <?php endif; ?>
 
