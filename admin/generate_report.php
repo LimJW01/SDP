@@ -12,7 +12,7 @@ $data_array = array();
 <!-- Student Report Data -->
 <?php if ($report_category == "Students") : ?>
 
-<?php if ($subject_id == "all-student") : ?>
+<?php if ($subject_id == "all-students") : ?>
 <!-- All Student Table  -->
 <div class="table-container" id="student-report">
     <table>
@@ -70,6 +70,7 @@ $data_array = array();
 </div>
 
 <?php
+        // Obtain Pie Chart Data
         $header = "Student Club Distribution";
 
         array_push($data_array, ["Club Name", "Total Members"]);
@@ -87,7 +88,7 @@ $data_array = array();
                 $joined_club_row = mysqli_fetch_assoc($joined_club_result);
                 $total_member = (int) $joined_club_row['total_members'];
 
-
+                // If the total number of club is more than 0
                 if ($total_member != 0) {
                     $student_data = [$club_name, $total_member];
                     array_push($data_array, $student_data);
@@ -96,7 +97,7 @@ $data_array = array();
         }
         ?>
 <?php else : ?>
-<!-- Specific Club Student Table  -->
+<!-- All Student in Specific Club Table  -->
 <div class="table-container" id="student-report">
     <table>
         <tr>
@@ -129,7 +130,7 @@ $data_array = array();
         <?php endwhile; ?>
         <?php else : ?>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 <h2 class="no-record">No Records Found</h2>
             </td>
         </tr>
