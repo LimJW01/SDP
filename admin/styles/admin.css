@@ -141,8 +141,7 @@ body {
   box-shadow: 2px 2px 5px;
 }
 
-.content-container .search-container,
-.content-container .report-container {
+.content-container .search-container {
   float: left;
   margin: 50px 3% 10px;
 }
@@ -162,6 +161,8 @@ body {
   height: 30px;
   border-radius: 5px;
 }
+
+
 
 .content-container #add-button,
 .content-container #edit-button,
@@ -753,8 +754,9 @@ img#club-image {
 /* Reports */
 
 #reports .report-container {
-  width: 80%;
+  width: 65%;
   margin: 15px 0 10px;
+  padding-top: 20px;
 }
 
 #reports .flex-item select#report-category {
@@ -784,3 +786,28 @@ img#club-image {
   font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 10px;
 }
+
+#export-container{
+  float: right;
+  position: relative;
+  right: 317px;
+  bottom: 53px;
+  visibility: hidden;
+}
+
+#reports #subject-container {
+  padding: 5px 0 24px;
+  margin: auto;
+  text-align: center;
+  width: fit-content;
+}
+
+#reports #subject-container h1 {
+  font-size: 25px;
+  padding-bottom: 6px;
+}
+
+#reports #subject-container h2 {
+  font-size: 21px;
+}
+
