@@ -96,55 +96,40 @@ $data_array = array();
         }
         ?>
 <?php else : ?>
-<!-- All Student Table  -->
+<!-- Specific Club Student Table  -->
 <div class="table-container" id="student-report">
     <table>
         <tr>
             <th class="padding-left">Student Name</th>
             <th class="padding-left">TP Number</th>
             <th class="padding-left">Gender</th>
-            <th class="padding-left">Clubs Joined</th>
             <th class="padding-left">Contact Number</th>
+            <th class="padding-left">Role</th>
         </tr>
         <?php
-                $student_sql = "SELECT * FROM students ORDER BY Student_name ASC";
-                $student_result = $conn->query($student_sql);
-                $student_result_check = mysqli_num_rows($student_result);
-                $student_array = array();
+                $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$subject_id';";
+                $joined_club_result = $conn->query($joined_club_sql);
+                $joined_club_result_check = mysqli_num_rows($joined_club_result);
                 ?>
-        <?php if ($student_result_check > 0) : ?>
-        <?php while ($student_row = mysqli_fetch_assoc($student_result)) : ?>
-        <?php
-                        $joined_club_sql = "SELECT * FROM joined_clubs WHERE Student_ID = " . $student_row['Student_ID'] .  ";";
-                        $joined_club_result = $conn->query($joined_club_sql);
-                        $joined_club_result_check = mysqli_num_rows($joined_club_result);
-                        ?>
-
-        <?php $joined_clubs = "No Clubs Joined" ?>
         <?php if ($joined_club_result_check > 0) : ?>
-        <?php $joined_clubs_array = array() ?>
         <?php while ($joined_club_row = mysqli_fetch_assoc($joined_club_result)) : ?>
         <?php
-                                $joined_club_id =  $joined_club_row['Club_ID'];
-                                $club_sql = "SELECT * FROM Clubs WHERE Club_ID = $joined_club_id;";
-                                $club_result = $conn->query($club_sql);
-                                $club_row = mysqli_fetch_assoc($club_result);
-                                array_push($joined_clubs_array, $club_row['Club_name']);
-                                ?>
-        <?php endwhile; ?>
-        <?php $joined_clubs = join(", ", $joined_clubs_array) ?>
-        <?php endif; ?>
+                        $student_id = $joined_club_row['Student_ID'];
+                        $student_sql = "SELECT * FROM students WHERE Student_ID = '$student_id' ORDER BY Student_name ASC";
+                        $student_result = $conn->query($student_sql);
+                        $student_row = mysqli_fetch_assoc($student_result);
+                        ?>
         <tr>
             <td class="padding-left"><?php echo $student_row['Student_name']; ?></td>
             <td class="padding-left"><?php echo $student_row['TP_number']; ?></td>
             <td class="padding-left"><?php echo $student_row['Gender']; ?></td>
-            <td class="padding-left"><?php echo $joined_clubs ?></td>
             <td class="padding-left"><?php echo $student_row['Contact_number']; ?></td>
+            <td class="padding-left"><?php echo $joined_club_row['Role']; ?></td>
         </tr>
         <?php endwhile; ?>
         <?php else : ?>
         <tr>
-            <td colspan="5">
+            <td colspan="4">
                 <h2 class="no-record">No Records Found</h2>
             </td>
         </tr>
@@ -253,14 +238,12 @@ $data_array = array();
     ?>
 <?php endif; ?>
 
+<!-- Load Pie Chart Data -->
+<?php if ($subject_id == "all-students" || $subject_id == "all-events") : ?>
 
 <!-- Pie Chart -->
 <div id="piechart" style="width: 900px; height: 500px;"></div>
 
-
-
-<!-- Load Pie Chart Data -->
-<?php if ($subject_id == "all-students" || $subject_id == "all-events") : ?>
 <script type="text/javascript">
 google.charts.load('current', {
     'packages': ['corechart']
