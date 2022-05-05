@@ -314,6 +314,16 @@ table img {
   height: auto;
 }
 
+#reports .content-container {
+  min-height: 550px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+#reports #piechart {
+  margin: 30px auto;
+}
+
 #specific-club i {
   margin: 0 5px;
 }
