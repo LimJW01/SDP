@@ -281,7 +281,14 @@ function drawChart(header, data_array) {
         is3D: true
     };
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    var chart_area = document.getElementById('piechart');
+    var chart = new google.visualization.PieChart(chart_area);
+    // var chart_input = document.getElementById('chart_input');
+
+    google.visualization.events.addListener(chart, 'ready', function() {
+        chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" >';
+        // chart_input.value = chart.getImageURI();
+    });
 
     chart.draw(data, options);
 }

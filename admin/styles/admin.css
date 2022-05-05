@@ -795,19 +795,19 @@ img#club-image {
   visibility: hidden;
 }
 
-#reports #subject-container {
+#subject-container {
   padding: 5px 0 24px;
   margin: auto;
   text-align: center;
   width: fit-content;
 }
 
-#reports #subject-container h1 {
+#subject-container h1 {
   font-size: 25px;
   padding-bottom: 6px;
 }
 
-#reports #subject-container h2 {
+#subject-container h2 {
   font-size: 21px;
 }
 

@@ -34,10 +34,11 @@ include_once "includes/header.php";
                     </li>
                 </ul>
             </form>
-            <form action="export_report.php" id="export" method="post">
+            <form action="export_report.php" id="report-form" method="post" target="_blank">
                 <input type="hidden" name="report-content" id="report-content">
+                <!-- <input type="hidden" name="chart-input" id="chart-input"> -->
                 <div id="export-container">
-                    <input class="submit-btn" name="export" id="export-button" type="submit" value="Export">
+                    <button type="button" class="submit-btn" name="export" id="export-button">Export</button>
                 </div>
             </form>
 
@@ -77,6 +78,7 @@ exportContainer.style.visibility = "visible";
 $(document).ready(function() {
     $('#export-button').click(function() {
         $('#report-content').val($('#report-container').html());
+        $('#report-form').submit();
     });
 });
 </script>
