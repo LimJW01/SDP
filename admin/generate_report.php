@@ -102,7 +102,12 @@ $data_array = array();
     ?>
 <?php else : ?>
 <!-- All Student in Specific Club Table  -->
-<h2></h2>
+<?php
+            $club_sql = "SELECT * FROM clubs WHERE Club_ID = '$subject_id';";
+            $club_result = $conn->query($club_sql);
+            $club_row = mysqli_fetch_assoc($club_result);
+    ?>
+<h2><?php echo $club_row['Club_name']; ?></h2>
 </div>
 <div class="table-container" id="student-report">
     <table>
@@ -147,7 +152,10 @@ $data_array = array();
 <?php endif; ?>
 
 <?php if ($report_category == "Clubs") : ?>
-
+<div id="subject-container">
+    <h1>Clubs Report</h1>
+    <h2>All Clubs</h2>
+</div>
 <div class="table-container">
     <table>
         <tr>
@@ -182,7 +190,10 @@ $data_array = array();
 <?php endif; ?>
 
 <?php if ($report_category == "Events") : ?>
-
+<div id="subject-container">
+    <h1>Events Report</h1>
+    <h2>All Events</h2>
+</div>
 <div class="table-container">
     <table>
         <tr>
