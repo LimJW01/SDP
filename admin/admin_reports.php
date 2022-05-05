@@ -31,16 +31,17 @@ include_once "includes/header.php";
                             <small>Error message</small>
                         </li>
                         <li class="flex-item">
-                            <input class="submit-btn" name="search" id="generate-button" type="submit" value="Generate">
+                            <input class="submit-btn" name="generate" id="generate-button" type="submit"
+                                value="Generate">
                         </li>
                         <li class="flex-item">
-                            <input class="submit-btn" name="search" id="export-button" type="submit" value="Export">
+                            <input class="submit-btn" name="export" id="export-button" type="submit" value="Export">
                         </li>
                     </ul>
                 </div>
-
             </form>
-            <div class="table-container">
+
+            <div class="table-container" id="report-table">
                 <table>
                     <tr>
                         <th class="padding-left">Student Name</th>
