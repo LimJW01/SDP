@@ -1432,7 +1432,8 @@ table, th, td {
 
 #specific-club-member-list .content-container h2,
 #specific-club-event-list .content-container h2,
-#specific-club-activity-list .content-container h2 {
+#specific-club-activity-list .content-container h2,
+#reports h2 {
   padding: 25px;
   font-size: 26px;
   font-weight: bold;
@@ -1456,4 +1457,72 @@ table, th, td {
 
 #specific-club-activity-list .mymodal-content {
   margin: 10.5% auto 1.5%;
+}
+
+/* Report Page */
+
+#reports .content-container {
+  min-height: 550px;
+  height: auto;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+#reports .report-container {
+  width: 35%;
+  margin: 0 1% 10px;
+}
+
+#reports .flex-item select#report-category {
+  width: 260px;
+}
+
+#reports .flex-item select#report-list {
+  width: 270px;
+}
+
+#reports .flex-item input {
+  padding: 0;
+  border: 0;
+}
+
+#generate-button {
+  background-color:#00c949;
+}
+
+#reports .flex-item i {
+  top: 12px;
+  right: 20px;
+}
+
+.report-container .flex-item {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
+}
+
+#export-container{
+  float: right;
+  position: relative;
+  right: 635px;
+  bottom: -13px;
+  visibility: hidden;
+}
+
+#subject-container {
+  padding: 5px 0 24px;
+  margin: 100px auto 0;
+  text-align: center;
+  width: fit-content;
+}
+
+#subject-container h1 {
+  font-size: 25px;
+  padding-bottom: 6px;
+  font-weight: bold;
+}
+
+#subject-container h3 {
+  font-size: 21px;
+  font-weight: bold;
 }
