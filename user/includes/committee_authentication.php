@@ -7,7 +7,7 @@ $joined_club_row = mysqli_fetch_assoc($joined_club_result);
 // Check if the role of member
 if ($joined_club_row['Role'] != "Committee") {
     $_SESSION['access'] = false;
-    $_SESSION['message'] = "Unauthorize access! Members are not allowed to access";
+    $_SESSION['message'] = "Unauthorized access!";
     mysqli_close($conn);
 
     header("Location: specific_joined_club.php?club=" . $club_row['Club_name']);
