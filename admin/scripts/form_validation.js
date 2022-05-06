@@ -305,6 +305,26 @@ function validate_comment() {
     }
 }
 
+function validate_report_category() {
+    const report_category_input = document.getElementById("report-category");
+    const report_category = report_category_input.value.trim();
+    if (is_empty(report_category)) {
+        return set_error_for(report_category_input, "Report category cannot be left blank");
+    } else {
+        return set_success_for(report_category_input);  
+    }
+}
+
+function validate_report_list() {
+    const report_list_input = document.getElementById("report-list");
+    const report_list = report_list_input.value.trim();
+    if (is_empty(report_list)) {
+        return set_error_for(report_list_input, "Report list cannot be left blank");
+    } else {
+        return set_success_for(report_list_input);  
+    }
+}
+
 
 // Student Validation
 function validate_student() {
@@ -490,30 +510,22 @@ function delete_confirmation() {
     return (confirm("Are you sure you want to delete this record?")) ? true : false;
 }
 
-function validate_report_category() {
-    const report_category_input = document.getElementById("report-category");
-    const report_category = report_category_input.value.trim();
-    if (is_empty(report_category)) {
-        return set_error_for(report_category_input, "Report category cannot be left blank");
+// Validate Report
+
+function validate_committee_report() {
+    var report_category = validate_report_category();
+    var validation = [report_category];
+    if (validation.includes(false)) {
+        return false;
     } else {
-        return set_success_for(report_category_input);  
+        return true;
     }
 }
 
-function validate_report_list() {
-    const report_list_input = document.getElementById("report-list");
-    const report_list = report_list_input.value.trim();
-    if (is_empty(report_list)) {
-        return set_error_for(report_list_input, "Report list cannot be left blank");
-    } else {
-        return set_success_for(report_list_input);  
-    }
-}
-
-function validate_report() {
+function validate_admin_report() {
     var report_list = validate_report_list();
     var report_category = validate_report_category();
-    var validation = [report_list, report_category];
+    var validation = [report_category, report_list];
     if (validation.includes(false)) {
         return false;
     } else {

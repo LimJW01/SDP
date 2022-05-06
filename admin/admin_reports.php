@@ -7,7 +7,7 @@ include_once "includes/header.php";
     <hr>
     <article id="reports">
         <div class="content-container">
-            <form method="post" class="report-container" onsubmit="return validate_report();">
+            <form method="post" class="report-container" onsubmit="return validate_admin_report();">
                 <ul class="flex-container">
                     <li class="flex-item">
                         <?php $report_category_list = ['Students', 'Clubs', 'Events']; ?>
@@ -36,7 +36,6 @@ include_once "includes/header.php";
             </form>
             <form action="export_report.php" id="report-form" method="post" target="_blank">
                 <input type="hidden" name="report-content" id="report-content">
-                <!-- <input type="hidden" name="chart-input" id="chart-input"> -->
                 <div id="export-container">
                     <button type="button" class="submit-btn" name="export" id="export-button">Export</button>
                 </div>
