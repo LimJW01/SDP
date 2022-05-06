@@ -260,9 +260,10 @@ $data_array = array();
 <?php if ($subject_id == "all-students" || $subject_id == "all-events") : ?>
 
 <!-- Pie Chart -->
-<div id="piechart" style="width: 900px; height: 500px;"></div>
-<div id="piechart-png" style="width: 900px; height: 500px;"></div>
-
+<div id="chart-container">
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div id="piechart-png" style="width: 900px; height: 500px;"></div>
+</div>
 <script type="text/javascript">
 google.charts.load('current', {
     'packages': ['corechart']

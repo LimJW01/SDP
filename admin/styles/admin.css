@@ -315,10 +315,6 @@ table img {
   height: auto;
 }
 
-#reports #piechart {
-  margin: 30px auto;
-}
-
 #specific-club i {
   margin: 0 5px;
 }
@@ -811,10 +807,17 @@ img#club-image {
   font-size: 21px;
 }
 
-#piechart-png{
-  display: none;
+#piechart, #piechart-png{
+  position: absolute;
 }
 
-#piechart {
+#piechart-png {
+  visibility: hidden;
+}
 
+#chart-container {
+  position: relative;
+  width: 900px;
+  height: 500px;
+  margin: 30px auto;
 }

@@ -70,9 +70,8 @@ if (isset($_POST['report-content']) && $_POST['report-content'] != "") {
         display: none;
       }
       
-      #piechart-png img {
-        width: 75%;
-        height: auto;
+      #chart-container {
+        margin: auto;
       }
       
       </style>';
