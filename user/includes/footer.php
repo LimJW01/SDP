@@ -7,9 +7,11 @@
                         ClubExpress
                     </a>
                     <p>
-                    Our mission is to take the drudgery out of running and growing a club or association. 
-                    Using the powerful technologies of the Internet, we make it as easy as possible to create, manage and sustain a strong, vibrant club, 
-                    one that people join because it's fun, because it helps them, and because it adds to their communities.
+                        Our mission is to take the drudgery out of running and growing a club or association.
+                        Using the powerful technologies of the Internet, we make it as easy as possible to create,
+                        manage and sustain a strong, vibrant club,
+                        one that people join because it's fun, because it helps them, and because it adds to their
+                        communities.
                     </p>
                 </div>
             </div>
@@ -21,7 +23,7 @@
                     <a href="clubs.php">Clubs</a>
                 </p>
                 <p>
-                    <a href="event.php">Events</a>
+                    <a href="events.php">Events</a>
                 </p>
                 <p>
                     <a href="about_us.php">About Us</a>
