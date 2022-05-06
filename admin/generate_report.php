@@ -261,6 +261,7 @@ $data_array = array();
 
 <!-- Pie Chart -->
 <div id="piechart" style="width: 900px; height: 500px;"></div>
+<div id="piechart-png" style="width: 900px; height: 500px;"></div>
 
 <script type="text/javascript">
 google.charts.load('current', {
@@ -281,15 +282,19 @@ function drawChart(header, data_array) {
         is3D: true
     };
 
+    // Display Chart in interactive format
     var chart_area = document.getElementById('piechart');
     var chart = new google.visualization.PieChart(chart_area);
-    // var chart_input = document.getElementById('chart_input');
 
-    google.visualization.events.addListener(chart, 'ready', function() {
-        chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" >';
-        // chart_input.value = chart.getImageURI();
+    // Display Chart in PNG format
+    var chart_png_area = document.getElementById('piechart-png');
+    var chart_png = new google.visualization.PieChart(chart_png_area);
+
+    google.visualization.events.addListener(chart_png, 'ready', function() {
+        chart_png_area.innerHTML = '<img src="' + chart_png.getImageURI() + '" >';
     });
 
+    chart_png.draw(data, options);
     chart.draw(data, options);
 }
 </script>

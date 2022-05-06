@@ -315,12 +315,6 @@ table img {
   height: auto;
 }
 
-#reports .content-container {
-  min-height: 550px;
-  height: auto;
-  margin-bottom: 50px;
-}
-
 #reports #piechart {
   margin: 30px auto;
 }
@@ -752,6 +746,12 @@ img#club-image {
 
 
 /* Reports */
+#reports .content-container {
+  min-height: 550px;
+  height: auto;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
 
 #reports .report-container {
   width: 65%;
@@ -811,3 +811,10 @@ img#club-image {
   font-size: 21px;
 }
 
+#piechart-png{
+  display: none;
+}
+
+#piechart {
+
+}

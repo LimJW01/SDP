@@ -32,7 +32,6 @@ if (isset($_POST['report-content']) && $_POST['report-content'] != "") {
         overflow-y: auto;
         margin: 10px 2%;
         width: 95%;
-        max-height: 365px;
       }
       
       table {
@@ -66,6 +65,16 @@ if (isset($_POST['report-content']) && $_POST['report-content'] != "") {
       #subject-container h2 {
         font-size: 21px;
       }
+
+      #piechart {
+        display: none;
+      }
+      
+      #piechart-png img {
+        width: 75%;
+        height: auto;
+      }
+      
       </style>';
   $html .= $_POST['report-content'];
   $pdf = new Pdf();
