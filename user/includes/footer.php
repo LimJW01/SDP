@@ -39,13 +39,13 @@
                     </h4>
                     <div class="contact_link_box">
                         <a>
-                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
                             <span>
                                 Email: admin@gmail.com
                             </span>
                         </a>
                         <a>
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
                             <span>
                                 Phone: 012-3456789
                             </span>
