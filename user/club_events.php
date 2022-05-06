@@ -9,9 +9,10 @@ $club_details = $conn->query($club_sql);
 $club_row = mysqli_fetch_assoc($club_details);
 $club_id = $club_row['Club_ID'];
 
-$_SESSION['club_id'] = $club_id;
-
+include_once "includes/committee_authentication.php";
 include_once "includes/sidenav.php";
+
+$_SESSION['club_id'] = $club_id;
 ?>
 <article id="specific-club-event-list">
     <div class="logo-container">
@@ -39,23 +40,23 @@ include_once "includes/sidenav.php";
                     <th style="text-align: center;">Actions</th>
                 </tr>
                 <?php
-                    // Check if search button is clicked and search field is not empty
-                    if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
-                        $search = trim($_POST['search-field']);
-                        $event_sql = "SELECT C.*, E.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE E.Event_name LIKE '%$search%' AND C.Club_ID = '$club_id' ORDER BY CASE WHEN E.Approval_status = 'Pending' THEN 0 ELSE 1 END, E.Approval_status ASC, Date_posted DESC";
-                    } else {
-                        $event_sql = "SELECT C.*, E.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE C.Club_ID = '$club_id' ORDER BY E.Approval_status ASC, Date_posted DESC";
-                    }
-                    $event_result = $conn->query($event_sql);
-                    $event_result_check = mysqli_num_rows($event_result);
-                    $event_array = array();
-                    ?>
+                // Check if search button is clicked and search field is not empty
+                if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
+                    $search = trim($_POST['search-field']);
+                    $event_sql = "SELECT C.*, E.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE E.Event_name LIKE '%$search%' AND C.Club_ID = '$club_id' ORDER BY CASE WHEN E.Approval_status = 'Pending' THEN 0 ELSE 1 END, E.Approval_status ASC, Date_posted DESC";
+                } else {
+                    $event_sql = "SELECT C.*, E.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID WHERE C.Club_ID = '$club_id' ORDER BY E.Approval_status ASC, Date_posted DESC";
+                }
+                $event_result = $conn->query($event_sql);
+                $event_result_check = mysqli_num_rows($event_result);
+                $event_array = array();
+                ?>
                 <?php if ($event_result_check > 0) : ?>
                 <?php while ($row = mysqli_fetch_assoc($event_result)) : ?>
                 <?php
-                            $event_id = "E" . $row['Event_ID'];
-                            array_push($event_array, $event_id);
-                            ?>
+                        $event_id = "E" . $row['Event_ID'];
+                        array_push($event_array, $event_id);
+                        ?>
                 <tr>
                     <td style="text-align: center;"><img
                             src="data:image/jpeg;base64,<?php echo base64_encode($row['Event_image']); ?>"

@@ -8,6 +8,7 @@ $club_details = $conn->query($club_sql);
 $club_row = mysqli_fetch_assoc($club_details);
 $club_id = $club_row['Club_ID'];
 
+include_once "includes/committee_authentication.php";
 include_once "includes/sidenav.php";
 ?>
 <article id="specific-club-member-list">
@@ -34,26 +35,25 @@ include_once "includes/sidenav.php";
                     <th style="text-align: center;">Actions</th>
                 </tr>
                 <?php
-                    // Get members data that joined the club
-                    if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
-                        $search = trim($_POST['search-field']);
-                        $joined_club_sql = "SELECT J.*, S.* FROM joined_clubs AS J JOIN students AS S ON J.Student_ID = S.Student_ID WHERE J.Club_ID = '$club_id' AND S.Student_name LIKE '%$search%' ORDER BY Student_name ASC";
-                    } else {
-                        $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
-                        
-                    }
-                    $joined_club_result = $conn->query($joined_club_sql);
-                    $joined_club_result_check = mysqli_num_rows($joined_club_result);
-                    ?>
+                // Get members data that joined the club
+                if (isset($_POST['search']) && !empty(trim($_POST['search-field']))) {
+                    $search = trim($_POST['search-field']);
+                    $joined_club_sql = "SELECT J.*, S.* FROM joined_clubs AS J JOIN students AS S ON J.Student_ID = S.Student_ID WHERE J.Club_ID = '$club_id' AND S.Student_name LIKE '%$search%' ORDER BY Student_name ASC";
+                } else {
+                    $joined_club_sql = "SELECT * FROM joined_clubs WHERE Club_ID = '$club_id';";
+                }
+                $joined_club_result = $conn->query($joined_club_sql);
+                $joined_club_result_check = mysqli_num_rows($joined_club_result);
+                ?>
                 <?php if ($joined_club_result_check > 0) : ?>
                 <?php while ($joined_club_row = mysqli_fetch_assoc($joined_club_result)) : ?>
                 <?php
-                            $student_sql = "SELECT * FROM students WHERE Student_ID =" . $joined_club_row['Student_ID'] .  ";";
-                            $student_result = $conn->query($student_sql);
-                            $student_row = mysqli_fetch_assoc($student_result);
+                        $student_sql = "SELECT * FROM students WHERE Student_ID =" . $joined_club_row['Student_ID'] .  ";";
+                        $student_result = $conn->query($student_sql);
+                        $student_row = mysqli_fetch_assoc($student_result);
 
-                            $student_ID = "S" . $student_row['Student_ID'];
-                            ?>
+                        $student_ID = "S" . $student_row['Student_ID'];
+                        ?>
                 <tr>
                     <td class="padding-left"><?php echo $student_row['Student_name']; ?></td>
                     <td class="padding-left"><?php echo $student_row['TP_number']; ?></td>
