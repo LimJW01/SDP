@@ -807,13 +807,12 @@ img#club-image {
   font-size: 21px;
 }
 
-#piechart{
+#piechart, #piechart-png{
   position: absolute;
 }
 
 #piechart-png {
   visibility: hidden;
-  position: absolute;
 }
 
 #chart-container {
