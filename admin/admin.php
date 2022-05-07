@@ -74,6 +74,4 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
     unset($_SESSION['message']);
 }
 include_once "includes/footer.php";
-
-
 ?>
