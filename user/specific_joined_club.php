@@ -302,7 +302,18 @@ $(document).ready(function() {
 <!-- Activate Modal Script -->
 <script defer src="scripts/modal.js"></script>
 
-
+<script>
+$(document).ready(function() {
+    <?php if (isset($_SESSION['access']) && $_SESSION['access'] == false) {
+            echo "window.onload = function() {
+                    alert('" . $_SESSION['message'] . "')
+                }";
+            unset($_SESSION['access']);
+            unset($_SESSION['message']);
+        }
+        ?>
+});
+</script>
 <?php
 include_once "../admin/includes/alert_message.php";
 include_once "includes/footer.php";

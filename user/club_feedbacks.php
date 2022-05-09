@@ -8,13 +8,14 @@ $club_details = $conn->query($club_sql);
 $club_row = mysqli_fetch_assoc($club_details);
 $club_id = $club_row['Club_ID'];
 
+include_once "includes/committee_authentication.php";
+include_once "includes/sidenav.php";
+
 $_SESSION['club_id'] = $club_id;
 
 $feedback_sql = "SELECT * FROM club_feedback WHERE Club_ID = '$club_id';";
 $feedback_result = $conn->query($feedback_sql);
 $feedback_result_check = mysqli_num_rows($feedback_result);
-
-include_once "includes/sidenav.php";
 ?>
 <article id="specific-club-feedback-list">
     <div class="logo-container">

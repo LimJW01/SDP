@@ -9,9 +9,10 @@ $club_details = $conn->query($club_sql);
 $club_row = mysqli_fetch_assoc($club_details);
 $club_id = $club_row['Club_ID'];
 
-$_SESSION['club_id'] = $club_id;
-
+include_once "includes/committee_authentication.php";
 include_once "includes/sidenav.php";
+
+$_SESSION['club_id'] = $club_id;
 ?>
 <article id="specific-club-activity-list">
     <div class="logo-container">
@@ -31,18 +32,18 @@ include_once "includes/sidenav.php";
                     <th style="text-align: center;">Actions</th>
                 </tr>
                 <?php
-                    $club_activity_sql = "SELECT * FROM club_activities WHERE Club_ID = '$club_id';";
-                    $club_activity_result = $conn->query($club_activity_sql);
+                $club_activity_sql = "SELECT * FROM club_activities WHERE Club_ID = '$club_id';";
+                $club_activity_result = $conn->query($club_activity_sql);
 
-                    $club_activity_result_check = mysqli_num_rows($club_activity_result);
-                    $club_activity_array = array();
-                    ?>
+                $club_activity_result_check = mysqli_num_rows($club_activity_result);
+                $club_activity_array = array();
+                ?>
                 <?php if ($club_activity_result_check > 0) : ?>
                 <?php while ($club_activity_row = mysqli_fetch_assoc($club_activity_result)) : ?>
                 <?php
-                            $club_activity_id = "A" . $club_activity_row['Club_activities_ID'];
-                            array_push($club_activity_array, $club_activity_id);
-                            ?>
+                        $club_activity_id = "A" . $club_activity_row['Club_activities_ID'];
+                        array_push($club_activity_array, $club_activity_id);
+                        ?>
                 <tr>
                     <td class="padding-left"><?php echo $club_activity_row['Description']; ?></td>
                     <td class="padding-left"><?php echo $club_activity_row['Day']; ?></td>

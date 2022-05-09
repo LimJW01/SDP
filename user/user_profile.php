@@ -1,5 +1,6 @@
 <?php
 include_once "includes/header.php";
+include_once "includes/student_authentication.php";
 include_once "includes/dbh.php";
 
 // get the user's id from the URL

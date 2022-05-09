@@ -14,6 +14,7 @@ if (isset($_POST['login-btn'])) {
     $student_result_check = mysqli_num_rows($student_result);
 
     if ($admin_result_check > 0) {
+        // Admin Login
         $row = mysqli_fetch_assoc($admin_result);
         if ($row['Password'] == $password) {
             $_SESSION['message'] = "Welcome back";
@@ -26,6 +27,7 @@ if (isset($_POST['login-btn'])) {
             header("Location: ./login.php");
         }
     } else if ($student_result_check > 0) {
+        // Student Login
         $row = mysqli_fetch_assoc($student_result);
         if ($row['Password'] == $password) {
             $_SESSION['message'] = "Welcome to ClubExpress";

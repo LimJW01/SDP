@@ -8,6 +8,7 @@ $club_details = $conn->query($club_sql);
 $club_row = mysqli_fetch_assoc($club_details);
 $club_id = $club_row['Club_ID'];
 
+include_once "includes/committee_authentication.php";
 include_once "includes/sidenav.php";
 ?>
 <article id="specific-club-member-list">
