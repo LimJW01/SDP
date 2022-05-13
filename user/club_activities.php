@@ -1,7 +1,7 @@
 <?php
 include_once "includes/header.php";
 include_once "includes/dbh.php";
-include_once "../change_time_format.php";
+include_once "../admin/includes/change_time_format.php";
 
 $club_name = $_GET['club'];
 $club_sql = "SELECT * FROM clubs WHERE Club_name = '$club_name';";

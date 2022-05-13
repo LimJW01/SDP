@@ -5,7 +5,7 @@
 <?php
 if ($action == "view" || $action == "edit" || $action == "delete" || $action == "add") {
     include_once "../user/includes/dbh.php";
-    include_once "../change_time_format.php";
+    include_once "includes/change_time_format.php";
 
     if ($action == "view" || $action == "edit" || $action == "delete") {
         session_start();

@@ -1,6 +1,6 @@
 <?php
 include_once "includes/header.php";
-include_once "../change_time_format.php";
+include_once "includes/change_time_format.php";
 ?>
 <main id="main">
     <h1 class="title">Club Creation Requests</h1>

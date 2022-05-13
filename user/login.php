@@ -18,9 +18,8 @@ session_start();
 
 <body id="login-page">
     <section class="entry-form">
-        <form name="login" action="manage_login.php" method="post" class="text-center"
-            onsubmit="return validate_login();">
-            <a href="clubs.php"><img title="Home" class="entry-logo" src="../images/logo.png" alt="logo"></a>
+        <form name="login" action="manage_login.php" method="post" class="text-center" onsubmit="return validate_login();">
+            <a href="index.php"><img title="Home" class="entry-logo" src="../images/logo.png" alt="logo"></a>
             <br>
             <h1>ClubExpress Account Login</h1>
             <ul>
@@ -40,8 +39,8 @@ session_start();
     </section>
 
     <script>
-    $(document).ready(function() {
-        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == false) {
+        $(document).ready(function() {
+            <?php if (isset($_SESSION['login']) && $_SESSION['login'] == false) {
                 echo "window.onload = function() {
                     alert('" . $_SESSION['message'] . "')
                 }";
@@ -50,17 +49,17 @@ session_start();
             }
             ?>
 
-        // Alert message if appointment booked
-        <?php if (isset($_SESSION['register']) && isset($_SESSION['message'])) : ?>
-        window.onload = function() {
-            alert("<?php echo $_SESSION['message'] ?>")
-        };
-        <?php
+            // Alert message if appointment booked
+            <?php if (isset($_SESSION['register']) && isset($_SESSION['message'])) : ?>
+                window.onload = function() {
+                    alert("<?php echo $_SESSION['message'] ?>")
+                };
+            <?php
                 unset($_SESSION['register']);
                 unset($_SESSION['message']);
             endif;
             ?>
-    });
+        });
     </script>
 
 </body>

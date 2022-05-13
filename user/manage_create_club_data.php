@@ -1,7 +1,7 @@
 <!-- Database Connnection for View Club Creation Request -->
 <?php
-include_once "../user/includes/dbh.php";
-include_once "../change_time_format.php";
+include_once "includes/dbh.php";
+include_once "../admin/includes/change_time_format.php";
 session_start();
 $student_id = $_SESSION['student_id'];
 

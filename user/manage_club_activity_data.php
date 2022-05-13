@@ -5,7 +5,7 @@
 <?php
 if ($action == "view" || $action == "edit" || $action == "delete" || $action == "add") {
     include_once "includes/dbh.php";
-    include_once "../change_time_format.php";
+    include_once "../admin/includes/change_time_format.php";
 
     if ($action == "view" || $action == "edit" || $action == "delete") {
         session_start();
@@ -66,8 +66,8 @@ if ($action == "delete") {
 
             <?php foreach ($day_list as $day) : ?>
             <option value="<?php echo $day; ?>" <?php if ($action == "edit" || $action == "view") {
-                                                                                echo ($club_activity_row['Day'] == $day) ? "selected" : "";
-                                                                            } ?>>
+                                                            echo ($club_activity_row['Day'] == $day) ? "selected" : "";
+                                                        } ?>>
                 <?php echo $day; ?></option>
             <?php endforeach; ?>
         </select>

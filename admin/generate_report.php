@@ -1,6 +1,6 @@
 <?php
 include_once "../user/includes/dbh.php";
-include_once "../change_time_format.php";
+include_once "includes/change_time_format.php";
 session_start();
 
 $report_category = $_POST['report_category'];

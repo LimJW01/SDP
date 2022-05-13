@@ -1,6 +1,6 @@
 <?php
 include_once "includes/dbh.php";
-include_once "../change_time_format.php";
+include_once "../admin/includes/change_time_format.php";
 session_start();
 
 $report_category = $_POST['report_category'];
@@ -15,10 +15,10 @@ $club_id = $_POST['id'];
 
     <!-- Members in Specific Club Table  -->
     <?php
-            $club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
-            $club_result = $conn->query($club_sql);
-            $club_row = mysqli_fetch_assoc($club_result);
-    ?>
+        $club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
+        $club_result = $conn->query($club_sql);
+        $club_row = mysqli_fetch_assoc($club_result);
+        ?>
     <h3><?php echo $club_row['Club_name']; ?></h3>
 </div>
 <div class="table-container" id="student-report">
@@ -66,10 +66,10 @@ $club_id = $_POST['id'];
 <div id="subject-container">
     <h1>Events Report</h1>
     <?php
-            $club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
-            $club_result = $conn->query($club_sql);
-            $club_row = mysqli_fetch_assoc($club_result);
-    ?>
+        $club_sql = "SELECT * FROM clubs WHERE Club_ID = '$club_id';";
+        $club_result = $conn->query($club_sql);
+        $club_row = mysqli_fetch_assoc($club_result);
+        ?>
     <h3><?php echo $club_row['Club_name']; ?></h3>
 </div>
 <div class="table-container">

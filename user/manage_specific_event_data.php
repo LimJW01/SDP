@@ -1,6 +1,6 @@
 <?php
-include_once "../user/includes/dbh.php";
-include_once "../change_time_format.php";
+include_once "includes/dbh.php";
+include_once "../admin/includes/change_time_format.php";
 $id = $_POST['id'];
 
 // Get Event Details

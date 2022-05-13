@@ -49,4 +49,4 @@ if ($result_check > 0) {
 }
 mysqli_close($conn);
 
-header("Location: clubs.php");
+header("Location: index.php");

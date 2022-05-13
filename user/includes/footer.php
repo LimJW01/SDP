@@ -20,7 +20,7 @@
                     Quick Links
                 </h4>
                 <p>
-                    <a href="clubs.php">Clubs</a>
+                    <a href="index.php">Clubs</a>
                 </p>
                 <p>
                     <a href="events.php">Events</a>
