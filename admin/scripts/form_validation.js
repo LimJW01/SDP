@@ -416,7 +416,6 @@ function validate_add_event() {
 
 
     const validation = [event_name, image, organizing_club, description, date, start_time, end_time, link];
-    alert(validation);
     if (validation.includes(false)) {
         return false;
     } else {

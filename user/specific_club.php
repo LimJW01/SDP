@@ -9,14 +9,6 @@ $club_details_result = $conn->query($club_details_sql);
 $club_row = mysqli_fetch_assoc($club_details_result);
 $_SESSION['club_id'] = $club_row['Club_ID'];
 
-// if (isset($_SESSION['patient_email'])) {
-//     $patient_sql = "SELECT * FROM patient WHERE Email_address = '" . $_SESSION['patient_email'] . "';";
-//     $patient_details = $conn->query($patient_sql);
-//     $patient_details_check = mysqli_num_rows($patient_details);
-//     if ($patient_details_check > 0) {
-//         $patient_row = mysqli_fetch_assoc($patient_details);
-//     }
-// }
 ?>
 
 <main id="specific-club-content">
