@@ -238,13 +238,14 @@ $club_activity_check = mysqli_num_rows($club_activity_result);
     </div>
 </article>
 <script>
+<?php if ($joined_club_row['Role'] == "Committee") : ?>
 // Get various elements by id
 var editButton = document.getElementById("edit-button");
 var updateButton = document.getElementById("update-button");
 var editClubImage = document.getElementById("edit-club-image");
 var clubContainer = document.getElementById("specific-club-details");
 
-// When the user clicks on the edit button,
+// When the committee clicks on the edit button,
 editButton.onclick = function() {
     updateButton.style.display = "block";
     editButton.style.display = "none";
@@ -254,6 +255,7 @@ editButton.onclick = function() {
     $("textarea[class='input-disabled']").prop('disabled', false);
     $("select[class='input-disabled']").prop('disabled', false);
 }
+<?php endif; ?>
 
 // Alert message if record updated
 <?php if (isset($_SESSION['update']) && isset($_SESSION['message'])) : ?>
