@@ -151,6 +151,7 @@ $data_array = array();
 <?php endif; ?>
 <?php endif; ?>
 
+<!-- All Clubs -->
 <?php if ($report_category == "Clubs") : ?>
 <div id="subject-container">
     <h1>Clubs Report</h1>
@@ -189,6 +190,7 @@ $data_array = array();
 
 <?php endif; ?>
 
+<!-- All events -->
 <?php if ($report_category == "Events") : ?>
 <div id="subject-container">
     <h1>Events Report</h1>
@@ -198,12 +200,13 @@ $data_array = array();
     <table>
         <tr>
             <th class="padding-left">Event Name</th>
+            <th class="padding-left">Organizing Club</th>
             <th class="padding-left">Date</th>
             <th class="padding-left">Start Time</th>
             <th class="padding-left">End Time</th>
         </tr>
         <?php
-            $event_sql = "SELECT * FROM events";
+            $event_sql = "SELECT C.*, E.* FROM events AS E JOIN clubs AS C ON E.Club_ID = C.Club_ID;";
             $event_result = $conn->query($event_sql);
             $event_result_check = mysqli_num_rows($event_result);
             ?>
@@ -212,6 +215,7 @@ $data_array = array();
 
         <tr>
             <td class="padding-left"><?php echo $event_row['Event_name']; ?></td>
+            <td class="padding-left"><?php echo $event_row['Club_name']; ?></td>
             <td class="padding-left"><?php echo $event_row['Date']; ?></td>
             <td class="padding-left"><?php echo change_time_format($event_row['Start_time']); ?></td>
             <td class="padding-left"><?php echo change_time_format($event_row['End_time']); ?></td>
@@ -219,7 +223,7 @@ $data_array = array();
         <?php endwhile; ?>
         <?php else : ?>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 <h2 class="no-record">No Records Found</h2>
             </td>
         </tr>

@@ -31,4 +31,15 @@ window.onload = function() {
         unset($_SESSION['message']);
     endif;
     ?>
+
+// Alert message if club registered
+<?php if (isset($_SESSION['register']) && isset($_SESSION['message'])) : ?>
+window.onload = function() {
+    alert("<?php echo $_SESSION['message'] ?>")
+};
+<?php
+        unset($_SESSION['register']);
+        unset($_SESSION['message']);
+    endif;
+    ?>
 </script>
